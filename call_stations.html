@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Call Stations</title>
+        <meta name="description" content="This is the Request Access page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+    </head>
+
+    <body>
+        <!-- Menu -->
+        <p><strong>Menu</strong></p>
+        <ul>
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="about.html">About Page</a></li>
+            <li><a href="project_plan.html">Project Plan Page</a></li>
+            <li><a href="logbooks.html">Log Books Page</a></li>
+            <li><a href="meeting-minutes.html">Meeting Minutes</a></li>
+            <li><a href="#">Videos (under construction)</a></li>
+            <li><a href="#">Documents (under construction)</a></li>
+        </ul>
+        <br>
+        
+        <!--Up/Down Request -->
+        <form action="php/call_stations.php" method="POST" id="Access">
+            <fieldset>
+                <legend>Floor 1</legend>
+                <p>Call Elevator
+                    <select name="up_down_call">
+                        <option value="no_call" selected></option>
+                        <option value="up" selected>UP</option>
+                        <option value="down" selected>DOWN</option>
+                    </select>
+
+                    <!--Up arrow button image-->
+                    <input type="image" src="" alt="up_arrow" title="Up arrow button" height="40" />
+
+                    <!--Down arrow button image-->
+                    <input type="image" src="" alt="down_arrow" title="Down arrow button" height="40" />
+                </p> 
+            </fieldset>
+        </form>
+
+        <!--Floor Detection "LEDs"-->
+        <form action="call_stations.php" method="GET" id="Access">
+            <fieldset>
+                <legend>Current Floor</legend>
+
+            </fieldset>
+
+        </form>
+        
+    </body>
+</html>
