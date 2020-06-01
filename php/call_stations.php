@@ -2,6 +2,22 @@
 $submitted = !empty($_GET);
 ?>
 
+<!-- Function for getting current floor number. Taken from Michael Galle's code -->
+<?php 
+        function get_currentFloor(): int {
+                try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');}
+                catch (PDOException $e){echo $e->getMessage();}
+
+                        // Query the database to display current floor
+                        $rows = $db->query('SELECT currentFloor FROM elevatorNetwork');
+                        foreach ($rows as $row) {
+                                $current_floor = $row[0];
+                        }
+                        return $current_floor;
+        }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,6 +44,7 @@ $submitted = !empty($_GET);
             <li>Down button pressed:  <?php echo $_GET['floor3_down_x']; ?></li>
         </ul>
 
+        <!-- Whatever is received, send command to Elevator Controller to move the car to that floor (state machine dependent) -->
 
         <p>&copy; Daniel Dreise</p>
 

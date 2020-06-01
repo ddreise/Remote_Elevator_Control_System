@@ -27,9 +27,18 @@
             <!--Get data from server regarding current car location-->
             <p>Under construction</p>
         </fieldset>
+
+        <h2>Floor Request</h2>
+        <fieldset>
+            <!--If request from a floor is received, display information here-->
+            <p>Under construction</p> 
+        </fieldset>
         
         <!--Up/Down Request -->
-        <form action="php/call_stations.php" method="get" id="access">
+        <!--
+        <iframe name="up_down_request" style="display:none;"></iframe> Prevents new window opening (along with target=
+        -->
+        <form action="php/call_stations.php" method="get" id="access" target="up_down_request">
             <h2>Call Elevator</h2>
             <fieldset>
                 <legend>Floor 1</legend>
