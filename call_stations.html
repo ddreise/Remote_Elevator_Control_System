@@ -21,35 +21,47 @@
             <li><a href="#">Documents (under construction)</a></li>
         </ul>
         <br>
+        <h1>Call Stations</h1>
+        <h2>Current Floor</h2>
+        <fieldset>
+            <!--Get data from server regarding current car location-->
+            <p>Under construction</p>
+        </fieldset>
         
         <!--Up/Down Request -->
-        <form action="php/call_stations.php" method="POST" id="Access">
+        <form action="php/call_stations.php" method="get" id="access">
+            <h2>Call Elevator</h2>
             <fieldset>
                 <legend>Floor 1</legend>
-                <p>Call Elevator
-                    <select name="up_down_call">
-                        <option value="no_call" selected></option>
-                        <option value="up" selected>UP</option>
-                        <option value="down" selected>DOWN</option>
-                    </select>
-
                     <!--Up arrow button image-->
-                    <input type="image" src="" alt="up_arrow" title="Up arrow button" height="40" />
+                    <input name="floor1_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
 
                     <!--Down arrow button image-->
-                    <input type="image" src="" alt="down_arrow" title="Down arrow button" height="40" />
+                    <input name="floor1_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
+                </p> 
+            </fieldset>
+
+            <fieldset>
+                <legend>Floor 2</legend>
+                    <!--Up arrow button image-->
+                    <input name="floor2_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+
+                    <!--Down arrow button image-->
+                    <input name="floor2_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
+                </p> 
+            </fieldset>
+
+            <fieldset>
+                <legend>Floor 3</legend>
+                    <!--Up arrow button image-->
+                    <input name="floor3_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+
+                    <!--Down arrow button image-->
+                    <input name="floor3_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
                 </p> 
             </fieldset>
         </form>
 
-        <!--Floor Detection "LEDs"-->
-        <form action="call_stations.php" method="GET" id="Access">
-            <fieldset>
-                <legend>Current Floor</legend>
-
-            </fieldset>
-
-        </form>
         
     </body>
 </html>
