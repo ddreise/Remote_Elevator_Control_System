@@ -26,7 +26,7 @@
 		<figure>
 			<img src="images/troy-avatar.jpg" alt="troy-avatar" title="Troy's Avatar" height=100 width=100 />
 			<figcaption>
-				<b>Troy Annette:</b>Third year B.Eng student at Conestoga College.
+				<b>Troy Annette:</b> Third year B.Eng student at Conestoga College.
 				Troy works alongside Justin Turcotte, Daniel Dreise, and Brandon Harkness of the 2021 cohort.
 				Follow Troy's progress here as he provides updates to the team's progress throughout the project.
 			</figcaption>
@@ -37,7 +37,7 @@
             <li><a href=troy-logbook.html#week2>Week 2</a></li>
         </ul>
 
-        <h id="week1">Week 1</h>
+        <h id="week1">Week 1</h><br/>
 		<b>
 		<h>May 19th, 2020</h>
 		<hr/>
@@ -80,7 +80,8 @@
 			<li>I created and filled in the test information for the CAN bus bring-up. Brandon agreed to finish testing later tonight, and we will review tomorrow.</li>
 		</ul>
 
-		<h id="week2">Week 2</h>
+		<h id="week2">Week 2</h><br/>
+		<b>
 		<h>May 25th, 2020</h>
 		<hr/>
 		</b>
@@ -89,11 +90,30 @@
 			<li>After debrief, the team got together to fill out the rest of the project plan. For this week, I'll be working on a floor selection system for the webpage.</li>
 			<li>The team decided that working in Azure DevOps was too much additional overhead and was causing enough confusion to remove it from the project infrastructure.</li>
 		</ul>
+		<b>
 		<h>May 27th, 2020</h>
 		<hr/>
 		</b>
 		<ul>
 			<li>I worked on the floor selection page today. So far, I've simply created a separate page with radio buttons for selecting the floors. I imagine I'll be able to do more once we know a bit more about the backend</li>
+		</ul>
+		<b>
+			<h>May 28th, 2020</h>
+			<hr/>
+		</b>
+		<ul>
+			<li>Worked on filter code. Managed to figure out how to set the filter ID and masking bits</li>
+			<li>Setting a new ID allows me to filter out messages for the receiver. The mask would allow me to set different bits to define a range of IDs that would be considered valid.</li>
+			<li>I can't seem to figure out how to change the transmission ID for the messages, but I can filter messages for the receiver. I'll have to uplink with Brandon this weekend to try to figure the rest of this out.</li>
+		</ul>
+		<b>
+			<h>June 1st, 2020</h>
+			<hr/>
+		</b>
+		<ul>
+			<li>I completely misintepreted the requirements from last week, and as a result, I'm behind on my tasks for the project. <br/>I figured I was working on a very basic page for the call stations, but what I was actually assigned to was the floor selection that would be within the elevator car.</li>
+			<li>I'll try to create a new page that would simulate being inside of an elevator car.</li>
+			<li>I also learned from today's debriefing that the ID for messages is a definition at the top of the source code. I can change this value to change the ID of messages that will interact with the filters.</li>
 		</ul>
     </body>
 </html>
