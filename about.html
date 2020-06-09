@@ -7,45 +7,105 @@
     - Short description of each members expected contribution
 -->
 
-<html>
+<!--[if lt IE 9]>
+    <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+<![endif] -->
+
+<html lang="en">
     <head>
-        <title>Project VI - About</title>
+        <title>ESE Project VI - About</title>
+        <meta name="description" content="This is the About page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+ 
+        <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
+
     </head>
     <body>
+        <div id="page">
         <!-- Menu -->
-        <p><strong>Menu</strong></p>
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Page</a></li>
-            <li><a href="project_plan.html">Project Plan Page</a></li>
-            <li><a href="logbooks.html">Log Books Page</a></li>
-            <li><a href="meeting-minutes.html">Meeting Minutes</a></li>
-            <li><a href="videos.html">Videos</a></li>
-            <li><a href="#">Documents (under construction)</a></li>
-        </ul>
+            <nav>
+                <p><strong>Menu</strong></p>
+                <ul>
+                    <li class="h_menu"><a class="menu" href="index.html">Home Page</a></li>
+                    <li class="h_menu"><a class="menu" href="about.html">About Page</a></li>
+                    <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan Page</a></li>
+                    <li class="h_menu"><a class="menu" href="logbooks.html">Log Books Page</a></li>
+                    <li class="h_menu"><a class="menu" href="meeting-minutes.html">Meeting Minutes</a></li>
+                    <li class="h_menu"><a class="menu" href="videos.html">Videos</a></li>
+                    <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
+                </ul>
+            </nav>
+            
+            <header>
+                <h1>Project VI - About</h1>
+            </header>
 
-        <h1>Project VI - About</h1>
-        <img src="images/group-photo.jpg" alt="Temporary group photo", title="Temporary group photo" height="200" />
-        <p>
-            <b>Welcome!</b> This is the about page for our team's Project VI! <br />
-            This is where you will find an overview of our project. The goal of this project is to 
-            design an elevator using 3 STM32 Nucleo devices connected to a Raspberry Pi in a CAN network. 
-            We will use a defined protocol for managing the CAN network as well as a custom gui interface to
-            the Raspberry Pi. <br />
-            We are <i>very</i> excited to show you our work!
-        </p>
-        <hr />
-        <h2>Our Team</h2>
-        <p><b>Daniel Dreise</b></p>
-        <p>During phase 1, will work with Justin to setup the initial project website.</p>
+        <div id="content">
+            <article>
+                <section>
+                    <figure>
+                        <img src="images/group-photo.jpg" alt="Temporary group photo", title="Temporary group photo" height="200" />
+                        <figcaption><b>The Team:</b>From left to right: Justin, Brandon, Troy, & Dan</figcaption>
+                    </figure>
+                </section>
 
-        <p><b>Troy Annette</b></p>
-        <p>During phase 1, will work with Brandon to configure the Nucleo device.</p>
+                <section>
+                    <p>
+                        <b>Welcome!</b> This is the about page for our team's Project VI! <br />
+                        This is where you will find an overview of our project. The goal of this project is to 
+                        design an elevator using 3 STM32 Nucleo devices connected to a Raspberry Pi in a CAN network. 
+                        We will use a defined protocol for managing the CAN network as well as a custom gui interface to
+                        the Raspberry Pi. <br />
+                        We are <i>very</i> excited to show you our work!
+                    </p>
+                </section>
 
-        <p><b>Brandon Harkness</b></p>
-        <p>During phase 1, will work with Troy to configure the Nucleo device.</p>
+                <section>
+                    <hr />
+                    <h2>Our Team</h2>
+                    <p><b>Daniel Dreise</b></p>
+                    <p>During phase 1, will work with Justin to setup the initial project website.</p>
 
-        <p><b>Justin Turcotte</b></p>
-        <p>During phase 1, will work with Dan to setup the initial project website.</p>
+                    <p><b>Troy Annette</b></p>
+                    <p>During phase 1, will work with Brandon to configure the Nucleo device.</p>
+
+                    <p><b>Brandon Harkness</b></p>
+                    <p>During phase 1, will work with Troy to configure the Nucleo device.</p>
+
+                    <p><b>Justin Turcotte</b></p>
+                    <p>During phase 1, will work with Dan to setup the initial project website.</p>
+                </section>
+
+                <section>
+                    <h2>Theme Music - under construction</h2>
+                </section>
+
+                <section>
+                    <h3>Project Details</h3>
+                    <a href="proj_details.html">Click here for Project Details</a>
+                </section>
+
+                <section>
+                    <h3>Cambridge Campus</h3>
+                    <!-- Google map of Cambridge Campus -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.5258716209387!2d-80.39902434911376!3d43.38693687902896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b8a7ec9d60715%3A0xd5e712873de8af2d!2sConestoga%20College%20-%20Cambridge%20Campus!5e0!3m2!1sen!2sca!4v1590678767698!5m2!1sen!2sca" 
+                        width="600" 
+                        height="450" 
+                        frameborder="0" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        aria-hidden="false" 
+                        tabindex="0">
+                    </iframe>
+                </section>
+
+                <section>
+                    <p>CSS Portion: &copy; Daniel Dreise</p>
+                </section>
+            </article>
+        </div>
     </body>
-</html>
+</html> 

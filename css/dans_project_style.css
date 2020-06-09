@@ -1,0 +1,85 @@
+/* Project stylesheet for the entire project webpage */
+
+/* Display menu horizontally */
+li.h_menu {display: inline}
+
+/* Center body on page with border */
+body {width: 950px; border: 2px solid black; padding: 10px 10px; overflow: scroll; margin: auto}
+
+/* Align user label */
+.text_label {
+    font-weight: bold;
+    float: left;
+    width: 120px;
+    text-align: right;
+    padding: 10px 10px 0px 10px;
+}
+
+/* Align user input */
+.text_input {
+    width: 150px;
+    text-align: left;
+    padding: 0px 10px 0px 10px;
+}
+
+/* Divided blocks padding */
+div {
+    padding:    10px 0px;
+}
+
+/* Legend formatting */
+legend {
+    color: white;
+    font-weight: bold;
+    background-color: slategray;
+    border-radius: 5px;
+}
+
+/* Text area resize */
+textarea {
+    width: 400px;
+    height: 250px;
+}
+
+/* Submit button format */
+#submit {
+    background-color: green;
+    color: whitesmoke; 
+    height: 25px;
+    border-radius: 5px;
+    
+}
+#submit:active {
+    background: darkslategray;
+    color: whitesmoke;
+    height: 25px;
+    border-radius: 5px;
+}
+
+/* Used random button generator https://www.bestcssbuttongenerator.com/#/2 */
+#request_access {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+#request_access:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+#request_access:active {
+	position:relative;
+	top:1px;
+}
+
+       
+
