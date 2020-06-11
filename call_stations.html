@@ -6,10 +6,17 @@
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
         <meta http-equiv="author" content="Daniel Dreise" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+        
+        <!-- For Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- For CSS -->
+        <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
 
     <body>
         <div id="page">
+            <header>
             <!-- Menu -->
             <nav>
                 <p><strong>Menu</strong></p>
@@ -24,74 +31,79 @@
                 </ul> 
             </nav>
 
-            <header>
-                <h1>Call Stations</h1>
+            <h1>Call Stations</h1>
             </header>
-        </div>
 
-        <div id="content">
-            <article>
-                <section>
-                    <h2>Current Floor</h2>
-                    <fieldset>
-                        <!--Get data from server regarding current car location-->
-                        <p>Under construction</p>
-                    </fieldset>
-                </section>
 
-                <section>
-                    <h2>Floor Request</h2>
-                    <fieldset>
-                        <!--If request from a floor is received, display information here-->
-                        <p>Under construction</p> 
-                    </fieldset>
-                </section>
-            </article>
-            
-            <!--Up/Down Request -->
-            <!--
-            <iframe name="up_down_request" style="display:none;"></iframe> Prevents new window opening (along with target=
-            -->
-            <article>
-                <form action="php/call_stations.php" method="get" id="access" target="up_down_request">
-                <h2>Call Elevator</h2>
-                    <section> 
+            <div id="content">
+                <article>
+                    <section>
+                        <h2>Current Floor</h2>
                         <fieldset>
-                            <legend>Floor 1</legend>
-                                <!--Up arrow button image-->
-                                <input name="floor1_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
-
-                                <!--Down arrow button image-->
-                                <input name="floor1_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
-                            </p> 
+                            <!--Get data from server regarding current car location-->
+                            <p>Under construction</p>
                         </fieldset>
                     </section>
 
                     <section>
+                        <h2>Floor Request</h2>
                         <fieldset>
-                            <legend>Floor 2</legend>
-                                <!--Up arrow button image-->
-                                <input name="floor2_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
-
-                                <!--Down arrow button image-->
-                                <input name="floor2_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
-                            </p> 
+                            <!--If request from a floor is received, display information here-->
+                            <p>Under construction</p> 
                         </fieldset>
                     </section>
+                </article>
+                
+                <!--Up/Down Request -->
+                <!--
+                <iframe name="up_down_request" style="display:none;"></iframe> Prevents new window opening (along with target=
+                -->
+                <article>
+                    <form action="php/call_stations.php" method="get" id="access" target="up_down_request">
+                    <h2>Call Elevator</h2>
+                        <section> 
+                            <fieldset>
+                                <legend>Floor 1</legend>
+                                    <!--Up arrow button image-->
+                                    <input name="floor1_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
 
-                    <section>
-                        <fieldset>
-                            <legend>Floor 3</legend>
-                                <!--Up arrow button image-->
-                                <input name="floor3_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+                                    <!--Down arrow button image-->
+                                    <input name="floor1_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
+                                </p> 
+                            </fieldset>
+                        </section>
 
-                                <!--Down arrow button image-->
-                                <input name="floor3_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
-                            </p> 
-                        </fieldset>
-                    </section>
-                </form>
-            </article> 
+                        <section>
+                            <fieldset>
+                                <legend>Floor 2</legend>
+                                    <!--Up arrow button image-->
+                                    <input name="floor2_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+
+                                    <!--Down arrow button image-->
+                                    <input name="floor2_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
+                                </p> 
+                            </fieldset>
+                        </section>
+
+                        <section>
+                            <fieldset>
+                                <legend>Floor 3</legend>
+                                    <!--Up arrow button image-->
+                                    <input name="floor3_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+
+                                    <!--Down arrow button image-->
+                                    <input name="floor3_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
+                                </p> 
+                            </fieldset>
+                        </section>
+                    </form>
+                </article> 
+            </div>
+
+            <footer>
+                <p>&copy; Daniel Dreise</p>
+            </footer>
         </div>
+
     </body>
 </html>

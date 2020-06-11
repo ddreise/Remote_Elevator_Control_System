@@ -12,48 +12,57 @@
         <meta http-equiv="author" content="Justin Turcotte, Daniel Dreise & Brandon Harkness" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
 
+        <!-- For Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- For CSS -->
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         <div id="page">
-            <!-- Menu -->
-            <nav>
-                <p><strong>Menu</strong></p>
-                <ul>
-                    <li class="h_menu"><a class="menu" href="index.html">Home Page</a></li>
-                    <li class="h_menu"><a class="menu" href="about.html">About Page</a></li>
-                    <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan Page</a></li>
-                    <li class="h_menu"><a class="menu" href="logbooks.html">Log Books Page</a></li>
-                    <li class="h_menu"><a class="menu" href="meeting-minutes.html">Meeting Minutes</a></li>
-                    <li class="h_menu"><a class="menu" href="videos.html">Videos</a></li>
-                    <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
-                </ul> 
-            </nav>
-
             <header>
+                <!-- Menu -->
+                <nav>
+                    <p><strong>Menu</strong></p>
+                    <ul>
+                        <li class="h_menu"><a class="menu" href="index.html">Home Page</a></li>
+                        <li class="h_menu"><a class="menu" href="about.html">About Page</a></li>
+                        <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan Page</a></li>
+                        <li class="h_menu"><a class="menu" href="logbooks.html">Log Books Page</a></li>
+                        <li class="h_menu"><a class="menu" href="meeting-minutes.html">Meeting Minutes</a></li>
+                        <li class="h_menu"><a class="menu" href="videos.html">Videos</a></li>
+                        <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
+                    </ul> 
+                </nav>
+
                 <h1>Videos</h1>
             </header>
+  
+
+            <div id="content">
+                <article>
+                    <section>
+                        <!-- Table of Contents -->
+                        <h2>Quick Links</h2>
+                        <ul>
+                            <li><a href=videos.html#can_filter_demo>CAN Filter Demo</a></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3 id="can_filter_demo">CAN Filter Demo</h3>
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/K2wC_90BVNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </section>
+                </article>
+
+            </div>
+
+            <footer>
+                <p>&copy; Daniel Dreise, Justin Turcotte, Brandon Harkness</p>
+            </footer>
         </div>
 
-        <div id="content">
-            <article>
-                <section>
-                    <!-- Table of Contents -->
-                    <h2>Quick Links</h2>
-                    <ul>
-                        <li><a href=videos.html#can_filter_demo>CAN Filter Demo</a></li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3 id="can_filter_demo">CAN Filter Demo</h3>
-
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/K2wC_90BVNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </section>
-            </article>
-
-            <p>&copy; Daniel Dreise, Justin Turcotte, Brandon Harkness</p>
-        </div>
     </body>
 </html>
 
