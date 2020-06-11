@@ -6,27 +6,47 @@
     - UNDER CONSTRUCTION 
 -->
 
+<!--[if lt IE 9]>
+    <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+<![endif] -->
+
 <html lang="en">
     <head>
         <title>Project VI - Home</title>
+        <meta name="description" content="This is the Home page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise & Justin Turcotte" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+
+        <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
 
     <body>
+        <div id="page">
         <!-- Menu -->
-        <p><strong>Menu</strong></p>
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Page</a></li>
-            <li><a href="project_plan.html">Project Plan Page</a></li>
-            <li><a href="logbooks.html">Log Books Page</a></li>
-            <li><a href="meeting-minutes.html">Meeting Minutes</a></li>
-            <li><a href="videos.html">Videos</a></li>
-            <li><a href="#">Documents (under construction)</a></li>
-        </ul>
+            <nav>
+                <p><strong>Menu</strong></p>
+                <ul>
+                    <li class="h_menu"><a class="menu" href="index.html">Home Page</a></li>
+                    <li class="h_menu"><a class="menu" href="about.html">About Page</a></li>
+                    <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan Page</a></li>
+                    <li class="h_menu"><a class="menu" href="logbooks.html">Log Books Page</a></li>
+                    <li class="h_menu"><a class="menu" href="meeting-minutes.html">Meeting Minutes</a></li>
+                    <li class="h_menu"><a class="menu" href="videos.html">Videos</a></li>
+                    <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
+                </ul> 
+            </nav>
 
-        <h1>
-            <img src="images/logo.png" alt="Temporary logo", title="Temporary logo" height="50" />
-            Project VI - Home page is under construction. Come back at a later time.
-        </h1>
+            <header>
+                <h1>
+                    <img src="images/logo.png" alt="Temporary logo", title="Temporary logo" height="50" />
+                    Project VI - Home page is under construction. Come back at a later time.
+                </h1>
+            </header>
+        </div>
+
+        <div id="content">
+            <p>&copy; Justin Turcotte, Daniel Dreise</p>
+        </div>s
     </body>
 </html>
