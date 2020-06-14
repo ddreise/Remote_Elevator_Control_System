@@ -9,29 +9,31 @@
         
         <!-- For Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- For CSS -->
+        <!-- CSS only (Bootstrap) ** See bottom of page for JavaScript and jQuery-->   
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        
+        <!-- Personal CSS Stylesheet -->
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
 
     <body>
-        <div id="page">
+        <div id="page" class="container">
             <header>
-            <!-- Menu -->
-            <nav>
-                <p><strong>Menu</strong></p>
-                <ul>
-                    <li class="h_menu"><a class="menu" href="index.html">Home Page</a></li>
-                    <li class="h_menu"><a class="menu" href="about.html">About Page</a></li>
-                    <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan Page</a></li>
-                    <li class="h_menu"><a class="menu" href="logbooks.html">Log Books Page</a></li>
-                    <li class="h_menu"><a class="menu" href="meeting-minutes.html">Meeting Minutes</a></li>
-                    <li class="h_menu"><a class="menu" href="videos.html">Videos</a></li>
-                    <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
-                </ul> 
-            </nav>
+                <!-- Menu -->
+                <nav>
+                    <p><strong>Menu</strong></p>
+                    <ul>
+                        <li class="h_menu"><a class="menu" href="index.html">Home Page</a></li>
+                        <li class="h_menu"><a class="menu" href="about.html">About Page</a></li>
+                        <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan Page</a></li>
+                        <li class="h_menu"><a class="menu" href="logbooks.html">Log Books Page</a></li>
+                        <li class="h_menu"><a class="menu" href="meeting-minutes.html">Meeting Minutes</a></li>
+                        <li class="h_menu"><a class="menu" href="videos.html">Videos</a></li>
+                        <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
+                    </ul> 
+                </nav>
 
-            <h1>Call Stations</h1>
+                <h1>Call Stations</h1>
             </header>
 
 
@@ -45,13 +47,6 @@
                         </fieldset>
                     </section>
 
-                    <section>
-                        <h2>Floor Request</h2>
-                        <fieldset>
-                            <!--If request from a floor is received, display information here-->
-                            <p>Under construction</p> 
-                        </fieldset>
-                    </section>
                 </article>
                 
                 <!--Up/Down Request -->
@@ -60,42 +55,53 @@
                 -->
                 <article>
                     <form action="php/call_stations.php" method="get" id="access" target="up_down_request">
-                    <h2>Call Elevator</h2>
-                        <section> 
-                            <fieldset>
-                                <legend>Floor 1</legend>
-                                    <!--Up arrow button image-->
-                                    <input name="floor1_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+                    <h2>Call Station Controls</h2>
+                        <div class="row">
+                            <div class="col-xs">
+                            
+                                <section>
+                                    <fieldset>
+                                        <legend>Floor 3</legend>        
+                                            <!--Down arrow button image-->
+                                            <input class="call_station_uparrow" name="floor3_down" type="image" src="images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                    </fieldset>
+                                </section>
+        
+                                <section>
+                                    <fieldset>
+                                        <legend>Floor 2</legend>
+                                            <!--Up arrow button image-->
+                                            <input class="call_station_uparrow" name="floor2_up" type="image" src="images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/><br>
+        
+                                            <!--Down arrow button image-->
+                                            <input class="call_station_downarrow" name="floor2_down" type="image" src="images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                    </fieldset>
+                                </section>
+        
 
-                                    <!--Down arrow button image-->
-                                    <input name="floor1_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
-                                </p> 
-                            </fieldset>
-                        </section>
+                                <section> 
+                                    <fieldset>
+                                        <legend>Floor 1</legend>
+                                            <!--Up arrow button image-->
+                                            <input class="call_station_uparrow" name="floor1_up" type="image" src="images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/>
+                                    </fieldset>
+                                </section>
 
-                        <section>
-                            <fieldset>
-                                <legend>Floor 2</legend>
-                                    <!--Up arrow button image-->
-                                    <input name="floor2_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+                                <section>
 
-                                    <!--Down arrow button image-->
-                                    <input name="floor2_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
-                                </p> 
-                            </fieldset>
-                        </section>
+                                </section>
+                            </div>
 
-                        <section>
-                            <fieldset>
-                                <legend>Floor 3</legend>
-                                    <!--Up arrow button image-->
-                                    <input name="floor3_up" type="image" src="images/up_arrow.png" value="UP" alt="up_arrow" width="40"/>
+                            <div class="col-xs">
+                                <!-- updating queue from backend-->
+                            </div>
 
-                                    <!--Down arrow button image-->
-                                    <input name="floor3_down" type="image" src="images/down_arrow.png" value="DOWN" alt="down_arrow" width="40"/>
-                                </p> 
-                            </fieldset>
-                        </section>
+                            <div class="col-xs">
+                                <!-- Control buttons for elevator -->
+                            </div>
+                 
+                        </div>
+        
                     </form>
                 </article> 
             </div>
@@ -104,6 +110,11 @@
                 <p>&copy; Daniel Dreise</p>
             </footer>
         </div>
+
+        <!-- jQuery & JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 
     </body>
 </html>

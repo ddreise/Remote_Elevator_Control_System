@@ -81,5 +81,12 @@ textarea {
 	top:1px;
 }
 
-       
+.call_station_uparrow{
+    background-image: url("../images/call_station_uparrow.png");
+}
+
+.call_station_uparrow{
+    background-image: url("../images/call_station_uparrow_hover.png");
+}
+ 
 
