@@ -4,7 +4,26 @@
 li.h_menu {display: inline}
 
 /* Center body on page with border */
-body {width: 950px; border: 2px solid black; padding: 10px 10px; overflow: scroll; margin: auto;}
+body {
+    width: 950px; 
+    border: 2px solid black; 
+    padding: 10px 10px; 
+    overflow: scroll; 
+    margin: auto;
+    padding-top: 60px;
+}
+
+/* So navbar doesn't cover top of page content */
+@media (max-width:979px){
+    body{
+        padding-top:0px;
+    }
+}
+
+/* Navbar */
+.navbar-brand {
+    padding-right: 10px;
+}
 
 /* Align user label */
 .text_label {
@@ -88,5 +107,7 @@ textarea {
 .call_station_uparrow{
     background-image: url("../images/call_station_uparrow_hover.png");
 }
+
+
  
 
