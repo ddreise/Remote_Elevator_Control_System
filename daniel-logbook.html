@@ -5,223 +5,351 @@
     - Dan's log of work contributed.
 -->
 
-<html>
+<html lang="en">
     <head>
         <title>Dan's Log Book</title>
+        <meta name="description" content="This is Dan's logbook page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+
+        <!-- For Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
+        <!-- For CSS -->
+        <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
+
     <body>
-        <!-- Menu -->
-        <p><strong>Menu</strong></p>
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Page</a></li>
-            <li><a href="project_plan.html">Project Plan Page</a></li>
-            <li><a href="logbooks.html">Log Books Page</a></li>
-            <li><a href="meeting-minutes.html">Meeting Minutes</a></li>
-            <li><a href="videos.html">Videos</a></li>
-            <li><a href="#">Documents (under construction)</a></li>
-        </ul>
-        
-        <h1>Dan's Log Book</h1>
+        <div id="page" class="container">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                    <!-- Enable navbar buttons-->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-        <img src="images/dan-avatar.jpg" alt="Dan" title="Daniel's avatar" height=100 width=100 />
+                    <!--Logo-->
+                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
 
-        <!-- WEEK 1 -->
-        <hr />
-        <h2>Week 1</h2>
-
-        <hr />
-        <h3>Tuesday May 19, 2020</h3> 
-        <h4>Start: 17:15</h4>
-        <ul>
-            <li>Accepted request to team up with Justin T, Brandon H, and Troy A</li>
-            <li>Project meeting with Justin T, Brandon H, and Troy A</li>
-        </ul>
-        <h4>End: unknown</h4>
-        <br>
-
-        <h3>Wednesday May 20, 2020</h3>
-        <h4>Start: 13:30</h4>
-        <ul>
-            <li>Prepared short presentation on the pros and cons of using Github as project repository</li>
-            <li>Attended project meeting @ 13:00 to come up with plan and delegate tasks </li>
-        </ul>
-        <h4>End: 15:00</h4>
-        <br>
-
-        <h3>Thursday May 21, 2020</h3>
-        <h4>Start: 8:00</h4>
-        <ul>
-            <li>Started working on project plan
-                
-                <ul>
-                    <li>Read through project charter, rubrics, and sample project plan to gather information regarding project requirements</li>
-                    <li>Grouped sections of phases into 'categories' for ease of understanding
-                        <ul>
-                            <li>Phase 1
-                                <ul>
-                                    <li>Project Plan</li>
-                                    <li>Github Webpage Server</li>
-                                    <li>STM32 Programming via HAL</li>
-                                    <li>Virtual Controls / Indicators</li>
-                                    <li>Finite Elevator Logic</li>
+                    <!--Menu buttons-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul id="header_menu" class="navbar-nav mr-auto" > 
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
+                                        <div class="dropdown-menu" aria-labelledby="logbooksDropdown">
+                                            <a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
+                                            <a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
+                                            <a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
+                                            <a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
+                                        <div class="dropdown-menu" aria-labelledby="minutesDropdown">
+                                            <a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
                                 </ul>
-                            </li>
-                            <li>Phase 2
-                                <ul>
-                                    <li>Data Server (Database)</li>
-                                    <li>Diagnostic Display & Control Program (Website / Graphical User Interface</li>
-                                </ul>
-                            </li>
-                            <li>Phase 3
-                                <ul>
-                                    <li>Integration of Phase 1 and 2 Modules</li>
-                                    <li>Presentation/Report</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Created "Project Plan.xlsx" excel document to put project plan information into graphical representation</li>
-                </ul>
-        </ul>
-        <h4>End: 12:00</h4>
-        <br>
+                    </div>
+                            
+                </nav>
 
-        <h3>Friday May 22, 2020</h3>
-        <h4>Start: 12:30</h4>
-        <ul>
-            <li>Prepared for project meeting</li>
-            <li>Attended project meeting @ 13:00
-                <ul>
-                    <li>Cleared up tasks required for Monday's debrief</li>
-                </ul>
-            </li>
-            <li>Started working on Assignment 1 for Software Engineering with Justin T</li>
-            <li>Created Github webpage to act as server for project</li>
-            <li>Started transfering current project plan into html for website. Uploaded completed sections.</li>
-        </ul>
-        <h4>End: 14:30</h4>
-        <br>
+           
 
-        <h3>Saturday May 23, 2020</h3>
-        <h4>Start: 7:30</h4>
-        <ul>
-            <li>Broke down Phase 1 tasks into main issues</li>
-            <li>Broke down Phase 1 issues into more specific Tasks (Work Breakdown). Delegated 50% of them.</li>
-        </ul>
-        <h4>End: 10:00</h4>
-        <br>
+                <div class="jumbotron text-center">
+                        <h1>Project VI - Dan's Logbook</h1>
+                </div>
 
-        <h3>Sunday May 24, 2020</h3>
-        <h4>Start: 20:00</h4>
-        <ul>
-            <li>Assisted group members with understanding Github</li>
-            <li>Tidied up project plan</li>
-        </ul>
-        <h4>End: 23:30</h4>
-        <br>
+            </header>
+  
 
-        <hr />
-        <h2>Week 2</h2>
+            <div id="content">
+                <article>
+                    <section>
+                        <!-- WEEK 1 -->
+                        <div class="row">
+                            <div class="col-xs">
+                                <section>
+                                    <hr />
+                                    <h2>Week 1</h2>
 
-        <hr />
-        <h3>Monday May 25, 2020</h3>
-        <h4>Start: 8:00</h4>
-        <ul>
-            <li>Transfered logbook into html format for website. Uploaded to website.</li>
-        </ul>
-        <h4>End: -- </h4>
-        <br>
+                                    <hr />
+                                    <h3>Tuesday May 19, 2020</h3> 
+                                    <h4>Start: 17:15</h4>
+                                    <ul>
+                                        <li>Accepted request to team up with Justin T, Brandon H, and Troy A</li>
+                                        <li>Project meeting with Justin T, Brandon H, and Troy A</li>
+                                    </ul>
+                                    <h4>End: unknown</h4>
+                                    <br>
 
-        <!-- WEEK 2 -->
-        <hr />
-        <h2>Week 2</h2>
+                                    <h3>Wednesday May 20, 2020</h3>
+                                    <h4>Start: 13:30</h4>
+                                    <ul>
+                                        <li>Prepared short presentation on the pros and cons of using Github as project repository</li>
+                                        <li>Attended project meeting @ 13:00 to come up with plan and delegate tasks </li>
+                                    </ul>
+                                    <h4>End: 15:00</h4>
+                                    <br>
 
-        <hr />
-        <h3>Monday May 25, 2020</h3> 
-        <h4>Start: 10:00</h4>
-        <ul>
-            <li>Held meeting to delegate final tasks for Phase 1</li> 
-            <li>Briefing and Debriefing with Michael and Ali. All team members attended</li>
-            <li>Delegated phase 2 and 3 tasks</li> 
-        </ul>
-        <h4>End: Unknown</h4>
-        <br>
+                                    <h3>Thursday May 21, 2020</h3>
+                                    <h4>Start: 8:00</h4>
+                                    <ul>
+                                        <li>Started working on project plan
+                                            
+                                            <ul>
+                                                <li>Read through project charter, rubrics, and sample project plan to gather information regarding project requirements</li>
+                                                <li>Grouped sections of phases into 'categories' for ease of understanding
+                                                    <ul>
+                                                        <li>Phase 1
+                                                            <ul>
+                                                                <li>Project Plan</li>
+                                                                <li>Github Webpage Server</li>
+                                                                <li>STM32 Programming via HAL</li>
+                                                                <li>Virtual Controls / Indicators</li>
+                                                                <li>Finite Elevator Logic</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Phase 2
+                                                            <ul>
+                                                                <li>Data Server (Database)</li>
+                                                                <li>Diagnostic Display & Control Program (Website / Graphical User Interface</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li>Phase 3
+                                                            <ul>
+                                                                <li>Integration of Phase 1 and 2 Modules</li>
+                                                                <li>Presentation/Report</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>Created "Project Plan.xlsx" excel document to put project plan information into graphical representation</li>
+                                            </ul>
+                                    </ul>
+                                    <h4>End: 12:00</h4>
+                                    <br>
 
-        <h3>Tuesday May 26, 2020</h3>
-        <h4>Start: 13:30</h4>
-        <ul>
-            <li>Started to move repository to server on remote raspberry pi</li>
-            <li>Finished moving repository to server (onto raspberry pi)</li>
-        </ul>
+                                    <h3>Friday May 22, 2020</h3>
+                                    <h4>Start: 12:30</h4>
+                                    <ul>
+                                        <li>Prepared for project meeting</li>
+                                        <li>Attended project meeting @ 13:00
+                                            <ul>
+                                                <li>Cleared up tasks required for Monday's debrief</li>
+                                            </ul>
+                                        </li>
+                                        <li>Started working on Assignment 1 for Software Engineering with Justin T</li>
+                                        <li>Created Github webpage to act as server for project</li>
+                                        <li>Started transfering current project plan into html for website. Uploaded completed sections.</li>
+                                    </ul>
+                                    <h4>End: 14:30</h4>
+                                    <br>
 
-        <h3>Friday May 29, 2020</h3>
-        <h4>Start: 14:00</h4>
-        <ul>
-            <li>Had meeting with team about tasks to be completed</li>
-            <li>Started working on Call Station UI with backend functionality.</li>
-        </ul>
-        <h4>End: unknown</h4>
+                                    <h3>Saturday May 23, 2020</h3>
+                                    <h4>Start: 7:30</h4>
+                                    <ul>
+                                        <li>Broke down Phase 1 tasks into main issues</li>
+                                        <li>Broke down Phase 1 issues into more specific Tasks (Work Breakdown). Delegated 50% of them.</li>
+                                    </ul>
+                                    <h4>End: 10:00</h4>
+                                    <br>
 
-        <h3>Sunday May 31, 2020</h3>
-        <h4>Start: 10:00</h4>
-        <ul>
-            <li>Added image click buttons to call stations</li>
-            <li>Implemented backend so that if certain arrow is clicked, the backend knows what was clicked by non-zero value</li>
-            <li>Implemented ability to not redirect to form page once submitted</li>
-        </ul>
-        <h4>End: 22:00</h4>
+                                    <h3>Sunday May 24, 2020</h3>
+                                    <h4>Start: 20:00</h4>
+                                    <ul>
+                                        <li>Assisted group members with understanding Github</li>
+                                        <li>Tidied up project plan</li>
+                                    </ul>
+                                    <h4>End: 23:30</h4>
+                                    <br>
 
-        
-        <!-- WEEK 3 -->
-        <hr />
-        <h2>Week 3</h2>
-        <hr />
+                                    <hr />
+                                    <h2>Week 2</h2>
 
-        <h3>Monday June 1, 2020</h3>
-        <h4>Start: 7:30</h4>
-        <ul>
-            <li>Updated logbook</li>
-            <li>Team meeting to discuss debriefing and next steps</li>
-            <li>Worked on and finished the state diagram with Justin</li>
-        </ul>
-        <h4>End: unknown</h4>
+                                    <hr />
+                                    <h3>Monday May 25, 2020</h3>
+                                    <h4>Start: 8:00</h4>
+                                    <ul>
+                                        <li>Transfered logbook into html format for website. Uploaded to website.</li>
+                                    </ul>
+                                    <h4>End: -- </h4>
+                                    <br>
+                                </section>
 
-        <h3>Thursday June 4, 2020</h3>
-        <h4>Start: 8:00</h4>
-        <ul>
-            <li>Worked through and collaborated documents related to Phase 2 (charter, project plan, etc) to clarify requirements
-        </ul>
-        <h4>End: 10:00</h4>
+                                <!-- WEEK 2 -->
+                                <section>
+                                    <hr />
+                                    <h2>Week 2</h2>
 
-        <h3>Sunday June 7, 2020</h3>
-        <h4>Start: 7:30</h4>
-        <ul>
-            <li>Emailed Michael for clarity regarding requirements for Phase 2 - received response.</li>
-            <li>Worked on Data Flow Diagram 
-                <ul>
-                    <li>See diagram here: https://app.lucidchart.com/invitations/accept/c20d6b96-80e4-40a2-a569-2baff0430727</li>
-                </ul>
-            </li>
-        </ul>
-        <h4>End: 10:30</h4>
+                                    <hr />
+                                    <h3>Monday May 25, 2020</h3> 
+                                    <h4>Start: 10:00</h4>
+                                    <ul>
+                                        <li>Held meeting to delegate final tasks for Phase 1</li> 
+                                        <li>Briefing and Debriefing with Michael and Ali. All team members attended</li>
+                                        <li>Delegated phase 2 and 3 tasks</li> 
+                                    </ul>
+                                    <h4>End: Unknown</h4>
+                                    <br>
 
-        <!-- WEEK 4 -->
-        <hr />
-        <h2>Week 4</h2>
-        <hr />
-        
-        <h3>Monday June 8, 2020</h3>
-        <h4>Start: 8:30</h4>
-        <ul>
-            <li>Updated logbook</li>
-            <li>Posted Data Flow Diagram to the Github wiki</li>
-        </ul>
-        <h4>End: unknown</h4>
+                                    <h3>Tuesday May 26, 2020</h3>
+                                    <h4>Start: 13:30</h4>
+                                    <ul>
+                                        <li>Started to move repository to server on remote raspberry pi</li>
+                                        <li>Finished moving repository to server (onto raspberry pi)</li>
+                                    </ul>
 
-        
+                                    <h3>Friday May 29, 2020</h3>
+                                    <h4>Start: 14:00</h4>
+                                    <ul>
+                                        <li>Had meeting with team about tasks to be completed</li>
+                                        <li>Started working on Call Station UI with backend functionality.</li>
+                                    </ul>
+                                    <h4>End: unknown</h4>
 
+                                    <h3>Sunday May 31, 2020</h3>
+                                    <h4>Start: 10:00</h4>
+                                    <ul>
+                                        <li>Added image click buttons to call stations</li>
+                                        <li>Implemented backend so that if certain arrow is clicked, the backend knows what was clicked by non-zero value</li>
+                                        <li>Implemented ability to not redirect to form page once submitted</li>
+                                    </ul>
+                                    <h4>End: 22:00</h4>
+                                </section>
 
+                                <section>    
+                                    <!-- WEEK 3 -->
+                                    <hr />
+                                    <h2>Week 3</h2>
+                                    <hr />
 
+                                    <h3>Monday June 1, 2020</h3>
+                                    <h4>Start: 7:30</h4>
+                                    <ul>
+                                        <li>Updated logbook</li>
+                                        <li>Team meeting to discuss debriefing and next steps</li>
+                                        <li>Worked on and finished the state diagram with Justin</li>
+                                    </ul>
+                                    <h4>End: unknown</h4>
+
+                                    <h3>Thursday June 4, 2020</h3>
+                                    <h4>Start: 8:00</h4>
+                                    <ul>
+                                        <li>Worked through and collaborated documents related to Phase 2 (charter, project plan, etc) to clarify requirements
+                                    </ul>
+                                    <h4>End: 10:00</h4>
+
+                                    <h3>Sunday June 7, 2020</h3>
+                                    <h4>Start: 7:30</h4>
+                                    <ul>
+                                        <li>Emailed Michael for clarity regarding requirements for Phase 2 - received response.</li>
+                                        <li>Worked on Data Flow Diagram 
+                                            <ul>
+                                                <li>See diagram here: https://app.lucidchart.com/invitations/accept/c20d6b96-80e4-40a2-a569-2baff0430727</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h4>End: 10:30</h4>
+                                </section>
+
+                                <section>
+                                    <!-- WEEK 4 -->
+                                    <hr />
+                                    <h2>Week 4</h2>
+                                    <hr />
+                                    
+                                    <h3>Monday June 8, 2020</h3>
+                                    <h4>Start: 8:30</h4>
+                                    <ul>
+                                        <li>Updated logbook</li>
+                                        <li>Posted Data Flow Diagram to the Github wiki</li>
+                                    </ul>
+                                    <h4>End: unknown</h4>
+
+                                    <h3>Thursday June 11, 2020</h3>
+                                    <h4>Start: 7:30</h4>
+                                    <ul>
+                                        <li>Goal is to get webpage UI up to the stage of using Javascript</li>
+                                        <li>Started re-organizing webpage code to use HTML5 structure
+                                            <ul>
+                                                <li>This is for content organization ut also to implement with Bootstrap/Javascript more intuitively</li>
+                                                <li>Included Internet Explorer "shiv" so older versions are compatible with HTML5 format</li>
+                                                <li>Was able to get most pages using HTML5 format. Left personal logbooks alone so members could edit themselves</li>
+                                                <li>Discussed current status/progress with team</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h4>End: 11:00</h4>
+
+                                    <h3>Saturday, June 13, 2020</h3>
+                                    <h4>Start: 09:00</h4>
+                                    <ul>
+                                        <li>Started process of implementing Bootstrap on the webpage UI
+                                            <ul>
+                                                <li>Included Bootstrap CSS, jQuery, jPopper, and Javascript links (latter 3 are at bottom of webpage for faster page loading)</li>
+                                                <li>Process blocked by misunderstanding of typical layout protocol. Spent time doing some research.</li>
+                                                <li>Started implementing Bootstrap grid layout (rows and columns)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <h4>End: 13:00</h4>
+
+                                    <h3>Sunday, June 14, 2020</h3>
+                                    <h4>Start: 12:00</h4>
+                                    <ul>
+                                        <li>Had quick team update online with team</li>
+                                        <li>Continued implementing Bootstrap grid layout</li>
+                                        <li>15:00: Worked with Justin to get Navbar operational and looking good</li>
+                                        <li>Made stylistic edits to webpage (dropdown menus, positioning, new images, etc)</li>
+                                        <li>Finished implementing Bootstrap grid layout</li>
+                                        <li>Webpage ready for Javascript implementation</li>
+                                    </ul>
+                                    <h4>End: 17:00</h4>
+                                </section>
+
+                                <!--Week 5-->
+                                <section>
+                                    <hr />
+                                    <h2>Week 5</h2>
+                                    <hr />
+
+                                    <h3>Monday, June 15, 2020</h3>
+                                    <h4>Start: 08:30</h4>
+                                    <ul>
+                                        <li>Updated logbook</li>
+                                    </ul>
+                                    <h4>End: --</h4>
+                                </section>
+                                </div>
+                        </div>
+                    </section>
+                </article>
+
+            </div>
+
+            <footer>
+                <p>CSS Portion: &copy; Daniel Dreise</p>
+            </footer>
+        </div>
+
+        <!-- jQuery & JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
     </body>
 </html>
