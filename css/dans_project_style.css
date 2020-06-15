@@ -7,7 +7,7 @@ li.h_menu {display: inline}
 body {
     width: 950px; 
     border: 2px solid black; 
-    padding: 10px 10px; 
+    padding: 10px 30px; 
     overflow: scroll; 
     margin: auto;
     padding-top: 60px;
@@ -100,14 +100,35 @@ textarea {
 	top:1px;
 }
 
-.call_station_uparrow{
-    background-image: url("../images/call_station_uparrow.png");
+call_station_uparrow{
+    background-image: url("../images/call_station_uparrow.png") no-repeat 0 0;
+    display: block;
+    width: 80px;
 }
 
-.call_station_uparrow{
-    background-image: url("../images/call_station_uparrow_hover.png");
+call_station_uparrow:hover{
+    background-image: url("../images/call_station_downarrow.png");
+    
 }
 
+/* Add box shadow to the figure and images */
+img {
+    border-radius:25px;
+}
 
- 
+/* Background image with parralax */
+/*
+.parallax {
+    background-image: url("../images/artiom-vallat-ZYhQXXGxvtQ-unsplash.jpg");
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*/
 
+#queue {
+    border: 2px solid black; 
+
+}

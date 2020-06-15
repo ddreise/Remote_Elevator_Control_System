@@ -63,6 +63,7 @@
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="meeting-minutes.html">Meeting Minutes</a></li>
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
                                 </ul>
                     </div>
                             
@@ -83,8 +84,8 @@
                         <section>
                             <div class="col-xs-6">
                                 <figure>
-                                    <img src="images/group-photo.jpg" alt="Temporary group photo", title="Temporary group photo" height="200" />
-                                    <figcaption><b>The Team:</b>From left to right: Justin, Brandon, Troy, & Dan</figcaption>
+                                    <img id="team_image" src="images/group-photo.jpg" alt="Temporary group photo", title="Temporary group photo" height="200" />
+                                    <figcaption><b>The Team: </b>From left to right: Justin, Brandon, Troy, & Dan</figcaption>
                                 </figure>
                             </div>
                         </section>
@@ -106,10 +107,13 @@
        
                         <section>
                             <hr />
-
-                            <h2>Our Team</h2>
                             <div class="row">
+                                <div class="col-xs">
+                                    <h2>Our Team</h2>
+                                </div>
+                            </div>
 
+                            <div class="row">
                                 <div class="col-sm-3">
                                     <p><b>Daniel Dreise</b></p>
                                     <p>During phase 1, will work with Justin to setup the initial project website.</p>
@@ -136,29 +140,53 @@
 
                     <section>
                         <hr />
-                        <h2>Theme Music - under construction</h2>
+                        <div class="row">
+                            <div class="col-md">
+                                <h2>Theme Music</h2>
+                                <audio controls>
+                                    <source src="audio/bensound-scifi.mp3" type="audio/mpeg">
+                                        Your browser does not support media playback.
+                                </audio>
+                                <p>Music: www.Bensound.com</p>
+                            </div>
+
+                            <div class="col-md">
+                                <h2>Project Details</h2>
+                                <a href="proj_details.html">Click here for Project Details</a>
+                            </div>
+                        </div>
                     </section>
+
 
                     <section>
                         <hr />
-                        <h2>Project Details</h2>
-                        <a href="proj_details.html">Click here for Project Details</a>
-                    </section>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h2>Cambridge Campus</h2>
+                                <p>
+                                    The Cambridge Campus of Conestoga College, well-known for its applied engineering and technology
+                                    programs, is where all the <b>magic</b> happens. This is where you find the team conjuring up
+                                    new potions or occasionally devising how to make peanut butter from rocket-fuel. You can visit anytime,
+                                    but please don't feed the students, they may follow you home.
+                                </p>
+                            </div>
 
-                    <section>
-                        <hr />
-                        <h2>Cambridge Campus</h2>
-                        <!-- Google map of Cambridge Campus -->
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.5258716209387!2d-80.39902434911376!3d43.38693687902896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b8a7ec9d60715%3A0xd5e712873de8af2d!2sConestoga%20College%20-%20Cambridge%20Campus!5e0!3m2!1sen!2sca!4v1590678767698!5m2!1sen!2sca" 
-                            width="600" 
-                            height="450" 
-                            frameborder="0" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            aria-hidden="false" 
-                            tabindex="0">
-                        </iframe>
+                            <div class="col-md-8">
+                                <!-- Google map of Cambridge Campus -->
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.5258716209387!2d-80.39902434911376!3d43.38693687902896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b8a7ec9d60715%3A0xd5e712873de8af2d!2sConestoga%20College%20-%20Cambridge%20Campus!5e0!3m2!1sen!2sca!4v1590678767698!5m2!1sen!2sca" 
+                                    width="600" 
+                                    height="450" 
+                                    frameborder="0" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    aria-hidden="false" 
+                                    tabindex="0">
+                                </iframe>
+                            </div>
+                        </div>
+           
+              
                     </section>
                 </article>
             </div>
