@@ -7,125 +7,361 @@
     requirements and who the tasks are assigned to
 -->
 
+<!--[if lt IE 9]>
+    <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+<![endif] -->
+
 <html lang="en">
     <head>
-        <title>Project Plan</title>
+        <title>ESE Project VI - Project Plan</title>
+        <meta name="description" content="This is the About page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise & Justin Turcotte" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+
+        <!-- For Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS only (Bootstrap) ** See bottom of page for JavaScript and jQuery-->   
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">      
+  
+
+        <!-- For CSS -->
+        <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <!-- Menu -->
-        <p><strong>Menu</strong></p>
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Page</a></li>
-            <li><a href="project_plan.html">Project Plan Page</a></li>
-            <li><a href="logbooks.html">Log Books Page</a></li>
-            <li><a href="meeting-minutes.html">Meeting Minutes</a></li>
-            <li><a href="videos.html">Videos</a></li>
-            <li><a href="#">Documents (under construction)</a></li>
-        </ul>
-        
-        <!-- Content -->
-        <p><strong>The most up-do-date project plan can be found here --> 
-            <a href="https://stuconestogacon-my.sharepoint.com/:x:/g/personal/ddreise6630_conestogac_on_ca/Ed4ImXd6G1hLjFUkZsiGr_UBZs0BdE946b4J2XRWISVm9A?e=Utx7eT" target="_blank">
-                Project Plan
-            </a>
-        </strong></p>
+        <div id="page" class="container">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                    <!-- Enable navbar buttons-->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-        <h1>Project Plan - Phase 1 (2 wks)</h1>
-        <ol>
-            <li>Create Project Plan
-                <ol>
-                    <li>Gather and document all tasks necessary to complete phase 1 - Dan</li>
-                    <li>Assign weight to each task - Dan</li>
-                    <li>Assign person to each task - Dan</li>
-                    <li>Create Gantt chart - Dan </li>
-                </ol>
-            </li>
+                    <!--Logo-->
+                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
 
-            <li>Create Github webpage server
-                <ol>
-                    <li>Setup Github account and create repository for project - Troy</li>
-                    <li>Research basic git commands
+                    <!--Menu buttons-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul id="header_menu" class="navbar-nav mr-auto" > 
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
+                                        <div class="dropdown-menu" aria-labelledby="logbooksDropdown">
+                                            <a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
+                                            <a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
+                                            <a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
+                                            <a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
+                                        <div class="dropdown-menu" aria-labelledby="minutesDropdown">
+                                            <a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
+                                </ul>
+                    </div>
+                            
+                </nav>
+
+           
+
+                <div class="jumbotron text-center">
+                        <h1>Project VI - Project Plan</h1>
+                </div>
+
+            </header>
+      
+
+            <div id="content">
+                <article>
+                    <section>
+                        <!-- Content -->
+                        <p><strong>The most up-do-date project plan can be found here --> 
+                            <a href="https://stuconestogacon-my.sharepoint.com/:x:/g/personal/ddreise6630_conestogac_on_ca/Ed4ImXd6G1hLjFUkZsiGr_UBZs0BdE946b4J2XRWISVm9A?e=Utx7eT" target="_blank">
+                                Project Plan
+                            </a>
+                        </strong></p>
+                    </section>
+
+                    <section>
+                        <p>This is a default template page for a project plan.<br />
+                            Following are references and specification sheets.<br />
+                        </p>
                         <ul>
-                            <li>Research what "branches" - Justin</li>
-                            <li>Research what "commits" are - Justin</li>
-                            <li>Research what a "pull request" is - Dan</li>
-                            <li>Research what a "merge" is - Dan</li>
+                            <li><a href="/SoftwareEngineering/documents/Elevator System - Diagram and Shared CAN Protocol.docx">Elevator System - Diagram and Shared CAN Protocol</a></li>
+                            <li><a href="/SoftwareEngineering/documents/EPVI-Weekly-Status-Report.doc">EPVI-Weekly-Status-Report</a></li>
+                            <li><a href="/SoftwareEngineering/documents/Off Campus Remote Connection to Elevators (Updated).pdf">Off Campus Remote Connection to Elevators (Updated)</a></li>
+                            <li><a href="/SoftwareEngineering/documents/S6 Project Charter-2020_V-1.6.docx">S6 Project Charter-2020_V-1.6</a></li>
+                            <li><a href="/SoftwareEngineering/documents/Sample Project Plan Template.xlsx">Sample Project Plan Template</a></li>
                         </ul>
-                    </li>
+                    </section>
+                </article>
 
-                    <li>Create local and remote repositories for webpage using Github pages
-                        <ul>
-                            <li>Create local and remote repositories - Dan</li>
-                            <li>Setup remote repository as "Github pages" - Dan</li>
-                            <li>Setup local server using XAMPP - Dan</li>
-                        </ul>
-                    </li>
+                <article>
+                    <h2>Gantt Chart</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Week 1</th>
+                                <th>Week 2</th>
+                                <th>Week 3</th>
+                                <th>Week 4</th>
+                                <th>Week 5</th>
+                                <th>Week 6</th>
+                                <th>Week 7</th>
+                                <th>Week 8</th>
+                                <th>Week 9</th>
+                                <th>Week 10</th>
+                                <th>Week 11</th>
+                                <th>Week 12</th>
+                            </tr>
+                        </thead>
 
-                    <li>Create webpage pages
-                        <ul>
-                            <li>Create "About Project VI" page - Justin</li>
-                            <li>Create "Home Page" page - Justin</li>
-                            <li>Create "Project Plan" page - Dan</li>
-                            <li>Create "Logbook" page - Justin</li>
-                            <li>Create links between pages - ???</li>
-                        </ul>
-                    </li>
-                </ol>
-            </li>
+                        <tbody>
+                            <tr>
+                                <th>Create Project Plan</th>
+                                <td>DD</td>
+                            </tr>
+                            <tr>
+                                <th>Create Project Repository</th>
+                                <td>TA</td>
+                            </tr>
+                            <tr>
+                                <th>Research Git</th>
+                                <td>DD & JT</td>
+                            </tr>
+                            <tr>
+                                <th>Create local & remote (server) repositorires for webpage</th>
+                                <td>DD</td>
+                            </tr>
+                            <tr>
+                                <th>Create webpages (home, about, etc)</th>
+                                <td>Dd & JT</td>
+                            </tr>
+                            <tr>
+                                <th>Create test plan and document results</th>
+                                <td>TA</td>
+                            </tr>
+                            <tr>
+                                <th>Create design documentation</th>
+                                <td>TA</td>
+                            </tr>
+                            <tr>
+                                <th>Explain CAN messaging protocol and demo how filters are set</th>
+                                <td>BH</td>
+                            </tr>
+                            <tr>
+                                <th>Get CAN working on STM32F303 (test using loopback)</th>
+                                <td>TA & BH</td>
+                            </tr>
+                            <tr>
+                                <th>Develop elevator station UI</th>
+                                <td></td>
+                                <td>DD</td>
+                            </tr>
+                            <tr>
+                                <th>Develop elevator car UI</th>
+                                <td></td>
+                                <td>JT & TA & BH</td>
+                            </tr>
+                            <tr>
+                                <th>Develop and integrate detection functionality for floor location</th>
+                                <td></td>
+                                <td>ALL</td>
+                            </tr>
+                            <tr>
+                                <th>Testing</th>
+                                <td></td>
+                                <td>ALL</td>
+                            </tr>
+                            <tr>
+                                <th>Begin design of finite state logic for elevator operation</th>
+                                <td></td>
+                                <td>JT</td>
+                            </tr>
+                            <tr>
+                                <th>Develop a server program for r/w data on server</th>
+                                <td></td>
+                                <td></td>
+                                <td colspan="4">TA</td>
+                            </tr>
+                            <tr>
+                                <th>Testing server program for r/w data on server</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td coslpan="2">TA</td>
+                            </tr>
+                            <tr>
+                                <th>Develop server program for announcing floor number</th>
+                                <td></td>
+                                <td></td>
+                                <td colspan="4">BH</td>
+                            </tr>
+                            <tr>
+                                <th>Test server program for announcing floor number</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>BH</td>
+                            </tr>
+                            <tr>
+                                <th>Develop UI for remote control & data logging</th>
+                                <td></td>
+                                <td colspan="4">DD & JT</td>
+                            </tr>
+                            <tr>
+                                <th>Test UI for remote control & data logging</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2">DD & JT</td>
+                            </tr>
+                            <tr>
+                                <th>Investigate methods for connecting CAN network w/ internet</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>DD</td>
+                            </tr>
+                            <tr>
+                                <th>Develop connectivity between CAN network & internet</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>DD</td>
+                            </tr>
+                            <tr>
+                                <th>Implement finite state machine logic</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>JT</td>
+                            </tr>
+                            <tr>
+                                <th>Implement unique feature</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="3">TA</td>
+                            </tr>
+                            <tr>
+                                <th>Final testing</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2">All</td>
+                            </tr>
+                            <tr>
+                                <th>Video demonstration</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>All</td>
+                            </tr>
+                            <tr>
+                                <th>Final Demonstration</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>BH</td>
+                                <td></td>
+                                <td>TA</td>
+                            </tr>
+                            <tr>
+                                <th>Oral Presentation</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>BH</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
 
-            <li>STM32 Programming VIA HAL (simulation)
-                <ol>
-                    <li>Design CAN messaging protocol that is common amongst all groups - ???</li>
-                    <li>Plan CAN node configuration that is common amongst all groups - ???</li>
-                    <li>Create a fully functioning CAN network - Troy</li>
-                    <li>Create a test plan and document results - Troy</li>
-                </ol>
-            </li>
 
-            <li>Develop virtual controls / indicators</li>
+            </div>
 
-            <li>Finite state machine logic for elevator operation</li>
-        </ol>
+            <footer>
+                <p>&copy; Daniel Dreise</p>
+            </footer>
 
-        <h1>Project Plan - Phase 3 (3 wks)</h1>
-        <ol>
-            <li>Implement unique features
-                <ol>
-                    <li>Select at least one unique feature/function for the elevator - Team</li>
-                    <li>Create a test plan - Troy/Brandon</li>
-                    <li>Implement the chosen option(s) and verify using test plan - Troy/Brandon</li>
-                </ol>
-            </li>
-
-            <li>Establish a connection between the webpage and the CAN
-                <ol>
-                    <li>Develop the front-end webpage for command input - Justin</li>
-                    <ul>
-                        Create a test plan and verify that commands are being sent to the back-end
-                    </ul>
-                    <li>Develop the back-end interpreter that connects to the elevator - Dan</li>
-                    <ul>
-                        Create a test plan and verify that commands are reaching the elevator
-                    </ul>
-                    <li>Develop a CAN diagnostics system - Troy/Brandon</li>
-                    <ul>
-                        Create a test plan and verify that the elevator is responding to commands from the webpage
-                    </ul>
-                </ol>
-            </li>
-
-            <li>Prepare for end of cycle
-                <ol>
-                    <li>Prepare a the final presentation - Team
-                        <ul>
-                            <li>Decide on presentation format</li>
-                            <li>Review and refine webpage, elevator functionality, code</li>
-                            <li>Verify all documentation is present</li>
-                        </ul>
-                    </li>
-                    <li>Independant capstone research - Team</li>
-            </li>
-        </ol>
+        <!-- jQuery & JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ 
     </body>
 </html>

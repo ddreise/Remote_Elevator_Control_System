@@ -7,45 +7,210 @@
     - Short description of each members expected contribution
 -->
 
-<html>
+<!--[if lt IE 9]>
+    <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+<![endif] -->
+
+<html lang="en">
     <head>
-        <title>Project VI - About</title>
+        <title>ESE Project VI - About</title>
+        <meta name="description" content="This is the About page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta charset="utf-8"> <!-- For bootstrap -->
+        <meta http-equiv="author" content="Daniel Dreise & Justin Turcotte" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+
+        <!-- For Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS only (Bootstrap) ** See bottom of page for JavaScript and jQuery-->   
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">      
+        <!-- Personal CSS Stylesheet -->
+        <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
+
+
     </head>
+    
     <body>
-        <!-- Menu -->
-        <p><strong>Menu</strong></p>
-        <ul>
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="about.html">About Page</a></li>
-            <li><a href="project_plan.html">Project Plan Page</a></li>
-            <li><a href="logbooks.html">Log Books Page</a></li>
-            <li><a href="meeting-minutes.html">Meeting Minutes</a></li>
-            <li><a href="videos.html">Videos</a></li>
-            <li><a href="#">Documents (under construction)</a></li>
-        </ul>
+        <!-- container class is required for Bootstrap -->
+        <div id="page" class="container">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                    <!-- Enable navbar buttons-->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-        <h1>Project VI - About</h1>
-        <img src="images/group-photo.jpg" alt="Temporary group photo", title="Temporary group photo" height="200" />
-        <p>
-            <b>Welcome!</b> This is the about page for our team's Project VI! <br />
-            This is where you will find an overview of our project. The goal of this project is to 
-            design an elevator using 3 STM32 Nucleo devices connected to a Raspberry Pi in a CAN network. 
-            We will use a defined protocol for managing the CAN network as well as a custom gui interface to
-            the Raspberry Pi. <br />
-            We are <i>very</i> excited to show you our work!
-        </p>
-        <hr />
-        <h2>Our Team</h2>
-        <p><b>Daniel Dreise</b></p>
-        <p>During phase 1, will work with Justin to setup the initial project website.</p>
+                    <!--Logo-->
+                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
 
-        <p><b>Troy Annette</b></p>
-        <p>During phase 1, will work with Brandon to configure the Nucleo device.</p>
+                    <!--Menu buttons-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul id="header_menu" class="navbar-nav mr-auto" > 
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
+                                        <div class="dropdown-menu" aria-labelledby="logbooksDropdown">
+                                            <a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
+                                            <a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
+                                            <a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
+                                            <a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
+                                        <div class="dropdown-menu" aria-labelledby="minutesDropdown">
+                                            <a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
+                                </ul>
+                    </div>
+                            
+                </nav>
 
-        <p><b>Brandon Harkness</b></p>
-        <p>During phase 1, will work with Troy to configure the Nucleo device.</p>
+           
 
-        <p><b>Justin Turcotte</b></p>
-        <p>During phase 1, will work with Dan to setup the initial project website.</p>
+                <div class="jumbotron text-center">
+                        <h1>Project VI - About</h1>
+                </div>
+
+            </header>
+   
+
+            <div id="content">
+                <article>
+                    <div class="row">
+                        <section>
+                            <div class="col-xs-6">
+                                <figure>
+                                    <img id="team_image" src="images/group-photo.jpg" alt="Temporary group photo", title="Temporary group photo" height="200" />
+                                    <figcaption><b>The Team: </b>From left to right: Justin, Brandon, Troy, & Dan</figcaption>
+                                </figure>
+                            </div>
+                        </section>
+    
+                        <section>
+                            <div class="col-xs-6">
+                                <p>
+                                    <b>Welcome!</b> This is the about page for our team's Project VI! <br />
+                                    This is where you will find an overview of our project. The goal of this project is to 
+                                    design an elevator using 3 STM32 Nucleo devices connected to a Raspberry Pi in a CAN network. 
+                                    We will use a defined protocol for managing the CAN network as well as a custom gui interface to
+                                    the Raspberry Pi. <br />
+                                    We are <i>very</i> excited to show you our work!
+                                </p>
+                            </div>
+             
+                        </section>
+                    </div>
+       
+                        <section>
+                            <hr />
+                            <div class="row">
+                                <div class="col-xs">
+                                    <h2>Our Team</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p><b>Daniel Dreise</b></p>
+                                    <p>During phase 1, will work with Justin to setup the initial project website.</p>
+                                </div>
+                        
+                                <div class="col-sm-3">
+                                    <p><b>Troy Annette</b></p>
+                                    <p>During phase 1, will work with Brandon to configure the Nucleo device.</p>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <p><b>Brandon Harkness</b></p>
+                                    <p>During phase 1, will work with Troy to configure the Nucleo device.</p>
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                    <p><b>Justin Turcotte</b></p>
+                                    <p>During phase 1, will work with Dan to setup the initial project website.</p>
+                                </div>
+                            </div>
+                       </section>
+                    </div>
+          
+
+                    <section>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md">
+                                <h2>Theme Music</h2>
+                                <audio controls>
+                                    <source src="audio/bensound-scifi.mp3" type="audio/mpeg">
+                                        Your browser does not support media playback.
+                                </audio>
+                                <p>Music: www.Bensound.com</p>
+                            </div>
+
+                            <div class="col-md">
+                                <h2>Project Details</h2>
+                                <a href="proj_details.html">Click here for Project Details</a>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h2>Cambridge Campus</h2>
+                                <p>
+                                    The Cambridge Campus of Conestoga College, well-known for its applied engineering and technology
+                                    programs, is where all the <b>magic</b> happens. This is where you find the team conjuring up
+                                    new potions or occasionally devising how to make peanut butter from rocket-fuel. You can visit anytime,
+                                    but please don't feed the students, they may follow you home.
+                                </p>
+                            </div>
+
+                            <div class="col-md-8">
+                                <!-- Google map of Cambridge Campus -->
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2899.5258716209387!2d-80.39902434911376!3d43.38693687902896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b8a7ec9d60715%3A0xd5e712873de8af2d!2sConestoga%20College%20-%20Cambridge%20Campus!5e0!3m2!1sen!2sca!4v1590678767698!5m2!1sen!2sca" 
+                                    width="600" 
+                                    height="450" 
+                                    frameborder="0" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    aria-hidden="false" 
+                                    tabindex="0">
+                                </iframe>
+                            </div>
+                        </div>
+           
+              
+                    </section>
+                </article>
+            </div>
+
+            <footer>
+                <p>CSS Portion: &copy; Daniel Dreise</p>
+            </footer>
+
+        </div>
+
+        <!-- jQuery & JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ 
     </body>
-</html>
+
+     
+</html> 
