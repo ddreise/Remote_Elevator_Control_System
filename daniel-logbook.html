@@ -8,13 +8,15 @@
 <html lang="en">
     <head>
         <title>Dan's Log Book</title>
-        <meta name="description" content="This is the Videos page" />
+        <meta name="description" content="This is Dan's logbook page" />
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
-        <meta http-equiv="author" content="Justin Turcotte, Daniel Dreise & Brandon Harkness" />
+        <meta http-equiv="author" content="Daniel Dreise" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+
         <!-- For Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ 
         <!-- For CSS -->
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
@@ -29,7 +31,7 @@
                     </button>
 
                     <!--Logo-->
-                    <a class="navbar-brand" href="#"><img src="images/logo.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
+                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
 
                     <!--Menu buttons-->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -38,17 +40,25 @@
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
                                     <li class="h_menu nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="logbooks.html">Logbooks</a>
-                                            <div class="dropdown-divider"></div>
+                                        <a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
+                                        <div class="dropdown-menu" aria-labelledby="logbooksDropdown">
                                             <a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
                                             <a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
                                             <a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
                                             <a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
                                         </div>
                                     </li>
-                                    <li class="h_menu nav-item"><a class="menu nav-link" href="meeting-minutes.html">Meeting Minutes</a></li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
+                                        <div class="dropdown-menu" aria-labelledby="minutesDropdown">
+                                            <a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+                                        </div>
+                                    </li>
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
@@ -280,5 +290,10 @@
             </footer>
         </div>
 
+        <!-- jQuery & JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
     </body>
 </html>
