@@ -76,7 +76,9 @@
 		<h2>Quick Links</h2>
         <ul>
             <li><a href=troy-logbook.html#week1>Week 1</a></li>
-            <li><a href=troy-logbook.html#week2>Week 2</a></li>
+			<li><a href=troy-logbook.html#week2>Week 2</a></li>
+			<li><a href=troy-logbook.html#week3>Week 3</a></li>
+			<li><a href=troy-logbook.html#week4>Week 4</a></li>
         </ul>
 
         <h id="week1">Week 1</h><br/>
@@ -148,6 +150,7 @@
 			<li>Setting a new ID allows me to filter out messages for the receiver. The mask would allow me to set different bits to define a range of IDs that would be considered valid.</li>
 			<li>I can't seem to figure out how to change the transmission ID for the messages, but I can filter messages for the receiver. I'll have to uplink with Brandon this weekend to try to figure the rest of this out.</li>
 		</ul>
+		<h id="week3">Week 3</h><br/>
 		<b>
 			<h>June 1st, 2020</h>
 			<hr/>
@@ -159,10 +162,52 @@
 			<li>Just below the filter initialization is the TxHeader section, which is where we set up the frame for the CAN message and where the ID value is used.</li>
 		</ul>
 
-		<!-- jQuery & JS -->
+		<h id="week4">Week 4</h><br/>
+		<b>
+			<h>June 8th, 2020</h>
+			<hr/>
+		</b>
+		<ul>
+			<li>I fell ill last week and did not manage to complete the filter example. Brandon fortunately stepped in and managed to get an example working with a video demonstration that has been added to the site.</li>
+			<li>Brandon resolved an issue I was having with the filters from last week. He realized that the upper 3 bits of the filter mask are reserved and mustn't be set by the user. Altering these bits causes the filter to not work correctly, which is the reason that I was getting unexpected behaviour during my testing.</li>
+			<li>Michael and Ali were happy with our progress overall. Our status report did reflect the delays in establishing the filtering system, but that's been resolved and we will now continue into Phase 2.</li>
+			<li>For the next phase, Brandon and I will be looking into establishing the database which will act as a repository for incoming and outgoing commands, as well as a logging system for the elevator to record events during runtime.</li>
+			<li>Given that we haven't learned backend development yet, Brandon and I have been tasked with exploring the material on eConestoga to try and evaluate whether or not we could begin work now, or if we need to wait for those lectures to make sufficient progress</li>
+			<li>In the event that Brandon and I come to the conclusion that we cannot begin work on the database yet, we will shift focus and assist Justin and Dan with the new website interfaces, which are also required for Phase 2.</li>
+		</ul>
+		<b>
+			<h>June 9th, 2020</h>
+			<hr/>
+		</b>
+		<ul>
+			<li>I began reviewing the database documentation on eConestoga.</li>
+			<li>I've been attempting to use my home server setup on my Windows machine to better familiarize myself with PHPMyAdmin and backend requests and responses, but I'm not sure I fully understand how the code works.</li>
+			<li>I'm trying to set up a proper login sequence with my RasPi at home but progress is slow. I seem to be having issues with the linking between webpages and my request access page doesn't display my login details. I'll have to keep working at this.</li>
+		</ul>
+		<b>
+			<h>June 11th, 2020</h>
+			<hr/>
+		</b>
+		<ul>
+			<li>I spent the morning looking into database material once again. I don't feel as though I understand it well enough to begin work on it. The team will reconviene tomorrow at our scheduled meeting time, and I intend on discussing the matter further then.</li>
+			<li>I spent some time today reconsidering my capstone topic and researched into a new idea that I feel would be a better fit and aligns better with what I'm passionate about.</li>
+			<li>I restarted my capstone proposal document to try and flesh out some of the concepts I'd like to consider during the project. I've finished the first few pages of the proposal and I hope to continue my work on it tonight.</li>
+		</ul>
+		<b>
+			<h>June 12th, 2020</h>
+			<hr/>
+		</b>
+		<ul>
+			<li>Last night I proposed to the team that we consider refitting our individual logbook pages to allow us to enter new logs directly from the webpage, rather than altering the source code. The others approved of the idea and it is my intention to have that working by the end of today.</li>
+			<li>Continuing my work on the database. I haven't been able to connect to the elevator pi, which has been the major source of confusion for me, and considering the pi I've set up here at home doesn't work quite the same as the one at school I've been having a hard time getting this working remotely, so I've been working through the examples this morning using my Windows machine.</li>
+			<li>I've created the database and the tables according to the Datacom slides on MySQL. It's all pretty familiar since I've had some level of exposure to SQL programming in the past - I'll continue my work here until I can get some help connecting to the school's pi and set up MariaDB there.</li>
+			<li>So I've reached the point with the MySQL slides where I'll need to begin working in PHP to program queries. I'm going to use this as an opportunity to continue my work on my personal webpage I'm running at home to work forward in the material until I hit PHP.</li>
+		</ul>
+  
+  		<!-- jQuery & JS -->
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	
+      
     </body>
 </html>
