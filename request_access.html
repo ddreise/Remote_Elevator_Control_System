@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 9]>
+    <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+<![endif] -->
+
+<html lang="en">
+    
+    <head>
+        <title>Request Access</title>
+        <meta name="description" content="This is the Request Access page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+
+        <link href="css/project_style.css" type="text/css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+
+        <h2>Request Access</h2>
+
+        <!-- Main Menu -->
+        <hr>
+        <h3>Main Menu</h3>
+        <ul>
+            <li class="h_menu"><a class="menu" href="about.html">About our project</a></li>
+            <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan</a></li>
+            <li class="h_menu"><a class="menu" href="proj_details.html">Project Details</a></li>
+            <li class="h_menu"><a class="menu" href="ddreise_logbook.html">Daniel's Logbook</a></li>
+            <li class="h_menu"><a class="menu" href="#">Videos (under construction)</a></li>
+            <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
+        </ul>
+        <hr>
+        <!-- End of Main Menu -->
+
+        <form action="php/request_access.php" method="post" id="access">
+            <fieldset>
+                <legend>Contact Details</legend>
+                    <div>
+                        <label class="text_label">First name:</label>
+                        <input class="text_input" type="text" name="firstname"/>
+                    </div>
+                    <div>
+                        <label class="text_label">Last name:</label>
+                        <input class="text_input" type="text" name="firstname"/>
+                    </div>
+                    <div>
+                        <label class="text_label">Email:</label>
+                        <input class="text_input" type="email" name="email"/>
+                    </div>
+                    <div>
+                        <label class="text_label">Designation:</label>
+                        <label><input type="radio" name="student_or_faculty" value="student"> Student </label>
+                        <label><input type="radio" name="student_or_faculty" value="faculty"> Faculty </label>
+                    </div>
+            </fieldset>
+                    <p>Do you like burritos? 
+                        <select name="burritos">
+                            <option value="no_answer" selected></option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </p>
+                    <p>Tell me what you like/dislike about burritos</p>
+                    <textarea type="text" name="comments"></textarea><br />
+                    <input id="submit" type="submit" value="Submit Request" />
+        </form>
+
+        <p>&copy; Daniel Dreise</p>
+
+    </body>
+</html>
