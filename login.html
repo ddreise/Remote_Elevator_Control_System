@@ -14,6 +14,7 @@
         
             
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
+        <link href="css/request_access_style.css" type="text/css" rel="stylesheet" />
     
     </head>
     <body>
@@ -62,8 +63,6 @@
 
                 </nav>
 
-            
-
                 <div class="jumbotron text-center">
                         <h1>Project VI - Login</h1>
                 </div>
@@ -72,8 +71,14 @@
 
             <div class="content">
                 <form id="login" action="php/authenticate.php" method="POST"> <!-- Could also use GET -->
-                    Username: <input id="username" type="text"     name="username" requireds/><br />
-                    Password: <input id="pass" type="password" name="password" required /><br />
+                    <div>
+                        <label class="text_label">Username:</label>
+                        <input class="text_input" id="username" type="text" name="username" required />
+                    </div>
+                    <div>
+                        <label class="text_label">Password:</label>
+                        <input class="text_input" pass" type="password" name="password" required />
+                    </div>
                     <input type="submit" value="Log in" />
                     <div>
                         <p>Error Messages:</p>
