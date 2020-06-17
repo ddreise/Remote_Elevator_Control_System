@@ -18,15 +18,75 @@
     </head>
 
     <body>
-        <form action="php/dans_login.php" method="post">
-            <h2>Login</h2>
-            <p>Username: <input type="text" name="username" /> </p>
-            <p>Password: <input type="password" name="password" required/> </p>
-            <input type="submit" value="Log In" />
-            <p><a href="request_access.html" id="request_access">Request Access</a></p>
-        </form>
+        <div id="page" class="container">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                    <!-- Enable navbar buttons-->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-        <p>&copy; Daniel Dreise</p>
+                    <!--Logo-->
+                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
+
+                    <!--Menu buttons-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul id="header_menu" class="navbar-nav mr-auto" > 
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
+                                        <div class="dropdown-menu" aria-labelledby="logbooksDropdown">
+                                            <a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
+                                            <a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
+                                            <a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
+                                            <a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
+                                        <div class="dropdown-menu" aria-labelledby="minutesDropdown">
+                                            <a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
+                                </ul>
+                    </div>
+                            
+                </nav>
+
+           
+
+                <div class="jumbotron text-center">
+                        <h1>Project VI - Project Plan</h1>
+                </div>
+
+            </header>
+
+            <div class="content container-fluid">
+                <form action="php/dans_login.php" method="post">
+                    <h2>Login</h2>
+                    <p>Username: <input type="text" name="username" /> </p>
+                    <p>Password: <input type="password" name="password" required/> </p>
+                    <input type="submit" value="Log In" />
+                    <p><a href="request_access.html" id="request_access">Request Access</a></p>
+                </form>
+            </div>
+     
+        </div>
+
+        <footer>
+            <p>&copy; Brandon Harkness, Daniel Dreise</p>
+
+        </footer>
         
     </body>
 

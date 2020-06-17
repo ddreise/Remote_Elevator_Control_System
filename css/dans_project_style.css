@@ -3,6 +3,44 @@
 /* Display menu horizontally */
 li.h_menu {display: inline}
 
+/* Table Formatting */
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 2px; 
+    empty-cells: show;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    height:50px;
+    background-color: rgb(81, 115, 148);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.gantt_bh {
+    background-color: teal;
+}
+
+.gantt_dd {
+    background-color: darkorange;
+}
+
+.gantt_jt {
+    background-color: darkseagreen;
+}
+
+.gantt_ta {
+    background-color: lightgreen;
+}
+
 /* Center body on page with border */
 body {
     width: 950px; 
