@@ -1,16 +1,13 @@
+<?php
+$submitted = !empty($_POST);
+?>
+
 <!DOCTYPE html>
-
-<!--
-    Master Log Books Page
-    - Serve as a hub linking to all the logbooks.
--->
-
-<html lang="en">
+<html lang="en">    
     <head>
-        <title>Project VI - Logbooks</title>
-        <meta name="description" content="This is the Logbooks page" />
+        <title>ESE Project VI - Request Access</title>
+        <meta name="description" content="This is the Request Access page" />
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
-        <meta charset="utf-8"> <!-- For bootstrap -->
         <meta http-equiv="author" content="Daniel Dreise & Justin Turcotte" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
 
@@ -18,11 +15,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- CSS only (Bootstrap) ** See bottom of page for JavaScript and jQuery-->   
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">      
-        <!-- Personal CSS Stylesheet -->
+  
+
+        <!-- For CSS -->
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
+
     <body>
-        <div id="page">
+        <div id="page" class="container">
             <header>
                 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
                     <!-- Enable navbar buttons-->
@@ -70,37 +70,33 @@
            
 
                 <div class="jumbotron text-center">
-                        <h1>Project VI - Logbooks</h1>
+                        <h1>Project VI - Request Access</h1>
                 </div>
 
             </header>
-   
 
             <div id="content">
-                <section>
-                    <!-- Log Book Menu -->
-                    <div class="row">
-                        <div class="col-xs">
+                <article>
+                    <section>
+                        <p>Form submitted? <?php echo (int) $submitted; ?></p>
+                        <p><b>Your Contact Details:</b>
                             <ul>
-                                <li><a href="daniel-logbook.html">Dan's Log Book</a></li>
-                                <li><a href="troy-logbook.html">Troy's Log Book</a></li>
-                                <li><a href="brandon-logbook.html">Brandon's Log Book</a></li>
-                                <li><a href="justin-logbook.html">Justin's Log Book</a></li>
+                                <li>First name:         <?php echo $_POST['firstname']; ?></li>
+                                <li>Last name:          <?php echo $_POST['lastname']; ?></li>
+                                <li>Email:              <?php echo $_POST['email']; ?></li>
+                                <li>Student or Faculty: <?php echo $_POST['student_or_faculty']; ?></li>
+                                <li>Burritos:           <?php echo $_POST['burritos']; ?></li>
+                                <li>Comments:           <?php echo $_POST['comments']; ?></li>
                             </ul>
-                        </div>
-                    </div>
-                 
-                </section>
+                        </p>
+                    </section>
+                </article>
             </div>
-
+  
             <footer>
-                <p>&copy; Justin Turcotte, Daniel Dreise</p>
+                <p>&copy; Daniel Dreise</p>
             </footer>
         </div>
-           <!-- jQuery & JS -->
-           <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    
+
     </body>
 </html>

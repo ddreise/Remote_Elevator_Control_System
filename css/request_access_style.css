@@ -1,0 +1,73 @@
+.text_label               /*  total width = width + padding + borders = 100 + 10 + 2 = 112    */
+{
+    float: left;
+    width: 100px;
+    text-align: right;
+    padding: 0px 10px 0px 0px;
+    font-weight: bold;
+}
+
+.text_input               /*  total width = 150 + 10 + 2 = 162    */
+{
+    width: 150px;
+    text-align: left;
+    padding: 0px 0px 0px 10px;
+}
+
+div                 /*  min width = 112 + 162 = 274   */
+{
+    padding: 10px 0px 10px 0px;
+    width: 274px
+}
+
+fieldset            /*  total width = 274 + 5 + 5 = 284 */
+{
+    padding: 5px;
+    width: 284;
+}
+
+legend
+{
+    background-color: crimson;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#submit
+{
+    float: right;
+    background-color: crimson;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#submit:hover
+{
+    background-color: white;
+    color: black;
+}
+
+#submit:active
+{
+    background-color: purple;
+    color: black;
+}
+
+p
+{
+    text-indent: 0px;
+}
+
+textarea
+{
+    width: 284px;
+    height: 150px;
+    color: brown;
+    font-family: Georgia, serif;
+    background-image: url("../images/justin_avatar.jpg");
+    background-position: bottom left;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
