@@ -3,28 +3,25 @@ $submitted = !empty($_POST);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Access Handler</title>
+        <title>Request Access</title>
     </head>
+
     <body>
-        <p>Form submitted? <?php echo (int) $submitted; ?> </p>
-        <p>Access info received is:</p>
-        <ul>
-            <li><b>First Name</b>: <?php echo $_POST['firstname']; ?> </li>
-            <li><b>Last Name</b>: <?php echo $_POST['lastname']; ?> </li>
-            <li><b>Email</b>: <?php echo $_POST['email']; ?> </li>
-            <li><b>Website</b>: <?php echo $_POST['url']; ?> </li>
-            <li><b>Birthday</b>: <?php echo $_POST['birthday']; ?> </li>
+        <p>Form submitted? <?php echo (int) $submitted; ?></p>
+        <p><b>Your Contact Details:</b>
+            <ul>
+                <li>First name:         <?php echo $_POST['firstname']; ?></li>
+                <li>Last name:          <?php echo $_POST['lastname']; ?></li>
+                <li>Email:              <?php echo $_POST['email']; ?></li>
+                <li>Student or Faculty: <?php echo $_POST['student_or_faculty']; ?></li>
+                <li>Burritos:           <?php echo $_POST['burritos']; ?></li>
+                <li>Comments:           <?php echo $_POST['comments']; ?></li>
+            </ul>
+        </p>
 
-            <li><b>Faculty or Student</b>: <?php echo $_POST['fac_or_student']; ?> </li>
+        <p>&copy; Daniel Dreise</p>
 
-            <li><b>You currently</b>: <?php echo $_POST['life'][0], $_POST['life'][1], $_POST['life'][2]; ?> </li>
-
-            <li><b>You commented</b>: <?php echo $_POST['comments']; ?> </li>
-
-            <li><b>Were you honest</b>? <?php echo $_POST['honesty']; ?> </li>
-
-        </ul>
-</body>
+    </body>
 </html>

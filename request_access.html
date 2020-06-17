@@ -1,71 +1,73 @@
 <!DOCTYPE html>
-<html>
+
+<!--[if lt IE 9]>
+    <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+<![endif] -->
+
+<html lang="en">
+    
     <head>
         <title>Request Access</title>
-        <meta name="description" content="Request Access page of Assignment 1" />
-        <meta name="robots" content="noindex nofollow" /> <!-- don't want page or links indexed -->
-        <meta http-equiv="author" content="Justin Turcotte" />
-        <meta http-equiv="pragma" content="no-cache" /> <!-- browser should reload the page every time -->
+        <meta name="description" content="This is the Request Access page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
 
-        <link href="css/default.css" type="text/css" rel="stylesheet" />
-        <link href="css/request_access_style.css" type="text/css" rel="stylesheet" />
+        <link href="css/project_style.css" type="text/css" rel="stylesheet" />
+
     </head>
+
     <body>
-        <h1>Request Access</h1>
+
+        <h2>Request Access</h2>
+
+        <!-- Main Menu -->
+        <hr>
+        <h3>Main Menu</h3>
+        <ul>
+            <li class="h_menu"><a class="menu" href="about.html">About our project</a></li>
+            <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan</a></li>
+            <li class="h_menu"><a class="menu" href="proj_details.html">Project Details</a></li>
+            <li class="h_menu"><a class="menu" href="ddreise_logbook.html">Daniel's Logbook</a></li>
+            <li class="h_menu"><a class="menu" href="#">Videos (under construction)</a></li>
+            <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
+        </ul>
+        <hr>
+        <!-- End of Main Menu -->
+
         <form action="php/request_access.php" method="post" id="access">
             <fieldset>
-                <legend>Access Form</legend>
-                <div>
-                    <label for="firstname" class="text_label">First Name:</label>
-                    <input id="firstname" class="text_input" type="text" name="firstname" required />
-                </div>
-                <div>
-                    <label for="lastname" class="text_label">Last Name:</label>
-                    <input id="lastname" class="text_input" type="text" name="lastname" required />
-                </div>
-                <div>
-                    <label for="email" class="text_label">Email:</label>
-                    <input id="email" class="text_input" type="email" name="email" />
-                </div>
-                <div>
-                    <label for="website" class="text_label">Website:</label>
-                    <input id="website" class="text_input" type="url" name="url" />
-                </div>
-                <div>
-                    <label for="birthday" class="text_label">Birth Date:</label>
-                    <input id="birthday" class="text_input" type="date" name="birthday" />
-                </div>
-                <div>
-                    <span class="text_label">Request type:</span>
-                    <input id="faculty" type="radio" name="fac_or_student" value="faculty" />
-                    <label for="faculty">Faculty</label>
-                    <input id="student" type="radio" name="fac_or_student" value="student" />
-                    <label for="student">Student</label>
-                </div>
-                <div>
-                    <span class="text_label">I currently...</span> <br />
-                    <input id="live" type="checkbox" name="life[]" value="live" />
-                    <label for="live">Live</label> <br />
-                    <input id="laugh" type="checkbox" name="life[]" value="laugh" />
-                    <label for="laugh">Laugh</label> <br />
-                    <input id="learn" type="checkbox" name="life[]" value="learn" />
-                    <label for="learn">Learn</label>
-                </div>
+                <legend>Contact Details</legend>
+                    <div>
+                        <label class="text_label">First name:</label>
+                        <input class="text_input" type="text" name="firstname"/>
+                    </div>
+                    <div>
+                        <label class="text_label">Last name:</label>
+                        <input class="text_input" type="text" name="firstname"/>
+                    </div>
+                    <div>
+                        <label class="text_label">Email:</label>
+                        <input class="text_input" type="email" name="email"/>
+                    </div>
+                    <div>
+                        <label class="text_label">Designation:</label>
+                        <label><input type="radio" name="student_or_faculty" value="student"> Student </label>
+                        <label><input type="radio" name="student_or_faculty" value="faculty"> Faculty </label>
+                    </div>
             </fieldset>
-
-            <p>Tell us a bit about yourself...</p>
-            <textarea name="comments">Just say some things...</textarea>
-
-            <p>
-                Do you promise you answered this form honestly?
-                <select name="honesty">
-                    <option value="silence" selected></option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </p>
-
-            <input type="submit" value="Submit" id="submit"/>
+                    <p>Do you like burritos? 
+                        <select name="burritos">
+                            <option value="no_answer" selected></option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </p>
+                    <p>Tell me what you like/dislike about burritos</p>
+                    <textarea type="text" name="comments"></textarea><br />
+                    <input id="submit" type="submit" value="Submit Request" />
         </form>
+
+        <p>&copy; Daniel Dreise</p>
     </body>
 </html>

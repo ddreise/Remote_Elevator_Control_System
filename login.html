@@ -5,9 +5,14 @@
     </head>
     <body>
         <form action="authenticate.php" method="POST"> <!-- Could also use GET -->
-            Username: <input type="text"     name="username" /><br />
-            Password: <input type="password" name="password" /><br />
+            Username: <input id="username" type="text"     name="username" requireds/><br />
+            Password: <input id="pass" type="password" name="password" required /><br />
             <input type="submit" value="Log in" />
+            <div>
+                <p>Error Messages:</p>
+                <p id="feedback"></p>
+            </div>
         </form>
+        <script src="js/login.js"></script>
     </body>
 </html>
