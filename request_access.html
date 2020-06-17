@@ -12,62 +12,124 @@
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
         <meta http-equiv="author" content="Daniel Dreise" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+        <meta charset="utf-8" />
+
+        <!-- For Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
         <link href="css/project_style.css" type="text/css" rel="stylesheet" />
+        <link href="css/request_access_style.css" type="text/css" rel="stylesheet" />
 
     </head>
 
     <body>
+        <div class="container" id="page">
+            <header>
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                    <!-- Enable navbar buttons-->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-        <h2>Request Access</h2>
+                    <!--Logo-->
+                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px />  ESE Project VI</a>
 
-        <!-- Main Menu -->
-        <hr>
-        <h3>Main Menu</h3>
-        <ul>
-            <li class="h_menu"><a class="menu" href="about.html">About our project</a></li>
-            <li class="h_menu"><a class="menu" href="project_plan.html">Project Plan</a></li>
-            <li class="h_menu"><a class="menu" href="proj_details.html">Project Details</a></li>
-            <li class="h_menu"><a class="menu" href="ddreise_logbook.html">Daniel's Logbook</a></li>
-            <li class="h_menu"><a class="menu" href="#">Videos (under construction)</a></li>
-            <li class="h_menu"><a class="menu" href="#">Documents (under construction)</a></li>
-        </ul>
-        <hr>
-        <!-- End of Main Menu -->
+                    <!--Menu buttons-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul id="header_menu" class="navbar-nav mr-auto" > 
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
+                                        <div class="dropdown-menu" aria-labelledby="logbooksDropdown">
+                                            <a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
+                                            <a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
+                                            <a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
+                                            <a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item dropdown">
+                                        <a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
+                                        <div class="dropdown-menu" aria-labelledby="minutesDropdown">
+                                            <a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
+                                            <a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+                                        </div>
+                                    </li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
+                                </ul>
+                    </div>
+                            
+                </nav>
 
-        <form action="php/request_access.php" method="post" id="access">
-            <fieldset>
-                <legend>Contact Details</legend>
-                    <div>
-                        <label class="text_label">First name:</label>
-                        <input class="text_input" type="text" name="firstname"/>
-                    </div>
-                    <div>
-                        <label class="text_label">Last name:</label>
-                        <input class="text_input" type="text" name="firstname"/>
-                    </div>
-                    <div>
-                        <label class="text_label">Email:</label>
-                        <input class="text_input" type="email" name="email"/>
-                    </div>
-                    <div>
-                        <label class="text_label">Designation:</label>
-                        <label><input type="radio" name="student_or_faculty" value="student"> Student </label>
-                        <label><input type="radio" name="student_or_faculty" value="faculty"> Faculty </label>
-                    </div>
-            </fieldset>
-                    <p>Do you like burritos? 
-                        <select name="burritos">
-                            <option value="no_answer" selected></option>
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </p>
-                    <p>Tell me what you like/dislike about burritos</p>
-                    <textarea type="text" name="comments"></textarea><br />
-                    <input id="submit" type="submit" value="Submit Request" />
-        </form>
+           
 
-        <p>&copy; Daniel Dreise</p>
+                <div class="jumbotron text-center">
+                        <h1>Request Access</h1>
+                </div>
+
+            </header>
+
+            <div id="content">
+                <form action="php/request_access.php" method="post" id="access">
+                    <fieldset>
+                        <legend>Contact Details</legend>
+                            <div>
+                                <label class="text_label">First name:</label>
+                                <input id="firstName" class="text_input" type="text" name="firstname"/>
+                                <a id="firstNameFeedback"></a>
+                            </div>
+                            <div>
+                                <label class="text_label">Last name:</label>
+                                <input id="lastName" class="text_input" type="text" name="lastname"/>
+                                <a id="lastNameFeedback"></a>
+                            </div>
+                            <div>
+                                <label class="text_label">Email:</label>
+                                <input id="email" class="text_input" type="email" name="email"/>
+                                <a id="emailFeedback"></a>
+                            </div>
+                            <div>
+                                <label class="text_label">Designation:</label>
+                                <label><input id="student" type="radio" name="student_or_faculty" value="student"> Student </label>
+                                <label><input id="faculty" type="radio" name="student_or_faculty" value="faculty"> Faculty </label>
+                                <a id="studentFacultyFeedback"></a>
+                            </div>
+                    </fieldset>
+                            <p>Do you like burritos? 
+                                <select id="burritos" name="burritos">
+                                    <option id="burritosNoAnswer" value="no_answer" selected></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <a id="burritosFeedback"></a>
+                            </p>
+                            <p>Tell me what you like/dislike about burritos</p>
+                            <textarea id="comments" name="comments" rows="10" cols="50"></textarea><br />
+                            <a id="commentsFeedback"></a>
+                            <p id="charactersLeft"></p>
+                            <p id="lastKey"></p>
+                            <input id="submit" type="submit" value="Submit Request" />
+                </form>
+            </div>
+
+            <footer>
+                <p>&copy; Daniel Dreise & Justin Turcotte</p>
+            </footer>
+        </div>
+
+        <!-- jQuery & JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+        <script src="js/request_access.js"></script>
     </body>
 </html>

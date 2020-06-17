@@ -1,7 +1,8 @@
 /* CSS Style Sheet*/
 body {font-family: Georgia, serif;}
 
-p,li    {font-size: 100%; line-height: 20px; text-align: left; text-indent: 15px;} 
+p,li    {font-size: 100%; line-height: 20px; text-align: justify; }
+p       {text-indent: 15px;}
 h1      {font-size: 160%;}
 h2      {font-size: 125%}
 img     {height: 300px;}
