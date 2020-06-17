@@ -1,12 +1,14 @@
 var elUsername = document.getElementById('username');
 var elPassword = document.getElementById('pass');
 var elMsg = document.getElementById('feedback');
+var elForm = document.getElementById('login');
 
 
 // Event Listener - Checks if username or password is a certain length
 function checkUsername(minLength) {
     if (elUsername.value.length < minLength) {
         elMsg.innerHTML = '<p> Username must be ' + minLength + ' characters or more</p>';
+        event.preventDefault(); //don't submit the form (submit == default)
     }
     else {
         elMsg.innerHTML = '' // Clear error message
@@ -16,6 +18,7 @@ function checkUsername(minLength) {
 function checkPassword(minLength) {
     if (elPassword.value.length < minLength) {
         elMsg.innerHTML = '<p> Password must be ' + minLength + ' characters or more</p>';
+        event.preventDefault(); //don't submit the form (submit == default)
     }
     else {
         elMsg.innerHTML = '' // Clear error message
@@ -33,3 +36,8 @@ function setup() {
 }
 
 window.addEventListener('load', setup, false);
+
+elForm.addEventListener('submit', function(event) {
+    checkPassword(7);
+    checkUsername(7);
+}, false);

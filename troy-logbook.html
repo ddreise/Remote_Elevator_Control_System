@@ -18,193 +18,211 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	
+		<!-- For CSS -->
+		<link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <!-- Menu -->
-		<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-			<!-- Enable navbar buttons-->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+		<div id="page" class="container">
+			<header>
+				<!-- Menu -->
+				<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+					<!-- Enable navbar buttons-->
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-			<!--Logo-->
-			<a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
+					<!--Logo-->
+					<a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
 
-			<!--Menu buttons-->
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul id="header_menu" class="navbar-nav mr-auto" > 
-							<li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
-							<li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
-							<li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
-							<li class="h_menu nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
-								<div class="dropdown-menu" aria-labelledby="logbooksDropdown">
-									<a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
-									<a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
-									<a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
-									<a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
-								</div>
-							</li>
-							<li class="h_menu nav-item dropdown">
-								<a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
-								<div class="dropdown-menu" aria-labelledby="minutesDropdown">
-									<a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
-									<a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
-									<a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
-									<a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
-								</div>
-							</li>
-							<li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
-							<li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
-							<li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
-						</ul>
+					<!--Menu buttons-->
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul id="header_menu" class="navbar-nav mr-auto" > 
+									<li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
+									<li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
+									<li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
+									<li class="h_menu nav-item dropdown">
+										<a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
+										<div class="dropdown-menu" aria-labelledby="logbooksDropdown">
+											<a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
+											<a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
+											<a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
+											<a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
+										</div>
+									</li>
+									<li class="h_menu nav-item dropdown">
+										<a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
+										<div class="dropdown-menu" aria-labelledby="minutesDropdown">
+											<a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
+											<a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
+											<a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
+											<a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+										</div>
+									</li>
+									<li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
+									<li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
+									<li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
+								</ul>
+					</div>
+							
+				</nav>
+			
+				<h1>Troy's Log Book</h1> 
+				<figure>
+					<img src="images/troy-avatar.jpg" alt="troy-avatar" title="Troy's Avatar" height=100 width=100 />
+					<figcaption>
+						<b>Troy Annette:</b> Third year B.Eng student at Conestoga College.
+						Troy works alongside Justin Turcotte, Daniel Dreise, and Brandon Harkness of the 2021 cohort.
+						Follow Troy's progress here as he provides updates to the team's progress throughout the project.
+					</figcaption>
+				</figure>
+				<h2>Quick Links</h2>
+				<ul>
+					<li><a href=troy-logbook.html#week1>Week 1</a></li>
+					<li><a href=troy-logbook.html#week2>Week 2</a></li>
+					<li><a href=troy-logbook.html#week3>Week 3</a></li>
+					<li><a href=troy-logbook.html#week4>Week 4</a></li>
+				</ul>
+			</header>
+
+			<div id="content">
+				<h id="week1">Week 1</h><br/>
+				<b>
+				<h>May 19th, 2020</h>
+				<hr/>
+				</b>
+				<ul>
+					<li>Joined up with Justin T., Dan, and Brandon for projects this term</li>
+					<li>First team meeting to discuss meeting schedule and review the charter. We'll be hosting meetings every Monday, Wednesday, and Friday, schedule permitting.</li>
+					<li>I proposed Azure DevOps as our version control interface. The team requested a quick demo for tomorrow's meeting.</li>
+				</ul>
+				
+				<b>
+				<h>May 20th, 2020</h>
+				<hr/>
+				</b>
+				<ul>
+					<li>Team meeting today. I briefly demo'd Azure DevOps and the team came to a consensus to make use of the software for the term project.</li>
+					<li>We discussed the project plan. I've been assigned to creating the plan for phase 3 and entering that into DevOps</li>
+				</ul>
+
+				<b>
+				<h>May 21st, 2020</h>
+				<hr/>
+				</b>
+				<ul>
+					<li>A brief team discussion in the group chat lead to further project planning.</li>
+					<li>Brandon and I will head the hardware team for this phase and implement the loopback setup of the CAN on our F303 boards.</li>
+					<li>Dan and Justin will work together on the website and establish the gantt chart.</li>
+					<li>Tomorrow morning I intend on finishing the plan for phase 3, and in the afternoon, Brandon and I will begin on the CAN implementation.</li>
+				</ul>
+
+				<b>
+				<h>May 22nd, 2020</h>
+				<hr/>
+				</b>
+				<ul>
+					<li>Created and updated log book.</li>
+					<li>Created and comitted project plan for phase 3.</li>
+					<li>Sent my capstone idea to Alex for consideration before preparing my formal proposal to the capstone team.</li>
+					<li>Brandon and I worked on the CAN bus base code to get loopback mode working. We got to a point where we could see a message be transmitted on one end and received on another.</li>
+					<li>I created and filled in the test information for the CAN bus bring-up. Brandon agreed to finish testing later tonight, and we will review tomorrow.</li>
+				</ul>
+
+				<h id="week2">Week 2</h><br/>
+				<b>
+				<h>May 25th, 2020</h>
+				<hr/>
+				</b>
+				<ul>
+					<li>The team had it's first debrief. Ali and Michael were pleased with our overall progress, and only requested that we complete the project plan for the rest of the project and update our CAN protocol to listen to filters</li>
+					<li>After debrief, the team got together to fill out the rest of the project plan. For this week, I'll be working on a floor selection system for the webpage.</li>
+					<li>The team decided that working in Azure DevOps was too much additional overhead and was causing enough confusion to remove it from the project infrastructure.</li>
+				</ul>
+				<b>
+				<h>May 27th, 2020</h>
+				<hr/>
+				</b>
+				<ul>
+					<li>I worked on the floor selection page today. So far, I've simply created a separate page with radio buttons for selecting the floors. I imagine I'll be able to do more once we know a bit more about the backend</li>
+				</ul>
+				<b>
+					<h>May 28th, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>Worked on filter code. Managed to figure out how to set the filter ID and masking bits</li>
+					<li>Setting a new ID allows me to filter out messages for the receiver. The mask would allow me to set different bits to define a range of IDs that would be considered valid.</li>
+					<li>I can't seem to figure out how to change the transmission ID for the messages, but I can filter messages for the receiver. I'll have to uplink with Brandon this weekend to try to figure the rest of this out.</li>
+				</ul>
+				<h id="week3">Week 3</h><br/>
+				<b>
+					<h>June 1st, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>I completely misintepreted the requirements from last week, and as a result, I'm behind on my tasks for the project. <br/>I figured I was working on a very basic page for the call stations, but what I was actually assigned to was the floor selection that would be within the elevator car.</li>
+					<li>I'll try to create a new page that would simulate being inside of an elevator car.</li>
+					<li>I also learned from today's debriefing that the ID for messages is a definition at the top of the source code. I can change this value to change the ID of messages that will interact with the filters.</li>
+					<li>Just below the filter initialization is the TxHeader section, which is where we set up the frame for the CAN message and where the ID value is used.</li>
+				</ul>
+
+				<h id="week4">Week 4</h><br/>
+				<b>
+					<h>June 8th, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>I fell ill last week and did not manage to complete the filter example. Brandon fortunately stepped in and managed to get an example working with a video demonstration that has been added to the site.</li>
+					<li>Brandon resolved an issue I was having with the filters from last week. He realized that the upper 3 bits of the filter mask are reserved and mustn't be set by the user. Altering these bits causes the filter to not work correctly, which is the reason that I was getting unexpected behaviour during my testing.</li>
+					<li>Michael and Ali were happy with our progress overall. Our status report did reflect the delays in establishing the filtering system, but that's been resolved and we will now continue into Phase 2.</li>
+					<li>For the next phase, Brandon and I will be looking into establishing the database which will act as a repository for incoming and outgoing commands, as well as a logging system for the elevator to record events during runtime.</li>
+					<li>Given that we haven't learned backend development yet, Brandon and I have been tasked with exploring the material on eConestoga to try and evaluate whether or not we could begin work now, or if we need to wait for those lectures to make sufficient progress</li>
+					<li>In the event that Brandon and I come to the conclusion that we cannot begin work on the database yet, we will shift focus and assist Justin and Dan with the new website interfaces, which are also required for Phase 2.</li>
+				</ul>
+				<b>
+					<h>June 9th, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>I began reviewing the database documentation on eConestoga.</li>
+					<li>I've been attempting to use my home server setup on my Windows machine to better familiarize myself with PHPMyAdmin and backend requests and responses, but I'm not sure I fully understand how the code works.</li>
+					<li>I'm trying to set up a proper login sequence with my RasPi at home but progress is slow. I seem to be having issues with the linking between webpages and my request access page doesn't display my login details. I'll have to keep working at this.</li>
+				</ul>
+				<b>
+					<h>June 11th, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>I spent the morning looking into database material once again. I don't feel as though I understand it well enough to begin work on it. The team will reconviene tomorrow at our scheduled meeting time, and I intend on discussing the matter further then.</li>
+					<li>I spent some time today reconsidering my capstone topic and researched into a new idea that I feel would be a better fit and aligns better with what I'm passionate about.</li>
+					<li>I restarted my capstone proposal document to try and flesh out some of the concepts I'd like to consider during the project. I've finished the first few pages of the proposal and I hope to continue my work on it tonight.</li>
+				</ul>
+				<b>
+					<h>June 12th, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>Last night I proposed to the team that we consider refitting our individual logbook pages to allow us to enter new logs directly from the webpage, rather than altering the source code. The others approved of the idea and it is my intention to have that working by the end of today.</li>
+					<li>Continuing my work on the database. I haven't been able to connect to the elevator pi, which has been the major source of confusion for me, and considering the pi I've set up here at home doesn't work quite the same as the one at school I've been having a hard time getting this working remotely, so I've been working through the examples this morning using my Windows machine.</li>
+					<li>I've created the database and the tables according to the Datacom slides on MySQL. It's all pretty familiar since I've had some level of exposure to SQL programming in the past - I'll continue my work here until I can get some help connecting to the school's pi and set up MariaDB there.</li>
+					<li>So I've reached the point with the MySQL slides where I'll need to begin working in PHP to program queries. I'm going to use this as an opportunity to continue my work on my personal webpage I'm running at home to work forward in the material until I hit PHP.</li>
+				</ul>
 			</div>
-					
-		</nav>
-        
-		<h1>Troy's Log Book</h1> 
-		<figure>
-			<img src="images/troy-avatar.jpg" alt="troy-avatar" title="Troy's Avatar" height=100 width=100 />
-			<figcaption>
-				<b>Troy Annette:</b> Third year B.Eng student at Conestoga College.
-				Troy works alongside Justin Turcotte, Daniel Dreise, and Brandon Harkness of the 2021 cohort.
-				Follow Troy's progress here as he provides updates to the team's progress throughout the project.
-			</figcaption>
-		</figure>
-		<h2>Quick Links</h2>
-        <ul>
-            <li><a href=troy-logbook.html#week1>Week 1</a></li>
-			<li><a href=troy-logbook.html#week2>Week 2</a></li>
-			<li><a href=troy-logbook.html#week3>Week 3</a></li>
-			<li><a href=troy-logbook.html#week4>Week 4</a></li>
-        </ul>
 
-        <h id="week1">Week 1</h><br/>
-		<b>
-		<h>May 19th, 2020</h>
-		<hr/>
-		</b>
-		<ul>
-			<li>Joined up with Justin T., Dan, and Brandon for projects this term</li>
-			<li>First team meeting to discuss meeting schedule and review the charter. We'll be hosting meetings every Monday, Wednesday, and Friday, schedule permitting.</li>
-			<li>I proposed Azure DevOps as our version control interface. The team requested a quick demo for tomorrow's meeting.</li>
-		</ul>
-		
-		<b>
-		<h>May 20th, 2020</h>
-		<hr/>
-		</b>
-		<ul>
-			<li>Team meeting today. I briefly demo'd Azure DevOps and the team came to a consensus to make use of the software for the term project.</li>
-			<li>We discussed the project plan. I've been assigned to creating the plan for phase 3 and entering that into DevOps</li>
-		</ul>
+			<footer>
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        <p>&copy; Troy Annette</p>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="#top">Back to top of page</a>
+                    </div>
+                </div>
+            </footer>
+		</div>
 
-		<b>
-		<h>May 21st, 2020</h>
-		<hr/>
-		</b>
-		<ul>
-			<li>A brief team discussion in the group chat lead to further project planning.</li>
-			<li>Brandon and I will head the hardware team for this phase and implement the loopback setup of the CAN on our F303 boards.</li>
-			<li>Dan and Justin will work together on the website and establish the gantt chart.</li>
-			<li>Tomorrow morning I intend on finishing the plan for phase 3, and in the afternoon, Brandon and I will begin on the CAN implementation.</li>
-		</ul>
-
-		<b>
-		<h>May 22nd, 2020</h>
-		<hr/>
-		</b>
-		<ul>
-			<li>Created and updated log book.</li>
-			<li>Created and comitted project plan for phase 3.</li>
-			<li>Sent my capstone idea to Alex for consideration before preparing my formal proposal to the capstone team.</li>
-			<li>Brandon and I worked on the CAN bus base code to get loopback mode working. We got to a point where we could see a message be transmitted on one end and received on another.</li>
-			<li>I created and filled in the test information for the CAN bus bring-up. Brandon agreed to finish testing later tonight, and we will review tomorrow.</li>
-		</ul>
-
-		<h id="week2">Week 2</h><br/>
-		<b>
-		<h>May 25th, 2020</h>
-		<hr/>
-		</b>
-		<ul>
-			<li>The team had it's first debrief. Ali and Michael were pleased with our overall progress, and only requested that we complete the project plan for the rest of the project and update our CAN protocol to listen to filters</li>
-			<li>After debrief, the team got together to fill out the rest of the project plan. For this week, I'll be working on a floor selection system for the webpage.</li>
-			<li>The team decided that working in Azure DevOps was too much additional overhead and was causing enough confusion to remove it from the project infrastructure.</li>
-		</ul>
-		<b>
-		<h>May 27th, 2020</h>
-		<hr/>
-		</b>
-		<ul>
-			<li>I worked on the floor selection page today. So far, I've simply created a separate page with radio buttons for selecting the floors. I imagine I'll be able to do more once we know a bit more about the backend</li>
-		</ul>
-		<b>
-			<h>May 28th, 2020</h>
-			<hr/>
-		</b>
-		<ul>
-			<li>Worked on filter code. Managed to figure out how to set the filter ID and masking bits</li>
-			<li>Setting a new ID allows me to filter out messages for the receiver. The mask would allow me to set different bits to define a range of IDs that would be considered valid.</li>
-			<li>I can't seem to figure out how to change the transmission ID for the messages, but I can filter messages for the receiver. I'll have to uplink with Brandon this weekend to try to figure the rest of this out.</li>
-		</ul>
-		<h id="week3">Week 3</h><br/>
-		<b>
-			<h>June 1st, 2020</h>
-			<hr/>
-		</b>
-		<ul>
-			<li>I completely misintepreted the requirements from last week, and as a result, I'm behind on my tasks for the project. <br/>I figured I was working on a very basic page for the call stations, but what I was actually assigned to was the floor selection that would be within the elevator car.</li>
-			<li>I'll try to create a new page that would simulate being inside of an elevator car.</li>
-			<li>I also learned from today's debriefing that the ID for messages is a definition at the top of the source code. I can change this value to change the ID of messages that will interact with the filters.</li>
-			<li>Just below the filter initialization is the TxHeader section, which is where we set up the frame for the CAN message and where the ID value is used.</li>
-		</ul>
-
-		<h id="week4">Week 4</h><br/>
-		<b>
-			<h>June 8th, 2020</h>
-			<hr/>
-		</b>
-		<ul>
-			<li>I fell ill last week and did not manage to complete the filter example. Brandon fortunately stepped in and managed to get an example working with a video demonstration that has been added to the site.</li>
-			<li>Brandon resolved an issue I was having with the filters from last week. He realized that the upper 3 bits of the filter mask are reserved and mustn't be set by the user. Altering these bits causes the filter to not work correctly, which is the reason that I was getting unexpected behaviour during my testing.</li>
-			<li>Michael and Ali were happy with our progress overall. Our status report did reflect the delays in establishing the filtering system, but that's been resolved and we will now continue into Phase 2.</li>
-			<li>For the next phase, Brandon and I will be looking into establishing the database which will act as a repository for incoming and outgoing commands, as well as a logging system for the elevator to record events during runtime.</li>
-			<li>Given that we haven't learned backend development yet, Brandon and I have been tasked with exploring the material on eConestoga to try and evaluate whether or not we could begin work now, or if we need to wait for those lectures to make sufficient progress</li>
-			<li>In the event that Brandon and I come to the conclusion that we cannot begin work on the database yet, we will shift focus and assist Justin and Dan with the new website interfaces, which are also required for Phase 2.</li>
-		</ul>
-		<b>
-			<h>June 9th, 2020</h>
-			<hr/>
-		</b>
-		<ul>
-			<li>I began reviewing the database documentation on eConestoga.</li>
-			<li>I've been attempting to use my home server setup on my Windows machine to better familiarize myself with PHPMyAdmin and backend requests and responses, but I'm not sure I fully understand how the code works.</li>
-			<li>I'm trying to set up a proper login sequence with my RasPi at home but progress is slow. I seem to be having issues with the linking between webpages and my request access page doesn't display my login details. I'll have to keep working at this.</li>
-		</ul>
-		<b>
-			<h>June 11th, 2020</h>
-			<hr/>
-		</b>
-		<ul>
-			<li>I spent the morning looking into database material once again. I don't feel as though I understand it well enough to begin work on it. The team will reconviene tomorrow at our scheduled meeting time, and I intend on discussing the matter further then.</li>
-			<li>I spent some time today reconsidering my capstone topic and researched into a new idea that I feel would be a better fit and aligns better with what I'm passionate about.</li>
-			<li>I restarted my capstone proposal document to try and flesh out some of the concepts I'd like to consider during the project. I've finished the first few pages of the proposal and I hope to continue my work on it tonight.</li>
-		</ul>
-		<b>
-			<h>June 12th, 2020</h>
-			<hr/>
-		</b>
-		<ul>
-			<li>Last night I proposed to the team that we consider refitting our individual logbook pages to allow us to enter new logs directly from the webpage, rather than altering the source code. The others approved of the idea and it is my intention to have that working by the end of today.</li>
-			<li>Continuing my work on the database. I haven't been able to connect to the elevator pi, which has been the major source of confusion for me, and considering the pi I've set up here at home doesn't work quite the same as the one at school I've been having a hard time getting this working remotely, so I've been working through the examples this morning using my Windows machine.</li>
-			<li>I've created the database and the tables according to the Datacom slides on MySQL. It's all pretty familiar since I've had some level of exposure to SQL programming in the past - I'll continue my work here until I can get some help connecting to the school's pi and set up MariaDB there.</li>
-			<li>So I've reached the point with the MySQL slides where I'll need to begin working in PHP to program queries. I'm going to use this as an opportunity to continue my work on my personal webpage I'm running at home to work forward in the material until I hit PHP.</li>
-		</ul>
-
-  
   		<!-- jQuery & JS -->
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
