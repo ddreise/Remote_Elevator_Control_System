@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 
-<!--
-    Home Page
-    - Title
-    - UNDER CONSTRUCTION 
--->
-
 <!--[if lt IE 9]>
     <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
 <![endif] -->
 
 <html lang="en">
+    
     <head>
-        <title>Project VI - Home</title>
-        <meta name="description" content="This is the Home page" />
+        <title>Request Access</title>
+        <meta name="description" content="This is the Request Access page" />
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
-        <meta http-equiv="author" content="Daniel Dreise, Justin Turcotte, Brandon Harkness" />
+        <meta http-equiv="author" content="Daniel Dreise" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
         <meta charset="utf-8" />
 
         <!-- For Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">      
-    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
         <!-- For CSS -->
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
+        <link href="css/project_style.css" type="text/css" rel="stylesheet" />
+        <link href="css/request_access_style.css" type="text/css" rel="stylesheet" />
+
     </head>
 
     <body>
@@ -73,26 +71,59 @@
                             
                 </nav>
 
+           
+
+                <div class="jumbotron text-center">
+                        <h1>Request Access</h1>
+                </div>
+
             </header>
- 
+
             <div id="content">
-                <article>
-                    <section>
-                        <div class="jumbotron text-center">
-                            <h1>
-                                Project VI - Home<br /> 
-                            </h1>
-                            <p id="today"></p>
-                            <p id="time"></p> 
-                        </div>
-                    </section>
-                </article>
-              
-                <button type="button"><a href='login.html'>Login</a></button>
+                <form action="php/request_access.php" method="post" id="access">
+                    <fieldset>
+                        <legend>Contact Details</legend>
+                            <div>
+                                <label class="text_label">First name:</label>
+                                <input id="firstName" class="text_input" type="text" name="firstname"/>
+                                <a id="firstNameFeedback"></a>
+                            </div>
+                            <div>
+                                <label class="text_label">Last name:</label>
+                                <input id="lastName" class="text_input" type="text" name="lastname"/>
+                                <a id="lastNameFeedback"></a>
+                            </div>
+                            <div>
+                                <label class="text_label">Email:</label>
+                                <input id="email" class="text_input" type="email" name="email"/>
+                                <a id="emailFeedback"></a>
+                            </div>
+                            <div>
+                                <label class="text_label">Designation:</label>
+                                <label><input id="student" type="radio" name="student_or_faculty" value="student"> Student </label>
+                                <label><input id="faculty" type="radio" name="student_or_faculty" value="faculty"> Faculty </label>
+                                <a id="studentFacultyFeedback"></a>
+                            </div>
+                    </fieldset>
+                            <p>Do you like burritos? 
+                                <select id="burritos" name="burritos">
+                                    <option id="burritosNoAnswer" value="no_answer" selected></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <a id="burritosFeedback"></a>
+                            </p>
+                            <p>Tell me what you like/dislike about burritos</p>
+                            <textarea id="comments" name="comments" rows="10" cols="50"></textarea><br />
+                            <a id="commentsFeedback"></a>
+                            <p id="charactersLeft"></p>
+                            <p id="lastKey"></p>
+                            <input id="submit" type="submit" value="Submit Request" />
+                </form>
             </div>
 
             <footer>
-                <p>&copy; Justin Turcotte, Daniel Dreise</p>
+                <p>&copy; Daniel Dreise & Justin Turcotte</p>
             </footer>
         </div>
 
@@ -100,7 +131,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
- 
-        <script src="js/index.js"></script>
+    
+        <script src="js/request_access.js"></script>
     </body>
 </html>

@@ -1,0 +1,36 @@
+/* CSS Style Sheet*/
+body {font-family: Georgia, serif;}
+
+p,li    {font-size: 100%; line-height: 20px; text-align: justify; }
+p       {text-indent: 15px;}
+h1      {font-size: 160%;}
+h2      {font-size: 125%}
+img     {height: 300px;}
+figcaption {align-items: center; font-style: italic; font-size: 90%; }
+
+.mkgreen{color: green}
+.mkpurple{color: purple}
+.mkunderlined{text-decoration: underline;}
+.mkbold{font-weight: bold;}
+.mkitalic{font-style: italic}
+
+#can {color: purple; font-weight: bold}
+
+#hcs12 {color: purple; font-weight: bold;}
+
+/* Display menu horizontally */
+li.h_menu {display: inline}
+
+/* Center body on page with border */
+body {width: 950px; border: 2px solid black; padding: 10px 10px; overflow: scroll; margin: auto}
+
+/* Center images on page */
+img {display: block; margin: auto; width: 50%}
+
+/* Add borders to figure and image elements */
+img {border: 2px solid blue}
+figure {border: 2px solid green}
+
+/* Add box shadow to the figure and images */
+img {box-shadow: 10px 10px 5px gray; border-radius: 5px;}
+figure {border-radius: 25px;}

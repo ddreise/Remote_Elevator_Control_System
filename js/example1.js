@@ -1,0 +1,1 @@
+// A practice space for JavaScript

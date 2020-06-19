@@ -1,34 +1,28 @@
+<?php
+$submitted = !empty($_POST);
+?>
+
 <!DOCTYPE html>
-
-<!--
-    Home Page
-    - Title
-    - UNDER CONSTRUCTION 
--->
-
-<!--[if lt IE 9]>
-    <script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
-<![endif] -->
-
-<html lang="en">
+<html lang="en">    
     <head>
-        <title>Project VI - Home</title>
-        <meta name="description" content="This is the Home page" />
+        <title>ESE Project VI - Request Access</title>
+        <meta name="description" content="This is the Request Access page" />
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
-        <meta http-equiv="author" content="Daniel Dreise, Justin Turcotte, Brandon Harkness" />
+        <meta http-equiv="author" content="Daniel Dreise & Justin Turcotte" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
-        <meta charset="utf-8" />
 
         <!-- For Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS only (Bootstrap) ** See bottom of page for JavaScript and jQuery-->   
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">      
-    
+  
+
         <!-- For CSS -->
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
 
     <body>
-        <div class="container" id="page">
+        <div id="page" class="container">
             <header>
                 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
                     <!-- Enable navbar buttons-->
@@ -37,7 +31,7 @@
                     </button>
 
                     <!--Logo-->
-                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px />  ESE Project VI</a>
+                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
 
                     <!--Menu buttons-->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -73,34 +67,36 @@
                             
                 </nav>
 
+           
+
+                <div class="jumbotron text-center">
+                        <h1>Project VI - Request Access</h1>
+                </div>
+
             </header>
- 
+
             <div id="content">
                 <article>
                     <section>
-                        <div class="jumbotron text-center">
-                            <h1>
-                                Project VI - Home<br /> 
-                            </h1>
-                            <p id="today"></p>
-                            <p id="time"></p> 
-                        </div>
+                        <p>Form submitted? <?php echo (int) $submitted; ?></p>
+                        <p><b>Your Contact Details:</b>
+                            <ul>
+                                <li>First name:         <?php echo $_POST['firstname']; ?></li>
+                                <li>Last name:          <?php echo $_POST['lastname']; ?></li>
+                                <li>Email:              <?php echo $_POST['email']; ?></li>
+                                <li>Student or Faculty: <?php echo $_POST['student_or_faculty']; ?></li>
+                                <li>Burritos:           <?php echo $_POST['burritos']; ?></li>
+                                <li>Comments:           <?php echo $_POST['comments']; ?></li>
+                            </ul>
+                        </p>
                     </section>
                 </article>
-              
-                <button type="button"><a href='login.html'>Login</a></button>
             </div>
-
+  
             <footer>
-                <p>&copy; Justin Turcotte, Daniel Dreise</p>
+                <p>&copy; Daniel Dreise</p>
             </footer>
         </div>
 
-        <!-- jQuery & JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
- 
-        <script src="js/index.js"></script>
     </body>
 </html>

@@ -1,0 +1,172 @@
+/* Project stylesheet for the entire project webpage */
+
+/* Display menu horizontally */
+li.h_menu {display: inline}
+
+/* Table Formatting */
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 2px; 
+    empty-cells: show;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    height:50px;
+    background-color: rgb(81, 115, 148);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.gantt_bh {
+    background-color: teal;
+}
+
+.gantt_dd {
+    background-color: darkorange;
+}
+
+.gantt_jt {
+    background-color: darkseagreen;
+}
+
+.gantt_ta {
+    background-color: lightgreen;
+}
+
+/* Center body on page with border */
+body {
+    width: 950px; 
+    border: 2px solid black; 
+    padding: 10px 30px; 
+    overflow: scroll; 
+    margin: auto;
+    padding-top: 60px;
+}
+
+/* So navbar doesn't cover top of page content */
+@media (max-width:979px){
+    body{
+        padding-top:0px;
+    }
+}
+
+/* Navbar */
+.navbar-brand {
+    padding-right: 10px;
+}
+
+/* Align user label */
+.text_label {
+    font-weight: bold;
+    float: left;
+    width: 120px;
+    text-align: right;
+    padding: 10px 10px 0px 10px;
+}
+
+/* Align user input */
+.text_input {
+    width: 150px;
+    text-align: left;
+    padding: 0px 10px 0px 10px;
+}
+
+/* Divided blocks padding */
+div {
+    padding:    10px 0px;
+}
+
+/* Legend formatting */
+legend {
+    color: white;
+    font-weight: bold;
+    background-color: slategray;
+    border-radius: 5px;
+}
+
+/* Text area resize */
+textarea {
+    width: 400px;
+    height: 250px;
+}
+
+/* Submit button format */
+#submit {
+    background-color: green;
+    color: whitesmoke; 
+    height: 25px;
+    border-radius: 5px;
+    
+}
+#submit:active {
+    background: darkslategray;
+    color: whitesmoke;
+    height: 25px;
+    border-radius: 5px;
+}
+
+/* Used random button generator https://www.bestcssbuttongenerator.com/#/2 */
+#request_access {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+#request_access:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+#request_access:active {
+	position:relative;
+	top:1px;
+}
+
+call_station_uparrow{
+    background-image: url("../images/call_station_uparrow.png") no-repeat 0 0;
+    display: block;
+    width: 80px;
+}
+
+call_station_uparrow:hover{
+    background-image: url("../images/call_station_downarrow.png");
+    
+}
+
+/* Add box shadow to the figure and images */
+img {
+    border-radius:25px;
+}
+
+/* Background image with parralax */
+/*
+.parallax {
+    background-image: url("../images/artiom-vallat-ZYhQXXGxvtQ-unsplash.jpg");
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*/
+
+#queue {
+    border: 2px solid black; 
+
+}
