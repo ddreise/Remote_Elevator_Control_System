@@ -1,3 +1,43 @@
+<?php 
+        function get_currentFloor(): int {
+                try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');}
+                catch (PDOException $e){echo $e->getMessage();}
+
+                        // Query the database to display current floor
+                        $rows = $db->query('SELECT currentFloor FROM elevatorNetwork');
+                        foreach ($rows as $row) {
+                                $current_floor = $row[0];
+                        }
+                        return $current_floor;
+        }
+?>
+
+<!-- Function for sending new floor request -->
+<?php
+        function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
+                $db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
+                $query = 'UPDATE elevatorNetwork 
+                                SET currentFloor = :floor
+                                WHERE nodeID = :id';
+                $statement = $db1->prepare($query);
+                $statement->bindvalue('floor', $new_floor);
+                $statement->bindvalue('id', $node_ID);
+                $statement->execute();  
+
+                return $new_floor;
+        }
+?>
+
+<?php
+                                        if(isset($_POST['newfloor'])) {
+                                                $curFlr = update_elevatorNetwork(1, $_POST['newfloor']);
+                                                header('Refresh:0; url=index.php');
+                                        }
+                                        $curFlr = get_currentFloor();
+                                        echo "<h2>Current floor # $curFlr </h2>";
+                                    ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -79,7 +119,12 @@
                                 <fieldset>
                                     <!--Get data from server regarding current car location-->
                                     <p>Under construction</p>
-                    
+                       
+                               
+                                    <form action="call_stations.php" method="POST">
+                                        Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
+                                        <input type="submit" value="Go"/>
+                                    </form>
                                 </fieldset>
                             </div>
                         </div>
@@ -91,7 +136,6 @@
                 <iframe name="up_down_request" style="display:none;"></iframe> Prevents new window opening (along with target=
                 -->
                 <article>
-                    <form action="php/call_stations.php" method="get" id="access" target="up_down_request">
                     <h2>Call Station Controls</h2>
                         <div class="row">
                             <div id="queue" class="col-md-3">
@@ -143,7 +187,6 @@
                  
                         </div>
         
-                    </form>
                 </article> 
             </div>
 

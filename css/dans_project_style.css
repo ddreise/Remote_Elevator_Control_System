@@ -138,13 +138,13 @@ textarea {
 	top:1px;
 }
 
-call_station_uparrow{
+.call_station_uparrow{
     background-image: url("../images/call_station_uparrow.png") no-repeat 0 0;
     display: block;
     width: 80px;
 }
 
-call_station_uparrow:hover{
+.call_station_uparrow:hover{
     background-image: url("../images/call_station_downarrow.png");
     
 }
