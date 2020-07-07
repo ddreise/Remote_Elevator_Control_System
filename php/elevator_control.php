@@ -28,7 +28,7 @@
 
     // Check for floor requests upon loading the page
     function get_floorRequest(): int {
-        if(array_key_exists('floor1_up',$_POST) {
+        if(array_key_exists('floor1_up',$_POST)) {
             update_elevatorNetwork(1, 2); 
         }
      /*   else if(isset($_POST['floor2_up'])){
