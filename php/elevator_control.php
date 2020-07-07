@@ -30,6 +30,7 @@
     function get_floorRequest(): int {
         if(array_key_exists('floor1_up',$_POST)) {
             update_elevatorNetwork(1, 2); 
+            header('Refresh:0; url=/php/call_stations.php');
         }
      /*   else if(isset($_POST['floor2_up'])){
             update_elevatorNetwork(1, 3); 
@@ -40,7 +41,6 @@
         else if(isset($_POST['floor3_down'])){
             update_elevatorNetwork(1, 2); 
         }*/
-        header('Refresh:0; url=/php/call_stations.php');
         return 0;
     }
     //$curFlr = get_currentFloor();
