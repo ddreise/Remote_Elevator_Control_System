@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">      
     
         <!-- For CSS -->
-        <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
+        <link href="../css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
 
     <body>
@@ -28,37 +28,37 @@
                     </button>
 
                     <!--Logo-->
-                    <a class="navbar-brand" href="#"><img src="images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
+                    <a class="navbar-brand" href="#"><img src="../images/dan-avatar.png" class="img-responsive" alt="Temporary logo", title="Temporary logo" height=40px/>  ESE Project VI</a>
 
                     <!--Menu buttons-->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul id="header_menu" class="navbar-nav mr-auto" > 
-                                    <li class="h_menu nav-item"><a class="menu nav-link" href="index.html">Home</a></li>
-                                    <li class="h_menu nav-item"><a class="menu nav-link" href="about.html">About</a></li>
-                                    <li class="h_menu nav-item"><a class="menu nav-link" href="project_plan.html">Project Plan</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="../index.html">Home</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="../about.html">About</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="../project_plan.html">Project Plan</a></li>
                                     <li class="h_menu nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="logbooksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Logbooks</a>
                                         <div class="dropdown-menu" aria-labelledby="logbooksDropdown">
-                                            <a class="dropdown-item" href="daniel-logbook.html">Dan's Logbook</a>
-                                            <a class="dropdown-item" href="brandon-logbook.html">Brandon's Logbook</a>
-                                            <a class="dropdown-item" href="justin-logbook.html">Justin's Logbook</a>
-                                            <a class="dropdown-item" href="troy-logbook.html">Troy's Logbook</a>
+                                            <a class="dropdown-item" href="../daniel-logbook.html">Dan's Logbook</a>
+                                            <a class="dropdown-item" href="../brandon-logbook.html">Brandon's Logbook</a>
+                                            <a class="dropdown-item" href="../justin-logbook.html">Justin's Logbook</a>
+                                            <a class="dropdown-item" href="../troy-logbook.html">Troy's Logbook</a>
                                         </div>
                                     </li>
                                     <li class="h_menu nav-item dropdown">
                                         <a class="menu nav-link dropdown-toggle" href="#" id="minutesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Meeting Minutes</a>
                                         <div class="dropdown-menu" aria-labelledby="minutesDropdown">
-                                            <a class="dropdown-item" href="meeting-minutes.html">Meeting Minutes</a>
+                                            <a class="dropdown-item" href="../meeting-minutes.html">Meeting Minutes</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="meeting-minutes.html#week1">Week 1</a>
-                                            <a class="dropdown-item" href="meeting-minutes.html#week2">Week 2</a>
-                                            <a class="dropdown-item" href="meeting-minutes.html#week3">Week 3</a>
-                                            <a class="dropdown-item" href="meeting-minutes.html#week4">Week 4</a>
+                                            <a class="dropdown-item" href="../meeting-minutes.html#week1">Week 1</a>
+                                            <a class="dropdown-item" href="../meeting-minutes.html#week2">Week 2</a>
+                                            <a class="dropdown-item" href="../meeting-minutes.html#week3">Week 3</a>
+                                            <a class="dropdown-item" href="../meeting-minutes.html#week4">Week 4</a>
                                         </div>
                                     </li>
-                                    <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="../videos.html">Videos</a></li>
                                     <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
-                                    <li class="h_menu nav-item"><a class="menu nav-link" href="call_stations.html">Elevator GUI</a></li>
+                                    <li class="h_menu nav-item"><a class="menu nav-link" href="../call_stations.html">Elevator GUI</a></li>
                                 </ul>
                     </div>
                             
@@ -116,7 +116,7 @@
                                     <fieldset>
                                         <legend>Floor 3</legend>        
                                             <!--Down arrow button image-->
-                                            <input class="call_station_uparrow" name="floor3_down" type="image" src="images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                            <input class="call_station_uparrow" name="floor3_down" type="image" src="../images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
                                     </fieldset>
                                 </section>
         
@@ -124,10 +124,10 @@
                                     <fieldset>
                                         <legend>Floor 2</legend>
                                             <!--Up arrow button image-->
-                                            <input class="call_station_uparrow" name="floor2_up" type="image" src="images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/><br>
+                                            <input class="call_station_uparrow" name="floor2_up" type="image" src="../images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/><br>
         
                                             <!--Down arrow button image-->
-                                            <input class="call_station_downarrow" name="floor2_down" type="image" src="images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                            <input class="call_station_downarrow" name="floor2_down" type="image" src="../images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
                                     </fieldset>
                                 </section>
         
@@ -136,7 +136,7 @@
                                     <fieldset>
                                         <legend>Floor 1</legend>
                                             <!--Up arrow button image-->
-                                            <input class="call_station_uparrow" name="floor1_up" type="image" src="images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/>
+                                            <input class="call_station_uparrow" name="floor1_up" type="image" src="../images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/>
                                     </fieldset>
                                 </section>
 
