@@ -77,7 +77,7 @@
                                 <h2>Current Floor</h2>
                                 <fieldset>
                                     <?php 
-                                        include "php/elevator_control.php"; 
+                                        include "elevator_control.php"; 
                                         $curFlr = get_currentFloor();
                                         echo $curFlr;
                                     ?>
