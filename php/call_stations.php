@@ -116,7 +116,7 @@
                                     <fieldset>
                                         <legend>Floor 3</legend>        
                                             <!--Down arrow button image-->
-                                            <input class="call_station_uparrow" name="floor3_down" type="image" src="../images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                            <input class="call_station_uparrow" name="floor3_down" type="image" src="../images/call_station_downarrow.png" value="floor3_down" alt="down_arrow" width="80"/>
                                     </fieldset>
                                 </section>
         
@@ -124,10 +124,10 @@
                                     <fieldset>
                                         <legend>Floor 2</legend>
                                             <!--Up arrow button image-->
-                                            <input class="call_station_uparrow" name="floor2_up" type="image" src="../images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/><br>
+                                            <input class="call_station_uparrow" name="floor2_up" type="image" src="../images/call_station_uparrow.png" value="floor2_up" alt="up_arrow" width="80"/><br>
         
                                             <!--Down arrow button image-->
-                                            <input class="call_station_downarrow" name="floor2_down" type="image" src="../images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                            <input class="call_station_downarrow" name="floor2_down" type="image" src="../images/call_station_downarrow.png" value="floor2_down" alt="down_arrow" width="80"/>
                                     </fieldset>
                                 </section>
         
@@ -136,7 +136,7 @@
                                     <fieldset>
                                         <legend>Floor 1</legend>
                                             <!--Up arrow button image-->
-                                            <input class="call_station_uparrow" name="floor1_up" type="image" src="../images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/>
+                                            <input class="call_station_uparrow" name="floor1_up" type="image" src="../images/call_station_uparrow.png" value="floor1_up" alt="up_arrow" width="80"/>
                                     </fieldset>
                                 </section>
 
