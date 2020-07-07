@@ -19,11 +19,11 @@
             //$query = 'UPDATE elevatorNetwork 
             //                SET currentFloor = :floor
             //                WHERE nodeID = :id';
-            $db->query("UPDATE elevatorNetwork SET currentFloor=$new_floor WHERE nodeID=$node_ID");
-            //$statement = $db1->prepare($query);
+            $query="UPDATE elevatorNetwork SET currentFloor=$new_floor WHERE nodeID=$node_ID";
+            $statement = $db1->prepare($query);
             //$statement->bindvalue('floor', $new_floor);
             //$statement->bindvalue('id', $node_ID);
-            //$statement->execute();  
+            $statement->execute();  
 
             return $new_floor;
     }
