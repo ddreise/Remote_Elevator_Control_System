@@ -82,7 +82,7 @@
                                 <fieldset>
                                     <?php 
                                         $curFlr = get_currentFloor();
-                                        echo $curFlr;
+                                        echo "<h1>$curFlr</h1>";
                                     ?>
                                 </fieldset>
                             </div>
