@@ -96,7 +96,7 @@
                 <iframe name="up_down_request" style="display:none;"></iframe> Prevents new window opening (along with target=
                 -->
                 <article>
-                    <form action="call_stations.php" method="post" id="access">
+                    <form method="post" id="access">
                     <h2>Call Station Controls</h2>
                         <div class="row">
                             <div id="queue" class="col-md-3">
@@ -138,6 +138,10 @@
                                         <legend>Floor 1</legend>
                                             <!--Up arrow button image-->
                                             <input class="call_station_uparrow" name="floor1_up" type="image" src="../images/call_station_uparrow.png" value="floor1_up" alt="up_arrow" width="80"/>
+                                            <?php if(isset($_POST['floor1_up'])){
+                                                update_elevatorNetwork(1, 2); 
+                                                header('Refresh:0; url=php/call_stations.php');
+                                            }?>
                                     </fieldset>
                                 </section>
 
