@@ -34,22 +34,24 @@
     }
 
     // Check for floor requests upon loading the page
-    function get_floorRequest(): 
-    if(isset($_POST['floor1_up'])){
-        update_elevatorNetwork(1, 2); 
-        header('Refresh:0; url=php/call_stations.php');
-    }
-    else if(isset($_POST['floor2_up'])){
-        update_elevatorNetwork(1, 3); 
-        header('Refresh:0; url=php/call_stations.php');
-    }
-    else if(isset($_POST['floor2_down'])){
-        update_elevatorNetwork(1, 1); 
-        header('Refresh:0; url=php/call_stations.php');
-    }
-    else if(isset($_POST['floor3_down'])){
-        update_elevatorNetwork(1, 2); 
-        header('Refresh:0; url=php/call_stations.php');
+    function get_floorRequest(): int {
+        if(isset($_POST['floor1_up'])){
+            update_elevatorNetwork(1, 2); 
+            header('Refresh:0; url=php/call_stations.php');
+        }
+        else if(isset($_POST['floor2_up'])){
+            update_elevatorNetwork(1, 3); 
+            header('Refresh:0; url=php/call_stations.php');
+        }
+        else if(isset($_POST['floor2_down'])){
+            update_elevatorNetwork(1, 1); 
+            header('Refresh:0; url=php/call_stations.php');
+        }
+        else if(isset($_POST['floor3_down'])){
+            update_elevatorNetwork(1, 2); 
+            header('Refresh:0; url=php/call_stations.php');
+        }
+        return 0;
     }
     //$curFlr = get_currentFloor();
 ?>

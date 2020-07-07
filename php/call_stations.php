@@ -1,3 +1,7 @@
+<?php
+    require "elevator_control.php";
+?>
+
 <html lang="en">
     <head>
         <title>Call Stations</title>
@@ -77,7 +81,6 @@
                                 <h2>Current Floor</h2>
                                 <fieldset>
                                     <?php 
-                                        include "elevator_control.php"; 
                                         $curFlr = get_currentFloor();
                                         echo $curFlr;
                                     ?>
