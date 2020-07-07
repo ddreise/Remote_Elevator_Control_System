@@ -1,5 +1,6 @@
 <?php
     $submitted = !empty($_POST);
+    echo isset($_POST['floor1_up']);
     $floor1 = 1;
     $floor2 = 2;
     $floor3 = 3;
