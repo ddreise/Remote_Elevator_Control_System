@@ -1,12 +1,5 @@
 <?php
-    $submitted = !empty($_POST);
-    echo isset($_POST['floor1_up']);
-    $floor1 = 1;
-    $floor2 = 2;
-    $floor3 = 3;
-?>
-
-<?php 
+    
     // Get the current floor number. Adapted from Michael Galle's code
     function get_currentFloor(): int {
             try { $db = new PDO('mysql:host=127.0.0.1;dbname=projectVI','admin','raspberry');}
