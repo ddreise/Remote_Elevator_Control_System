@@ -137,11 +137,7 @@
                                     <fieldset>
                                         <legend>Floor 1</legend>
                                             <!--Up arrow button image-->
-                                            <input class="call_station_uparrow" name="floor1_up" type="image" src="../images/call_station_uparrow.png" value="floor1_up" alt="up_arrow" width="80"/>
-                                            <?php if(isset($_POST['floor1_up'])){
-                                                update_elevatorNetwork(1, 2); 
-                                                header('Refresh:0; url=php/call_stations.php');
-                                            }?>
+                                            <button class="call_station_uparrow" type="button" onclick="update_elevatorNetwork(1,2)"> <img src="../images/call_station_uparrow.png" alt="up_arrow" width="80"/></button>
                                     </fieldset>
                                 </section>
 
