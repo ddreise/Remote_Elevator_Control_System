@@ -1,5 +1,4 @@
 <?php
-    
     // Get the current floor number. Adapted from Michael Galle's code
     function get_currentFloor(): int {
             try { $db = new PDO('mysql:host=127.0.0.1;dbname=projectVI','admin','raspberry');}
@@ -29,10 +28,10 @@
 
     // Check for floor requests upon loading the page
     function get_floorRequest(): int {
-        if(isset($_POST['floor1_up'])){
+        if(array_key_exists('floor1_up',$_POST) {
             update_elevatorNetwork(1, 2); 
         }
-        else if(isset($_POST['floor2_up'])){
+     /*   else if(isset($_POST['floor2_up'])){
             update_elevatorNetwork(1, 3); 
         }
         else if(isset($_POST['floor2_down'])){
@@ -40,7 +39,7 @@
         }
         else if(isset($_POST['floor3_down'])){
             update_elevatorNetwork(1, 2); 
-        }
+        }*/
         header('Refresh:0; url=php/call_stations.php');
         return 0;
     }

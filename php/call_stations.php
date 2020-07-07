@@ -1,5 +1,6 @@
 <?php
     require "elevator_control.php";
+    get_floorRequest();
 ?>
 
 <html lang="en">
@@ -95,7 +96,7 @@
                 <iframe name="up_down_request" style="display:none;"></iframe> Prevents new window opening (along with target=
                 -->
                 <article>
-                    <form action="elevator_control.php" method="post" id="access" target="up_down_request">
+                    <form method="post" id="access">
                     <h2>Call Station Controls</h2>
                         <div class="row">
                             <div id="queue" class="col-md-3">
