@@ -14,14 +14,16 @@
 
     // Update the elevator network with the current target floor
     function update_elevatorNetwork(int $node_ID, int $new_floor): int {
-            $db1 = new PDO('mysql:host=127.0.0.1;dbname=projectVI','admin','raspberry');
-            $query = 'UPDATE elevatorNetwork 
-                            SET currentFloor = :floor
-                            WHERE nodeID = :id';
-            $statement = $db1->prepare($query);
-            $statement->bindvalue('floor', $new_floor);
-            $statement->bindvalue('id', $node_ID);
-            $statement->execute();  
+            try { $db = new PDO('mysql:host=127.0.0.1;dbname=projectVI','admin','raspberry');}
+            catch (PDOException $e){echo $e->getMessage();}
+            //$query = 'UPDATE elevatorNetwork 
+            //                SET currentFloor = :floor
+            //                WHERE nodeID = :id';
+            $db->query("UPDATE elevatorNetwork SET currentFloor=$new_floor WHERE nodeID=$node_ID");
+            //$statement = $db1->prepare($query);
+            //$statement->bindvalue('floor', $new_floor);
+            //$statement->bindvalue('id', $node_ID);
+            //$statement->execute();  
 
             return $new_floor;
     }
