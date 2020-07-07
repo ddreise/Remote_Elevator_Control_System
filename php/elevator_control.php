@@ -40,7 +40,7 @@
         else if(isset($_POST['floor3_down'])){
             update_elevatorNetwork(1, 2); 
         }*/
-        header('Refresh:0; url=php/call_stations.php');
+        header('Refresh:0; url=/php/call_stations.php');
         return 0;
     }
     //$curFlr = get_currentFloor();
