@@ -8,7 +8,7 @@
 <?php 
     // Get the current floor number. Adapted from Michael Galle's code
     function get_currentFloor(): int {
-            try { $db = new PDO('mysql:host=127.0.0.1;dbname=project-VI','admin','raspberry');}
+            try { $db = new PDO('mysql:host=127.0.0.1;dbname=projectVI','admin','raspberry');}
             catch (PDOException $e){echo $e->getMessage();}
 
                     // Query the database to display current floor
@@ -21,7 +21,7 @@
 
     // Update the elevator network with the current target floor
     function update_elevatorNetwork(int $node_ID, int $new_floor): int {
-            $db1 = new PDO('mysql:host=127.0.0.1;dbname=project-VI','admin','raspberry');
+            $db1 = new PDO('mysql:host=127.0.0.1;dbname=projectVI','admin','raspberry');
             $query = 'UPDATE elevatorNetwork 
                             SET currentFloor = :floor
                             WHERE nodeID = :id';
