@@ -1,51 +1,43 @@
+<?php
+	function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
+        $db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','Iloveschool24!');
+        $db1->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
+		$query = 'UPDATE elevatorNetwork SET currentFloor = :floor WHERE nodeID = :id';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('floor', $new_floor);
+		$statement->bindvalue('id', $node_ID);
+		$statement->execute();	
+		
+		return $new_floor;
+	}
+?>
 <?php 
-        function get_currentFloor(): int {
-                try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');}
-                catch (PDOException $e){echo $e->getMessage();}
+	function get_currentFloor(): int {
+		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','Iloveschool24!');}
+		catch (PDOException $e){echo $e->getMessage();}
 
-                        // Query the database to display current floor
-                        $rows = $db->query('SELECT currentFloor FROM elevatorNetwork');
-                        foreach ($rows as $row) {
-                                $current_floor = $row[0];
-                        }
-                        return $current_floor;
-        }
+            // Query the database to display current floor
+            $query = 'SELECT t1.*, t2.CAN_currentFloor FROM elevatorNetwork t1 LEFT JOIN CAN_subNetwork t2 ON t1.nodeID = t2.CAN_nodeID;';
+			$rows = $db->query($query);
+			foreach ($rows as $row) {
+				$current_floor = $row[0];
+			}
+			return $current_floor;
+	}
 ?>
 
-<!-- Function for sending new floor request -->
-<?php
-        function update_elevatorNetwork(int $node_ID, int $new_floor =1): int {
-                $db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ese','ese');
-                $query = 'UPDATE elevatorNetwork 
-                                SET currentFloor = :floor
-                                WHERE nodeID = :id';
-                $statement = $db1->prepare($query);
-                $statement->bindvalue('floor', $new_floor);
-                $statement->bindvalue('id', $node_ID);
-                $statement->execute();  
-
-                return $new_floor;
-        }
-?>
-
-<?php
-                                        if(isset($_POST['newfloor'])) {
-                                                $curFlr = update_elevatorNetwork(1, $_POST['newfloor']);
-                                                header('Refresh:0; url=index.php');
-                                        }
-                                        $curFlr = get_currentFloor();
-                                        echo "<h2>Current floor # $curFlr </h2>";
-                                    ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
     <head>
         <title>Call Stations</title>
-        <meta name="description" content="This is the Request Access page" />
+        <meta name="description" content="This is the Call Stations page" />
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
         <meta http-equiv="author" content="Daniel Dreise" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+        <meta charset="utf-8">
         
         <!-- For Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,7 +47,8 @@
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
 
-    <body>
+    <body >
+
         <div id="page" class="container">
             <header>
                 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
@@ -118,13 +111,22 @@
                                 <h2>Current Floor</h2>
                                 <fieldset>
                                     <!--Get data from server regarding current car location-->
-                                    <p>Under construction</p>
-                       
-                               
-                                    <form action="call_stations.php" method="POST">
-                                        Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
-                                        <input type="submit" value="Go"/>
-                                    </form>
+                                    <!--<h2 id="floor"></h2>-->
+                                    <?php 
+                                        if(isset($_POST['newfloor'])) {
+                                            $curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
+                                            header('Refresh:0; url=call_stations.php');	
+                                        } 
+                                        $curFlr = get_currentFloor();
+                                        echo "<h2>Current floor # $curFlr </h2>";			
+                                    ?>	
+
+                                    <h2> 	
+                                        <form action="call_stations.php" method="POST">
+                                            Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
+                                            <input type="submit" value="Go"/>
+                                        </form>
+                                    </h2>
                                 </fieldset>
                             </div>
                         </div>
@@ -136,38 +138,55 @@
                 <iframe name="up_down_request" style="display:none;"></iframe> Prevents new window opening (along with target=
                 -->
                 <article>
+                    <!-- <form action="php/call_stations.php" method="post" id="access" target="up_down_request"> -->
                     <h2>Call Station Controls</h2>
                         <div class="row">
-                            <div id="queue" class="col-md-3">
+                            <div id="queue" class="col-md-4">
                                 <p>This space reserved for call queue</p>
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <p>This space reserved for elevator position image</p>
                             </div>
 
-                            <div class="col-md-3">
-                                <p>This space reserved for call station door images</p>
-                            </div>
-
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                             
                                 <section>
                                     <fieldset>
-                                        <legend>Floor 3</legend>        
-                                            <!--Down arrow button image-->
-                                            <input id="floor3_down" class="call_station_downarrow" name="floor3_down" type="image" src="images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                        <legend>Floor 3</legend>     
+                                            <div class="row">
+                                                <div class = "col-md-6">
+                                                    <span class="elevator_door3"></span>
+                                                </div>
+
+                                                <!--Up arrow button image-->
+                                                <div class="col-mid-6">
+                                                    <!--Down arrow button image-->
+                                                    <input id="floor3_down" class="down_arrow" type="submit" name="floor3_down" value="" alt="down_arrow" />
+                                                </div>
+                                            
+                                            </div>
                                     </fieldset>
                                 </section>
         
                                 <section>
                                     <fieldset>
                                         <legend>Floor 2</legend>
-                                            <!--Up arrow button image-->
-                                            <input id="floor2_up" class="call_station_uparrow" name="floor2_up" type="image" src="images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/><br>
-        
-                                            <!--Down arrow button image-->
-                                            <input id="floor2_down"class="call_station_downarrow" name="floor2_down" type="image" src="images/call_station_downarrow.png" value="DOWN" alt="down_arrow" width="80"/>
+                                            <div class="row">
+                                                <div class = "col-md-6">
+                                                    <span class="elevator_door2"></span>
+                                                </div>
+
+                                                <!--Up arrow button image-->
+                                                <div class="col-mid-6">
+                                                    <input id="floor2_up" class="up_arrow" type="button" name="floor2_up" value="" alt="up_arrow" /><br>
+            
+                                                    <!--Down arrow button image-->
+                                                    <input id="floor2_down" class="down_arrow" type="button" name="floor2_down" value="" alt="down_arrow" />
+                                                </div>
+                                               
+                                            </div>
+                                  
                                     </fieldset>
                                 </section>
         
@@ -175,8 +194,17 @@
                                 <section> 
                                     <fieldset>
                                         <legend>Floor 1</legend>
-                                            <!--Up arrow button image-->
-                                            <input id="floor1_up" class="call_station_uparrow" name="floor1_up" type="image" src="images/call_station_uparrow.png" value="UP" alt="up_arrow" width="80"/>
+                                            <div class="row">
+                                                <div class = "col-md-6">
+                                                    <span class="elevator_door1"></span>
+                                                </div>
+
+                                                <!--Up arrow button image-->
+                                                <div class="col-mid-6">
+                                                    <input id="floor1_up" class="up_arrow" type="button" name="floor1_up" value="" alt="up_arrow" /><br>
+                                                </div>
+                                            
+                                            </div>
                                     </fieldset>
                                 </section>
 
@@ -187,19 +215,24 @@
                  
                         </div>
         
+                  <!--  </form> -->
                 </article> 
             </div>
 
             <footer>
                 <p>&copy; Daniel Dreise</p>
+                <a href="http://www.freepik.com">Elevator Picture: Designed by macrovector / Freepik</a>
+
             </footer>
         </div>
 
         <!-- jQuery & JS -->
+
+        <script src="../js/call_stations.js"></script>
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-        <script src="js/call_stations.js"></script>
 
     </body>
 </html>

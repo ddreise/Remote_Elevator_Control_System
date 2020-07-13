@@ -18,8 +18,8 @@ function showFloor() {
         }
     };
 
-    xmlhttpShow.open ("GET", "test.txt", true);          // access PHP file for information
-    xmlhttpShow.send();                                                     // Send request
+    xmlhttpShow.open ("GET", "php/call_stations.php?q=", true);          // access PHP file for information
+    xmlhttpShow.send();                                                  // Send request
 }
 
 function showFloorInterval(millisec) {
