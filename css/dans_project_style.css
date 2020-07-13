@@ -1,5 +1,10 @@
 /* Project stylesheet for the entire project webpage */
 
+html
+{
+    min-height: 100%;
+}
+
 /* Display menu horizontally */
 li.h_menu {display: inline}
 
@@ -43,18 +48,67 @@ tr:nth-child(even) {
 
 /* Center body on page with border */
 body {
-    width: 950px; 
+    /*width: 950px; /* seems to break the responsive design */ 
     border: 2px solid black; 
-    padding: 10px 30px; 
+    /*padding: 10px 30px; */
     overflow: scroll; 
-    margin: auto;
-    padding-top: 60px;
+    margin: 80px 10px 0px 10px;
+    /*padding-top: 60px; /* trying by adjusting margin instead */
+
+    background: linear-gradient(rgb(96,117,199), rgb(87, 66, 133));
+    background-repeat: no-repeat;
+
+}
+
+.jumbotron
+{
+    background: radial-gradient(whitesmoke, darkgray)!important;
+}
+
+button
+{
+    background: radial-gradient(slategray, darkslategray)
+}
+
+a, button.btn.btn-link
+{
+    color: whitesmoke!important;
+}
+
+a:hover
+{
+    color: gray;
+}
+
+div.dropdown-menu.show
+{
+    background-color: #404037;
+}
+
+div.card
+{
+    background-color: darkgray!important;
+}
+
+section
+{
+    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* So navbar doesn't cover top of page content */
-@media (max-width:979px){
+@media (max-width:971px){
     body{
-        padding-top:0px;
+        margin-top: 105px;
+        /*padding-top: 0px; /* breaks with lower widths */
+    }
+}
+
+@media (max-width:575px)
+{
+    body
+    {
+        margin-top: 70px;
     }
 }
 
@@ -81,7 +135,7 @@ body {
 
 /* Divided blocks padding */
 div {
-    padding:    10px 0px;
+    padding: 10px 0px;
 }
 
 /* Legend formatting */
@@ -166,7 +220,7 @@ img {
 }
 */
 
-#queue {
+#queue, #div-diagnostic {
     border: 2px solid black; 
 
 }
