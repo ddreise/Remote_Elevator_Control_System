@@ -3,7 +3,7 @@ var $floor2_up = document.getElementById("floor2_up");
 var $floor2_down = document.getElementById("floor2_down");
 var $floor3_down = document.getElementById("floor3_down"); */
 
-var elfloor = document.getElementById("current_floor");
+//var elfloor = document.getElementById("current_floor");
 
 
 // Function to get the current floor number
@@ -18,8 +18,8 @@ function showFloor() {
         }
     };
 
-    xmlhttpShow.open ("GET", "php/call_stations.php?q=", true);          // access PHP file for information
-    xmlhttpShow.send();                                                  // Send request
+    xmlhttpShow.open ("GET", "php/show_floor.php?q=", true);          // access PHP file for information
+    xmlhttpShow.send();                                               // Send request
 }
 
 function showFloorInterval(millisec) {
@@ -28,7 +28,7 @@ function showFloorInterval(millisec) {
 
 
 window.addEventListener("load", function() {showFloorInterval(3000)}, false);
-elfloor.addEventListener("click", function() {showFloor()}, false);
+//elfloor.addEventListener("click", function() {showFloor()}, false);
 
 
 

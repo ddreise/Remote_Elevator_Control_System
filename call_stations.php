@@ -3,31 +3,20 @@
         $db1 = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','Iloveschool24!');
         $db1->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-		$query = 'UPDATE elevatorNetwork SET currentFloor = :floor WHERE nodeID = :id';
+		$query = 'UPDATE CAN_subNetwork SET CAN_currentFloor = :floor WHERE CAN_nodeID = :id';
 		$statement = $db1->prepare($query);
 		$statement->bindvalue('floor', $new_floor);
 		$statement->bindvalue('id', $node_ID);
 		$statement->execute();	
 		
 		return $new_floor;
-	}
+    }
+    
+    if(isset($_POST['newfloor'])) {
+        $curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
+        header('Refresh:0; url=call_stations.php');	
+    } 
 ?>
-<?php 
-	function get_currentFloor(): int {
-		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','Iloveschool24!');}
-		catch (PDOException $e){echo $e->getMessage();}
-
-            // Query the database to display current floor
-            $query = 'SELECT t1.*, t2.CAN_currentFloor FROM elevatorNetwork t1 LEFT JOIN CAN_subNetwork t2 ON t1.nodeID = t2.CAN_nodeID;';
-			$rows = $db->query($query);
-			foreach ($rows as $row) {
-				$current_floor = $row[0];
-			}
-			return $current_floor;
-	}
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en" >
@@ -47,7 +36,7 @@
         <link href="css/dans_project_style.css" type="text/css" rel="stylesheet" />
     </head>
 
-    <body >
+    <body onload='showFloorInterval(3000)'>
 
         <div id="page" class="container">
             <header>
@@ -111,22 +100,23 @@
                                 <h2>Current Floor</h2>
                                 <fieldset>
                                     <!--Get data from server regarding current car location-->
-                                    <!--<h2 id="floor"></h2>-->
+                                    <h2 id="floor"></h2>
+                                    <!--
                                     <?php 
-                                        if(isset($_POST['newfloor'])) {
+                                      /*   if(isset($_POST['newfloor'])) {
                                             $curFlr = update_elevatorNetwork(1, $_POST['newfloor']); 
                                             header('Refresh:0; url=call_stations.php');	
                                         } 
                                         $curFlr = get_currentFloor();
-                                        echo "<h2>Current floor # $curFlr </h2>";			
+                                        echo "<h2>Current floor # $curFlr </h2>"; */			
                                     ?>	
+                                    <
 
-                                    <h2> 	
-                                        <form action="call_stations.php" method="POST">
-                                            Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
-                                            <input type="submit" value="Go"/>
-                                        </form>
-                                    </h2>
+                                    -->
+                                    <form action="call_stations.php" method="POST">
+				                        Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
+				                        <input type="submit" value="Go"/>
+			                        </form>
                                 </fieldset>
                             </div>
                         </div>
@@ -228,7 +218,7 @@
 
         <!-- jQuery & JS -->
 
-        <script src="../js/call_stations.js"></script>
+        <script src="js/show_floor.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
