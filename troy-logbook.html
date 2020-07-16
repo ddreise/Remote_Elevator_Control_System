@@ -283,7 +283,7 @@
 					<li>My goal from this point is to continue my work, having realized some of the very basic errors I made last week, and I hope to have a page on the website that can write to and read from MySQL by this time next week.</li>
 				</ul>
 
-				<h id="week9">Week 8</h><br/>
+				<h id="week9">Week 9</h><br/>
 				<b>
 					<h>July 13th, 2020</h>
 					<hr/>
@@ -293,6 +293,85 @@
 					<li>Once I had the current floor indicator seemingly working, I managed to get side-tracked trying to work on the call buttons, having completely forgotten about the fact that A. I needed to use Ajax, and B. Dan was already working on that.</li>
 					<li>I was suppose to be working on the CAN side of things to begin reading from the elevator nodes and updating our table from that end, but after my programming sessions last week, midterms and work-related obligations filled up the rest of my schedule.</li>
 					<li>Having wasted more time on the call buttons, I'm afraid I'm behind from where I wanted to be by this point. I'll start looking into the Pi/CAN communications following this week's debrief.</li>
+				</ul>
+
+				<b>
+					<h>July 16th, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>Attempting to log into the pi to begin testing communications between CAN and MySQL, but the pi is still offline. I'll contact Michael and see what he has to say.</li>
+					<li>Michael managed to restart the pi by connecting through the college VPN and using it's private IP. I'm connected once again and I'll begin by looking into how the example code interacts with the CAN bus.</li>
+					<li>I realize that up until this point we've needed to log into the pi separtely to interact with the CAN functions and turn on the listener program, but I'm considering working out a way for us to have that level of control without SSHing in.</li>
+					<li>Perhaps if I can come up with a separate script that runs as the Pi boots, and listens for our menu selection to come in from MySQL.</li>
+					<li>Looking at the elevator demo loop, there are four options, Send message, Receive message, enable automatic loop, and enable manual control. The Send Message function doesn't make much sense to me, since it only allows the user to send "Go to floor X", but it can send that to all nodes, despite the fact that only one moves the elevator...</li>
+					<li>From the Project VI CAN Protocol document: <br/>
+						<h2>Supervisory Controller (CAN ID: 0x100, Ref: "SC")</h2>
+						<ul>
+							<li>Raspberry Pi based</li>
+							<li>Bridges LAN and CAN network via PEAK USB/CAN Adapter</li>
+							<li>Receives it's commands (floor requests) from Floor 1, 2, and 3 controllers, Car controller and Wen server</li>
+							<li>Sends commands to Elevator controller</li>
+							<li>Implements a state machine</li>
+						</ul>
+						<h2>Elevator Controller (CAN ID: 0x101, Ref: "EC")</h2>
+						<ul>
+							<li>Accepts commands only from the Supervisory Controller</li>
+							<li>Controls Elevator Car position via servo amp</li>
+							<li>Reports Elevator car floor state/position on CAN network based on input from the positon sensor</li>
+						</ul>
+						<h2>Car Controller (CAN ID: 0x200, Ref: "CC")</h2>
+						<ul>
+							<li>Sends floor call requests (and possibly door state) on CAN network to the Supervisory Controller</li>
+							<li>Receives floor state on CAN network</li>
+						</ul>
+						<h2>Floor Controllers (CAN ID: 0x201, 0x202, 0x203, Ref: "F1, F2, F3")</h2>
+						<ul>
+							<li>Send floor call requests over CAN network to the Supervisory Controller</li>
+							<li>Receives floor state on CAN network</li>
+						</ul>
+					</li>
+					<li>According to documentation, we can: <br/>
+						<ol>
+							<li>Enable/Disable the elevator (SC_Enable)</li>
+							<li>Request a floor (SC_FloorReq)</li>
+							<li>Request the elevator's status (EC_Status)</li>
+							<li>Broadcast the floor number of the car (EC_Pos)</li>
+							<li>Request a floor from the car (CC_FloorReq)</li>
+							<li>Request the car from any floor (F#_FloorReq)</li>
+						</ol>
+					</li>
+					<li>Looking into the main function for transmitting signals to the CAN bus, we can use IDvalues to communicate between specific nodes: <br/>
+						<ol>
+							<li>ID_SC_TO_EC (0x100)</li>
+							<li>ID_EC_TO_ALL(0x101)</li>
+							<li>ID_CC_TO_SC (0x200)</li>
+							<li>ID_F1_TO_SC (0x201)</li>
+							<li>ID_F2_TO_SC (0x202)</li>
+							<li>ID_F3_TO_SC (0x203)</li>
+						</ol>
+					</li>
+					<li>Along with a given ID we can submit a hex code to perform the functions listed above. By default, the transmit function supports: <br/>
+						<ol>
+							<li>ID_SC_TO_EC, GO_TO_FLOOR1 (0x05)</li>
+							<li>ID_SC_TO_EC, GO_TO_FLOOR2 (0x06)</li>
+							<li>ID_SC_TO_EC, GO_TO_FLOOR3 (0x07)</li>
+						</ol>
+						Which is why, despite the fact that not all nodes interact with the car, we still have these options - they're the only that are supported.
+					</li>
+					<li>In theory, we should also be able to add the remaining functions accordingly: <br/>
+						<ol>
+							<li>ID_SC_TO_EC, ELEVATOR_ENABLE (0x00), ELEVATOR_DISABLE (0x04)</li>
+							<li>ID_EC_TO_ALL, ELEVATOR_STATUS (0x04), REPORT_FLOOR1 (0x05), REPORT_FLOOR2 (0x06), REPORT_FLOOR3 (0x07)</li>
+							<li>ID_CC_TO_SC, CAR_BUTTON1 (0x01/0x05), CAR_BUTTON2 (0x02/0x06), CAR_BUTTON3 (0x03/0x07)</li>
+							<li>ID_F1_TO_SC, FLOOR1_BUTTON (0x01)</li>
+							<li>ID_F2_TO_SC, FLOOR2_BUTTON (0x01)</li>
+							<li>ID_F3_TO_SC, FLOOR3_BUTTON (0x01)</li>
+						</ol>
+						We would also need to include a message return to the send menu to allow the options that include reports (i.e. Elevator Status: Enabled/Disabled) to be seen.
+					</li>
+					<li>The receive message option just returns whatever message is active on the bus, and should be sufficient as is.</li>
+					<li>Once the added definitions are implemented, we could have the CAN listener always active, and the elevator could be listening for ELEVATOR_ENABLE and subsequent control commands.</li>
 				</ul>
 			</div>
 
