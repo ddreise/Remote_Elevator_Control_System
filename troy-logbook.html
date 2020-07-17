@@ -373,6 +373,17 @@
 					<li>The receive message option just returns whatever message is active on the bus, and should be sufficient as is.</li>
 					<li>Once the added definitions are implemented, we could have the CAN listener always active, and the elevator could be listening for ELEVATOR_ENABLE and subsequent control commands.</li>
 				</ul>
+
+				<b>
+					<h>July 17th, 2020</h>
+					<hr/>
+				</b>
+				<ul>
+					<li>I lost some progress from last night that I had to recreate this morning. I suppose I must not have saved my last few changes before going to bed - fortunately it wasn't much to fix and the majority of my changes to the RPi code was still there.</li>
+					<li>I made a separate repo for the RPi stuff so I can update it separately from the front end. Also, I can perform back-end changes in a proper text editor and just have the pi pull my updates when ready.</li>
+					<li>Something I also decided on last night that didn't get saved is that I intend on having all commands return information to the MySQL database so it can be read and displayed on the front end if we want.</li>
+					<li>With my new code on the pi, I want to be able to test the new functions individually, so I'm going to start looking into MySQL and prepare a table for diagnostics information.</li>
+				</ul>
 			</div>
 
 			<footer>
