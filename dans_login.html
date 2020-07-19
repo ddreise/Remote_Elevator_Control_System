@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 9]>
+<script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+<![endif] -->
+
+<html lang="en">
+
+    <head>
+        <title>Login</title>
+        <meta name="description" content="This is the Login page" />
+        <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
+        <meta http-equiv="author" content="Daniel Dreise" />
+        <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+
+        <link href="css/project_style.css" type="text/css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+        <form action="php/dans_login.php" method="post">
+            <h2>Login</h2>
+            <p>Username: <input type="text" name="username" /> </p>
+            <p>Password: <input type="password" name="password" required/> </p>
+            <input type="submit" value="Log In" />
+            <p><a href="request_access.html" id="request_access">Request Access</a></p>
+        </form>
+
+        <p>&copy; Daniel Dreise</p>
+        
+    </body>
+
+    
+</html> 
