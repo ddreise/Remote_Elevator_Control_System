@@ -368,10 +368,11 @@
 							<li>ID_F2_TO_SC, FLOOR2_BUTTON (0x01)</li>
 							<li>ID_F3_TO_SC, FLOOR3_BUTTON (0x01)</li>
 						</ol>
-						We would also need to include a message return to the send menu to allow the options that include reports (i.e. Elevator Status: Enabled/Disabled) to be seen.
+						We would also need to include a return message to the send menu to allow the options that include reports (i.e. Elevator Status: Enabled/Disabled) to be seen.
 					</li>
 					<li>The receive message option just returns whatever message is active on the bus, and should be sufficient as is.</li>
 					<li>Once the added definitions are implemented, we could have the CAN listener always active, and the elevator could be listening for ELEVATOR_ENABLE and subsequent control commands.</li>
+					<li>In place of having return messages printed to the local terminal, it may be simplier and quicker to have responses sent to a table in MySQL. That way, it'll already be implemented for connection to the front end.</li>
 				</ul>
 
 				<b>
