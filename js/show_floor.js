@@ -1,8 +1,3 @@
-/* var $floor1_up = document.getElementById("floor1_up");
-var $floor2_up = document.getElementById("floor2_up");
-var $floor2_down = document.getElementById("floor2_down");
-var $floor3_down = document.getElementById("floor3_down"); */
-
 //var elfloor = document.getElementById("current_floor");
 
 

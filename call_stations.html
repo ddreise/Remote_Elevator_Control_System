@@ -6,6 +6,7 @@
         <meta name="robots" content="noindex nofollow" /> <!-- do not want page/links to be indexed-->
         <meta http-equiv="author" content="Daniel Dreise" />
         <meta http-equiv="pragma" content="no-cache" /> <!-- want browser to not store cache -->
+        <meta charset="utf-8">
         
         <!-- For Bootstrap -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +17,7 @@
     </head>
 
     <body onload='showFloorInterval(3000)'>
+
         <div id="page" class="container">
             <header>
                 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
@@ -79,6 +81,11 @@
                                 <fieldset>
                                     <!--Get data from server regarding current car location-->
                                     <h2 id="floor"></h2>
+    
+                                    <form action="call_stations.php" method="POST">
+				                        Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
+				                        <input type="submit" value="Go"/>
+			                        </form>
                                 </fieldset>
                             </div>
                         </div>
@@ -180,7 +187,8 @@
 
         <!-- jQuery & JS -->
 
-        <script src="js/call_stations.js"></script>
+        <script src="js/show_floor.js"></script>
+        <script src="js/update_elevatorNetwork.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
