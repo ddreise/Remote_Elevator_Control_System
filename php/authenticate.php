@@ -1,5 +1,3 @@
-
-
 <?php
     //SESSIONS
     session_start(); // Starts a session and creates a session variable
@@ -17,21 +15,31 @@
             if($logins["username"] == $username) {
                 $usernameExists = 1;
                 if($logins["password"] != $password) {
-                    echo "<p>The password you have entered is incorrect.</p>";
-                    echo "Click <a href='index.php'>here</a> to try in again.";
+                    //echo "<p>The password you have entered is incorrect.</p>";
+                    //echo "Click <a href='../login.html'>here</a> to try in again.";
+                    //echo "<script>alert('The password you have entered is incorrect.');</script>";
+                    //echo "<script>window.location.replace('../login.html');</script>";
+                    //header("Location: ../login.html");
                 } else {
-                    echo "<p>Congratulations, you are now logged into the site.</p>";
-                    echo "<p>Please click <a href=\"member.php\">here</a> to be taken to our members only page.</p>";
+                    //echo "<p>Congratulations, you are now logged into the site.</p>";
+                    //echo "<p>Please click <a href=\"member.php\">here</a> to be taken to our members only page.</p>";
+                    header("Location: ../call_stations.html");
                 }
             }
         }
         if($usernameExists == 0) {
-            echo "<p>The username you have entered does not exist.</p>";
-            echo "Click <a href='index.php'>here</a> to try in again.";
+            //echo "<p>The username you have entered does not exist.</p>";
+            //echo "Click <a href='../login.html'>here</a> to try in again.";
+            //echo "<script>alert('The username you have entered does not exist.');</script>";
+            //echo "<script>window.location.replace('../login.html');</script>";
+            //header("Location: ../login.html");
         }
     } else {
-        echo "<p>Please enter a username and password.</p>";
-        echo "Click <a href='index.php'>here</a> to try in again.";
+        //echo "<p>Please enter a username and password.</p>";
+        //echo "Click <a href='../login.html'>here</a> to try in again.";
+        //echo "<script>alert('Please enter a username and password.');</script>";
+        //echo "<script>window.location.replace('../login.html');</script>";
+        //header("Location: ../login.html");
     }
 
     //COOKIES

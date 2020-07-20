@@ -1,4 +1,14 @@
 <?php
+    session_start();
+
+    if(!isset($_SESSION['username'])) {
+        header("Location: ../index.html");
+    } else {
+        header("Location: ../call_stations.html");
+    }
+?>
+
+<?php
     $submitted = !empty($_POST);
     $floor1 = 1;
     $floor2 = 2;
