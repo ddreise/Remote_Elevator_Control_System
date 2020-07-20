@@ -8,7 +8,9 @@
         // Add 'members only' content here
         echo "<p>Members only content - for your eyes only</p>";
 
-        echo "Click to <a href='logout.php'>Logout</a>";
+        echo "<p>Click <a href='call_stations.php'>here</a> to go to the Elevator GUI.</p>";
+
+        echo "<p>Click to <a href='logout.php'>Logout</a></p>";
     } else {
         echo "<p>You must be logged in!</p>";
     }
