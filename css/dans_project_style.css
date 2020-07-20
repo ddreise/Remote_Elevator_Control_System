@@ -49,45 +49,47 @@ tr:nth-child(even) {
 /* Center body on page with border */
 body {
     /*width: 950px; /* seems to break the responsive design */ 
-    border: 2px solid black; 
+    /*border: 2px solid black; */
     /*padding: 10px 30px; */
     overflow: scroll; 
     margin: 80px 10px 0px 10px;
     /*padding-top: 60px; /* trying by adjusting margin instead */
 
     background: linear-gradient(rgb(96,117,199), rgb(87, 66, 133));
+    background: linear-gradient(white 94%, black);
     background-repeat: no-repeat;
 
 }
 
 .jumbotron
 {
-    background: radial-gradient(whitesmoke, darkgray)!important;
+    /*background: radial-gradient(whitesmoke, darkgray)!important;*/
+    background-color: gainsboro;
 }
 
 button
 {
-    background: radial-gradient(slategray, darkslategray)
+    /*background: radial-gradient(slategray, darkslategray)*/
 }
 
 a, button.btn.btn-link
 {
-    color: whitesmoke!important;
+    /*color: whitesmoke;*/
 }
 
 a:hover
 {
-    color: gray;
+    /*color: gray;*/
 }
 
 div.dropdown-menu.show
 {
-    background-color: #404037;
+    /*background-color: #404037;*/
 }
 
 div.card
 {
-    background-color: darkgray!important;
+    /*background-color: darkgray;*/
 }
 
 section
