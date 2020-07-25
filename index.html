@@ -30,7 +30,7 @@
     <body>
         <div class="container-fluid" id="page">
             <header>
-                <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                     <!-- Enable navbar buttons-->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -71,6 +71,15 @@
                             <li class="h_menu nav-item"><a class="menu nav-link" href="videos.html">Videos</a></li>
                             <li class="h_menu nav-item"><a class="menu nav-link" href="#">Documents</a></li>
                             <li class="h_menu nav-item"><a class="menu nav-link" href="php/call_stations.php">Elevator GUI</a></li>
+                        </ul>
+                        <ul id="menu-profile" class="navbar-nav navbar-right">
+                            <li class="h_menu nav-item dropdown">
+                                <a class="menu nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+                                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                                    <a class="dropdown-item" href="login.html">Login</a>
+                                    <a class="dropdown-item" href="php/logout.php">Logout</a>
+                                </div>
+                            </li>
                         </ul>
                     </div>        
                 </nav>
