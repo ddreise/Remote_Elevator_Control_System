@@ -4,42 +4,30 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $loginsJSON = file_get_contents('../JSON/userlogins.json');
-    $loginsArray = json_decode($loginsJSON, true);
-
-    $usernameExists = 0;
-
-    if($username&&$password) {
-        $_SESSION['username'] = $username;
-        foreach($loginsArray as $logins) {
-            if($logins["username"] == $username) {
-                $usernameExists = 1;
-                if($logins["password"] != $password) {
-                    //echo "<p>The password you have entered is incorrect.</p>";
-                    //echo "Click <a href='../login.html'>here</a> to try in again.";
-                    //echo "<script>alert('The password you have entered is incorrect.');</script>";
-                    //echo "<script>window.location.replace('../login.html');</script>";
-                    //header("Location: ../login.html");
-                } else {
-                    //echo "<p>Congratulations, you are now logged into the site.</p>";
-                    //echo "<p>Please click <a href=\"member.php\">here</a> to be taken to our members only page.</p>";
-                    header("Location: ../call_stations.html");
-                }
+    if($username && $password) {
+        // Connect to database
+        $db = new PDO(
+            'mysql:host=127.0.0.1;dbname=elevator' ,    // Database name
+            'ese',                                     // Username
+            'ese'                                      // Password
+        );
+        // Query the authorizedUsers table
+        $authenticateted = FALSE;
+        $rows = $db->query('SELECT * FROM authorizedUsers ORDER BY id');
+        foreach($rows as $row) {
+            if ($username == $row[1] && $password == $row[2]) {
+                $authenticateted = TRUE;
             }
         }
-        if($usernameExists == 0) {
-            //echo "<p>The username you have entered does not exist.</p>";
-            //echo "Click <a href='../login.html'>here</a> to try in again.";
-            //echo "<script>alert('The username you have entered does not exist.');</script>";
-            //echo "<script>window.location.replace('../login.html');</script>";
-            //header("Location: ../login.html");
+        if($authenticateted == TRUE) {
+            $_SESSION['username']=$username;    // Store a session variable
+            //echo "<p>Congratulations, you are now logged into the site.</p>";
+            //echo "<p>Please click <a href=\"member.php\">here</a> to be taken to our memers only page </p>";
+            header("Location: ../call_stations.html");
+        } else {
+            //echo "<p>You are not authenticated</p>";
+            //echo "Please check your username and password and click <a href='login.html'>here</a> to log in again.";
         }
-    } else {
-        //echo "<p>Please enter a username and password.</p>";
-        //echo "Click <a href='../login.html'>here</a> to try in again.";
-        //echo "<script>alert('Please enter a username and password.');</script>";
-        //echo "<script>window.location.replace('../login.html');</script>";
-        //header("Location: ../login.html");
     }
 
     //COOKIES
