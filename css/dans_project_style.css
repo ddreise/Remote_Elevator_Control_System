@@ -94,6 +94,15 @@ section
 {
     background-color: #FFF;
     background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+article{
+    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px 30px;
+    border-radius: 5px;
 }
 
 /* So navbar doesn't cover top of page content */
@@ -141,8 +150,7 @@ div {
 
 /* Legend formatting */
 legend {
-    color: white;
-    font-weight: bold;
+    color: lightgray;
     background-color: slategray;
     border-radius: 5px;
     text-align: center;
@@ -241,8 +249,9 @@ img {
     border-radius:25px;
 }
 
-#queue, #div-diagnostic {
+#queue_section, #div-diagnostic, #car_position_section, #station_button_section, #car_button_section {
     border: 2px solid black; 
+    border-style: groove;
 
 }
 
@@ -253,8 +262,55 @@ img {
     display: inline-block;
 }
 
+
 .elevator_door_open1, .elevator_door_open2, .elevator_door_open3 {
     width: 81px; height: 108px;
     background: url('css_sprites.png') -113px -10px;
     display: inline-block;
+}
+
+/* Generated buttons for car */
+/* Reference: https://cssbuttongenerator.com/ */
+.car_buttons {
+	-moz-box-shadow: 2px 2px 0px 0px #bdbdbd;
+	-webkit-box-shadow: 2px 2px 0px 0px #bdbdbd;
+	box-shadow: 2px 2px 0px 0px #bdbdbd;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c4c4c4), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #c4c4c4 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4c4c4', endColorstr='#dfdfdf');
+	background-color:#c4c4c4;
+	-webkit-border-top-left-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	-moz-border-radius-topright:10px;
+	border-top-right-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	-moz-border-radius-bottomright:10px;
+	border-bottom-right-radius:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	border-bottom-left-radius:10px;
+text-indent:0;
+	border:1px solid #4a4a4a;
+	display:inline-block;
+	color:#424242;
+	font-family:Arial;
+	font-size:30px;
+	font-weight:normal;
+	font-style:normal;
+height:70px;
+	line-height:70px;
+width:80px;
+	text-decoration:none;
+	text-align:center;
+}.car_buttons:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #c4c4c4) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #c4c4c4 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#c4c4c4');
+	background-color:#dfdfdf;
+}.car_buttons:active {
+	position:relative;
+    top:1px;
+    background-color: lightgreen;
 }

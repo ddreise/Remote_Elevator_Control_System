@@ -80,16 +80,8 @@
                     <section>
                         <div class="row">
                             <div class="col-xs">
-                                <h2>Current Floor</h2>
-                                <fieldset>
-                                    <!--Get data from server regarding current car location-->
-                                    <h2 id="floor"></h2>
-    
-                                    <form action="call_stations.php" method="POST">
-				                        Request floor # <input type="number" style="width:50px; height:40px" name="newfloor" max=3 min=1 required />
-				                        <input type="submit" value="Go"/>
-			                        </form>
-                                </fieldset>
+                                <h2>Current Floor:</h2>
+                                <h2 id="floor">...fetching</h2>
                             </div>
                         </div>
                     </section>
@@ -103,15 +95,23 @@
                     <!-- <form action="php/call_stations.php" method="post" id="access" target="up_down_request"> -->
                     <h2>Call Station Controls</h2>
                         <div class="row">
-                            <div id="queue" class="col-md-4">
-                                <p>This space reserved for call queue</p>
+                            <div id="queue_section" class="col-md-4">
+                                <h4>Queue</h4>
+                                <p id="queue"></p>
                             </div>
 
-                            <div class="col-md-4">
-                                <p>This space reserved for elevator position image</p>
+                            <div id="car_button_section" class="col-md-4">
+                                <fieldset>
+                                    <h4>Elevator Car Controls</h4>
+                                    <input id="car_button1" class="car_buttons" type="submit" name="car_button1"  value="1" alt="car_button1"/>
+                                    <input id="car_button2" class="car_buttons" type="submit" name="car_button2"  value="2" alt="car_button2"/>
+                                    <input id="car_button3" class="car_buttons" type="submit" name="car_button3"  value="3" alt="car_button3"/>
+                                </fieldset>
+                        
                             </div>
 
-                            <div class="col-md-4">
+                            <div id="station_button_section" class="col-md-4">
+                                <h4>Call Station Controls</h4>
                             
                                 <section>
                                     <fieldset>
@@ -169,10 +169,6 @@
                                             </div>
                                     </fieldset>
                                 </section>
-
-                                <section>
-
-                                </section>
                             </div>
                  
                         </div>
@@ -208,6 +204,7 @@
         <!-- jQuery & JS -->
 
         <script src="js/show_floor.js"></script>
+        <script src="js/show_queue.js"></script>
         <script src="js/update_elevatorNetwork.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

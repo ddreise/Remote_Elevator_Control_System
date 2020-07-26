@@ -16,6 +16,8 @@
 <?php
 
     $currentFloor = get_currentFloor();
-    echo $currentFloor;
+	echo $currentFloor;
+	
+	
 
 ?>
