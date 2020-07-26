@@ -1,8 +1,8 @@
 var elUsername = document.getElementById('username');
 var elPassword = document.getElementById('password');
 var elMsg = document.getElementById('feedback');
-var elForm = document.getElementById('login');
-var elSubmit = document.getElementById('test');
+//var elForm = document.getElementById('login');
+//var elSubmit = document.getElementById('test');
 
 // Event Listener - Checks if username or password is a certain length
 function checkUsername(minLength) {
@@ -38,7 +38,7 @@ function setup() {
 window.addEventListener('load', setup, false);
 
 
-
+/*
 elForm.addEventListener('submit', function(event) {
     checkPassword(7);
     checkUsername(7);
@@ -86,3 +86,4 @@ function checkUsers(event) {
 elSubmit.addEventListener('click', function(event) {
     checkUsers(event);
 }, false);
+*/
