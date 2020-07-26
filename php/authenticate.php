@@ -27,6 +27,7 @@
         } else {
             //echo "<p>You are not authenticated</p>";
             //echo "Please check your username and password and click <a href='login.html'>here</a> to log in again.";
+            header("Location: ../login.html");
         }
     }
 
