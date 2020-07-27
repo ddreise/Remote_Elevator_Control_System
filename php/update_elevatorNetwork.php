@@ -5,12 +5,12 @@
 		//include 'get_currentDirection.php';
 
 		// get current position
-		include 'show_floor.php';
+		//include 'show_floor.php';
 		
 		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ese', 'ese');
 
 		// Get next in queue
-		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1';	// Prepare query to look at last in queue
+		//$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1';	// Prepare query to look at last in queue
 		
 		// * For state logic 
 		//$currentDestination = $db1->prepare($query);										// Get current last current direction
@@ -77,12 +77,12 @@
 		}
  */
 		// * UPDATE ELEVATOR QUEUE
-	
+/* 	
 		$query = 'INSERT INTO elevatorQueue (sourceNode, destinationFloor) VALUES ( :source, :destination);';
 		$statement = $db1->prepare($query);
 		$statement->bindvalue('source', $sourceNode);
 		$statement->bindvalue('destination', $nextDestination);
-		$statement->execute();
+		$statement->execute(); */
 		
 		// * UPDATE ELEVATOR NETWORK
 		$query = 'UPDATE elevatorNetwork 
@@ -93,7 +93,7 @@
 		$statement->bindvalue('id', $node_ID);
 		$statement->execute();	
 		
-		return $requestedDestination;
+		return $nextDestination;
 	}
 ?>
 
