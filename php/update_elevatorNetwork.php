@@ -7,7 +7,7 @@
 		// get current position
 		include 'show_floor.php';
 		
-		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','root');
+		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ese', 'ese');
 
 		// Get next in queue
 		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1';	// Prepare query to look at last in queue
