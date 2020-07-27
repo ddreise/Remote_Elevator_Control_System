@@ -11,6 +11,7 @@
 
 		// Get next in queue
 		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1';	// Prepare query to look at last in queue
+		
 		// * For state logic 
 		//$currentDestination = $db1->prepare($query);										// Get current last current direction
 
@@ -77,7 +78,7 @@
  */
 		// * UPDATE ELEVATOR QUEUE
 	
-		$query = 'INSERT INTO elevatorQueue (sourceNode, requested_destination) VALUES ( :source, :destination);';
+		$query = 'INSERT INTO elevatorQueue (sourceNode, destinationFloor) VALUES ( :source, :destination);';
 		$statement = $db1->prepare($query);
 		$statement->bindvalue('source', $sourceNode);
 		$statement->bindvalue('destination', $nextDestination);
@@ -97,6 +98,8 @@
 ?>
 
 <?php
+
+
 
 	// Get request
 	$temp = $_GET['q'];

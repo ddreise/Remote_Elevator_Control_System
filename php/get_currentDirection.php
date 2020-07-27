@@ -25,7 +25,7 @@
 ?>
 
 <?php
-
+    
     $current_direction = get_currentDirection();
 
 ?>
