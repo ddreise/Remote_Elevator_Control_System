@@ -14,7 +14,9 @@ $rowFloor = 0;
 $rowDirecton = 0;
 $rowDoors = 0;
 $rowNodeID = 0;
-$numRows = 0;
+$f1Visits = 0;
+$f2Visits = 0;
+$f3Visits = 0;
 
 foreach ($rows as $row)
 {
@@ -24,10 +26,21 @@ foreach ($rows as $row)
         $rowDirection = $row['direction'];
         $rowDoors = $row['doors'];
         $rowNodeID = $row['nodeID'];
-        $numRows++;
+
+        switch($rowFloor)
+        {
+            case 1:
+                $f1Visits++;
+            break;
+            case 2:
+                $f2Visits++;
+            break;
+            case 3:
+                $f3Visits++;
+        }
     }   
 }
 
-var_dump($rowFloor . $rowDirection . $rowDoors . $rowNodeID . $numRows);
+var_dump($rowFloor . $rowDirection . $rowDoors . $rowNodeID . $f1Visits . $f2Visits . $f3Visits);
 
 ?>
