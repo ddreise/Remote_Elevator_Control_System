@@ -1,5 +1,5 @@
 <?php 
-	function get_currentDirection(): string {
+	function get_currentDirection(): int {
 		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ese', 'ese');}
 		catch (PDOException $e){echo $e->getMessage();}
 
@@ -25,7 +25,7 @@
 ?>
 
 <?php
-
+    
     $current_direction = get_currentDirection();
 
 ?>

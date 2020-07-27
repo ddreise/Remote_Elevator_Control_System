@@ -5,12 +5,13 @@
 		//include 'get_currentDirection.php';
 
 		// get current position
-		include 'show_floor.php';
+		//include 'show_floor.php';
 		
 		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ese', 'ese');
 
 		// Get next in queue
 		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1';	// Prepare query to look at last in queue
+		
 		// * For state logic 
 		//$currentDestination = $db1->prepare($query);										// Get current last current direction
 
@@ -77,7 +78,7 @@
  */
 		// * UPDATE ELEVATOR QUEUE
 	
-		$query = 'INSERT INTO elevatorQueue (sourceNode, requested_destination) VALUES ( :source, :destination);';
+		$query = 'INSERT INTO elevatorQueue (sourceNode, destinationFloor) VALUES ( :source, :destination);';
 		$statement = $db1->prepare($query);
 		$statement->bindvalue('source', $sourceNode);
 		$statement->bindvalue('destination', $nextDestination);
@@ -92,19 +93,21 @@
 		$statement->bindvalue('id', $node_ID);
 		$statement->execute();	
 		
-		return $requestedDestination;
+		return $nextDestination;
 	}
 ?>
 
 <?php
 
+
+
 	// Get request
 	$temp = $_GET['q'];
-	$destination_floor = NULL;
-	$source_nodeID = NULL;
-	$requested_direction = NULL;
+	//$destination_floor = NULL;
+	//$source_nodeID = NULL;
+	//$requested_direction = NULL;
 
-	include 'get_currentDirection.php';
+	//include 'get_currentDirection.php';
 
 	// Convert requests to integer
 	switch ($temp) {
