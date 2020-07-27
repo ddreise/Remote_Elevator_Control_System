@@ -1,10 +1,10 @@
 <?php 
 	function get_currentFloor(): int {
-		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','Iloveschool24!');}
+		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ddreise6630','admin123');}
 		catch (PDOException $e){echo $e->getMessage();}
 
             // Query the database to display current floor
-            $query = 'SELECT CAN_currentFloor FROM CAN_subNetwork';
+            $query = 'SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1';
 			$rows = $db->query($query);
 			foreach ($rows as $row) {
                 $current_floor = $row[0];
@@ -16,6 +16,8 @@
 <?php
 
     $currentFloor = get_currentFloor();
-    echo $currentFloor;
+	echo $currentFloor;
+	
+	
 
 ?>
