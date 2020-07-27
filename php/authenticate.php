@@ -7,9 +7,9 @@
     if($username && $password) {
         // Connect to database
         $db = new PDO(
-            'mysql:host=127.0.0.1;dbname=elevator' ,    // Database name
-            'ese',                                     // Username
-            'ese'                                      // Password
+            'mysql:host=127.0.0.1;dbname=elevatorProject' ,     // Database name
+            'ese',                                              // Username
+            'ese'                                               // Password
         );
         // Query the authorizedUsers table
         $authenticateted = FALSE;
