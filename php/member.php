@@ -11,9 +11,9 @@
             if(isset($_SESSION['username'])) {
                 echo "<h1>Welcome to the Members Only Page {$_SESSION['username']}!</h1>";
                 $db = new PDO(
-                    'mysql:host=127.0.0.1;dbname=elevator' ,    // Database name
-                    'root',                                     // Username
-                    'root'                                      // Password
+                    'mysql:host=127.0.0.1;dbname=elevatorProject' ,    // Database name
+                    'ese',                                     // Username
+                    'ese'                                      // Password
                 );
                 // Sign out
                 echo "Click to <a href='logout.php'>Logout</a>";
