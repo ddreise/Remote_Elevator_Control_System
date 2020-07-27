@@ -5,24 +5,24 @@ function updateStatus() {
     // Function to execute whenever readyState changes (e.g. server response ready)
     xmlhttpShow.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
-            var resp = this.responseText;
+            var resp = JSON.parse(this.responseText);
             var direction;
             var doors;
-            document.getElementById("statusFloor").innerHTML = "Floor: " + resp[11];
+            document.getElementById("statusFloor").innerHTML = "Floor: " + resp[0];
 
-            if(resp[12] == 0) direction = "down";
-            else if(resp[12] == 1) direction = "none";
-            else if(resp[12] == 2) direction = "up";
+            if(resp[1] == 0) direction = "down";
+            else if(resp[1] == 1) direction = "none";
+            else if(resp[1] == 2) direction = "up";
             document.getElementById("statusDirection").innerHTML = "Direction: " + direction;
             
-            if(resp[13] == 0) doors = "closed";
+            if(resp[2] == 0) doors = "closed";
             else doors = "open";
             document.getElementById("statusDoors").innerHTML = "Doors: " + doors;
             
-            document.getElementById("statusNodeID").innerHTML = "Node ID: " + resp[14];
-            document.getElementById("statusF1Visits").innerHTML = "Floor 1 Visits: " + resp[15];
-            document.getElementById("statusF2Visits").innerHTML = "Floor 2 Visits: " + resp[16];
-            document.getElementById("statusF3Visits").innerHTML = "Floor 3 Visits: " + resp[17];
+            document.getElementById("statusNodeID").innerHTML = "Node ID: " + resp[3];
+            document.getElementById("statusF1Visits").innerHTML = "Floor 1 Visits: " + resp[4];
+            document.getElementById("statusF2Visits").innerHTML = "Floor 2 Visits: " + resp[5];
+            document.getElementById("statusF3Visits").innerHTML = "Floor 3 Visits: " + resp[6];
         }
     };
 
@@ -31,7 +31,7 @@ function updateStatus() {
 }
 
 function statusUpdateInterval(millisec) {
-    setInterval(updateStatus(), millisec);
+    setInterval(function() {updateStatus();}, millisec);
 }
 
 function graph()
@@ -75,11 +75,11 @@ function graph()
         // Function to execute whenever readyState changes (e.g. server response ready)
         xmlhttpShow.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200){
-                var resp = this.responseText;
+                var resp = JSON.parse(this.responseText);
 
-                myChart.data.datasets[0].data[0] = resp[15];
-                myChart.data.datasets[0].data[1] = resp[16];
-                myChart.data.datasets[0].data[2] = resp[17];
+                myChart.data.datasets[0].data[0] = resp[4];
+                myChart.data.datasets[0].data[1] = resp[5];
+                myChart.data.datasets[0].data[2] = resp[6];
             }
         };
 
