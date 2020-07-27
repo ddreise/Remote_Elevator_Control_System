@@ -1,6 +1,6 @@
 <?php 
 	function get_currentFloor(): int {
-		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ddreise6630','admin123');}
+		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','root');}
 		catch (PDOException $e){echo $e->getMessage();}
 
             // Query the database to display current floor

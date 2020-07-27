@@ -1,6 +1,6 @@
 <?php 
 	function get_currentDirection(): string {
-		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','admin123');}
+		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','root');}
 		catch (PDOException $e){echo $e->getMessage();}
 
             // Get current floor from database
