@@ -1,26 +1,26 @@
 <?php 
-	function get_currentDirection(): int {
-		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','Iloveschool24!');}
+	function get_currentDirection(): string {
+		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevator','ddreise6630','admin123');}
 		catch (PDOException $e){echo $e->getMessage();}
 
             // Get current floor from database
-            $query = 'SELECT CAN_currentFloor FROM CAN_subNetwork;';
+            $query = 'SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1;';
             $cur_floor = $db1->prepare($query);						
             
             $query = 'SELECT destinationFloor FROM elevatorQueue LIMIT 1;';
             $des_floor = $db1->prepare($query);
     
             if ($cur_floor < $des_floor){
-                $direction = "up";
+                $currentDirection = "up";
             }
             else if ($cur_floor > $des_floor){
-                $direction = "down";
+                $currentDirection = "down";
             }
 			else {
-                $direction = "stationary";
+                $currentDirection = "stationary";
             }
 
-			return $direction;
+			return $currentDirection;
 	}
 ?>
 
