@@ -19,6 +19,7 @@
                 echo "Click to <a href='logout.php'>Logout</a>";
             } else {
                 echo "<p>You are not authorized!</p>";
+                header("Location: ../login.html");
             }
         ?>
         <h2>Input NEW data to the database using the form below</h2>

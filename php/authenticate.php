@@ -23,11 +23,11 @@
             $_SESSION['username']=$username;    // Store a session variable
             //echo "<p>Congratulations, you are now logged into the site.</p>";
             //echo "<p>Please click <a href=\"member.php\">here</a> to be taken to our memers only page </p>";
-            header("Location: ../call_stations.html");
+            header("Location: member.php");
         } else {
             //echo "<p>You are not authenticated</p>";
             //echo "Please check your username and password and click <a href='login.html'>here</a> to log in again.";
-            header("Location: ../login.html");
+            header("Location: unauthorized.php");
         }
     }
 
