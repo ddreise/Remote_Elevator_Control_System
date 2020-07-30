@@ -99,8 +99,8 @@
 
 <?php
 
-
-
+try
+{
 	// Get request
 	$temp = $_GET['q'];
 	//$destination_floor = NULL;
@@ -196,7 +196,9 @@
 		default:
 			$destination_floor  = NULL;
 			$requested_direction = "stationary";
+			throw new InvalidFloorException("Invalid floor request.")
 	}
+}
 
 	$requested_destination = update_elevatorNetwork(1, $destination_floor, $source_nodeID, $requested_direction);		// Send request to elevator network (put into queue)
 ?>
