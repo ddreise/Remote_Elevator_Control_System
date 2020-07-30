@@ -6,7 +6,7 @@ class InvalidNodeIDException extends Exception          # For when an invalid no
 {
     public function __construct($message = null)
     {
-        $message = $message ?: "Invalid node ID.";
+        $message = $message ?: "Exception: Invalid node ID.";
         parent::__construct($message);
     }
 }
@@ -15,7 +15,7 @@ class InvalidFloorException extends Exception           # For when an invalid fl
 {
     public function __construct($message = null)
     {
-        $message = $message ?: "Invalid floor.";
+        $message = $message ?: "Exception: Invalid floor.";
         parent::__construct($message);
     }
 }
