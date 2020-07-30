@@ -38,12 +38,4 @@ class InvalidInputException extends Exception           # Catch all for any inva
     }
 }
 
-class ConnectionFailedException extends Exception           # For when connection to the database fails
-{
-    public function __construct($message = null)
-    {
-        $message = $message ?: "Unable to connect to the database.";
-        parent::__construct($message);
-    }
-}
 ?>
