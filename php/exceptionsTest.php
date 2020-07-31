@@ -1,7 +1,9 @@
 <?php
 
 require_once("exceptions.php");
+
 require_once("helpfulFunctions.php");
+
 
 function testFloorNodeID(int $floorID)
 {
@@ -9,7 +11,7 @@ function testFloorNodeID(int $floorID)
 
     try
     {
-        $floor = new FloorNode($floorID);
+        $floor = new Node($floorID);
     }
     catch (InvalidNodeIDException $e)
     {
@@ -24,7 +26,7 @@ function testFloorNodeID(int $floorID)
 function testFloor(int $floorNumber)
 {
     $message = null;
-    $SC = new SupervisoryController();
+    $SC = new SupervisoryController(0x100);
 
     try
     {
@@ -43,7 +45,7 @@ function testFloor(int $floorNumber)
 function testStatus($status)
 {
     $message = null;
-    $SC = new SupervisoryController();
+    $SC = new SupervisoryController(0x100);
 
     try
     {

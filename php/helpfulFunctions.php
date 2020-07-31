@@ -1,27 +1,26 @@
-<?php
+<?php    
     require_once("exceptions.php");
 
     class Node { 
-        private $id; //The unique identifier of a node 
+        protected $id; //The unique identifier of a node 
+
+
+        // Function for creating new Node
+        public function __construct (int $i ) { $this->id = $id;}
 
         //Return the ID of a given node 
-        public function getId() { 
-            return $this->id;
-        } 
+        public function getId() { return $this->id; } 
+
     } 
 
-    class SupervisoryController extends Node { 
-        private $lastReportedFloor; //The most recent current floor as reported by the elevator controller 
-        private $nextRequestedFloor; //The next requested floor as signaled by the car controller or floor nodes 
-        private $elevatorStatus; 
+    interface I_SupervisoryController { 
+        public function setStatus($enableStatus);
+        public function getFloor();
+        public function setFloor(int $floorNumber);
+    } 
 
-        public function __construct () { 
-            $this->id = 100; //The supervisory controller must have an ID of 0x100 
-            $this->$lastReportedFloor = 1; //The elevator begins at floor 1 
-            $this->$nextRequestedFloor = 1; //The supervisory controller begins with no floor change requests 
-            $this->elevatorStatus = false; //The elevator starts in an inactive state (false) 
-        } 
-
+    class SupervisoryController extends Node implements I_SupervisoryController{
+ 
         //Review or change the activation state of the elevator 
         public function setStatus($enableStatus) { 
             if(is_bool($enableStatus))
@@ -45,17 +44,17 @@
             else
                 $this->nextRequestedFloor = $floorNumber; 
         } 
+    }
+
+    interface I_ElevatorController { 
+        public function getStatus();
+        public function getIsMoving();
+        public function setIsMoving($newMoveStatus);
+        public function getCurrentFloor();
+        public function setCurrentFloor(string $newFloor);
     } 
 
-    class ElevatorController extends Node { 
-        private $status; //Whether or not the elevator is enabled or disabled 
-        private $isMoving; //Whether or not the elevator is moving 
-        private $currentFloor; //The current floor at which the elevator is positioned 
-
-        public function __construct () { 
-            $this->id = 101; //The elevator controller must have an ID of 0x101 
-            $this->currentFloor = 1; //Elevator controllers always start with their cars at floor 1 
-        } 
+    class ElevatorController extends Node implements I_ElevatorController{
 
         //Review or change the status of the elevator (enabled/disabled) 
         public function getStatus () { 
@@ -89,17 +88,15 @@
             else
                 $this->currentFloor = $newFloor; 
         } 
+
+    }
+
+    interface I_ElevatorCar { 
+        public function getCarPosition();
+        public function setCarPosition(int $newPosition);
     } 
 
-    class ElevatorCar { 
-        private $carNumber; //A unique identifier for each car 
-        private static $lastCarNumber = 0; //The number of cars instantiated 
-        private $carPosition; //The position of the car relative to the distance sensor 
-
-        public function __construct () { 
-            $this->carNumber = ++self::$lastCarNumber; //The car number will reflect the number of cars already established upon construction 
-            $this->carPosition = 0; //Cars always begin at position 0 (floor 1) 
-        } 
+    class ElevatorCar extends Node implements I_ElevatorCar {
 
         //Review or change the distance from the car to the position sensor 
         public function getCarPosition() { 
@@ -108,16 +105,16 @@
         public function setCarPosition(int $newPosition) { 
             $this->carPosition = $newPosition; 
         } 
+
+    }
+
+    interface I_CarController { 
+        public function getRequests();
+        public function setRequest(int $floorNumber);
+        public function unsetRequest();
     } 
 
-    class CarController extends Node { 
-        private $requestedFloors; //The list of buttons currently active in the car 
-        private static $numRequests = 0; //The number of buttons pressed on the control panel 
-
-        public function __construct () { 
-            $this->id = 200; //The car controller must have an ID of 0x200 
-            $this->requestedFloors = array(); //Prepare an empty array for the list of active buttons 
-        } 
+    class CarController extends Node implements I_CarController {
 
         //Review or change the list of active buttons on the car control panel 
         public function getRequests() { 
@@ -142,24 +139,16 @@
             unset($requestedFloors[self::$numRequests]); 
             --self::$numRequests; 
         } 
+    }
+
+    interface I_FloorNode { 
+        public function getNodeFloor();
+        public function setRequest($buttonPressed);
+        public function getRequest();
     } 
 
-    class FloorNode extends Node { 
-        private $nodeFloor; //The floor at which the floor node is positioned 
-        private $buttonState; //The state of the call button at the floor node 
+    class FloorNode extends Node implements I_FloorNode {
 
-        public function __construct (int $objNodeFloor) {
-            if($objNodeFloor < 0)
-                throw new InvalidNodeIDException("Exception: FloorNode cannot be negative.");
-            else if($objNodeFloor == 0)
-                throw new InvalidNodeIDException();
-            else
-            {
-                $this->id = $objNodeFloor + 200; //Floor nodes begin after the car controller at 0x200 
-                $this->nodeFloor = $objNodeFloor; //The floor of the floor node is represented by the total number of nodes already established upon construction 
-                $this->buttonState = false; //Buttons begin in the inactive state (false) 
-            }
-        } 
 
         //Returns the floor of a given floor node 
         public function getNodeFloor() { 
@@ -178,7 +167,7 @@
             else 
                 throw new InvalidStatusException(); 
         } 
-    } 
+    }
 
 #    require_once __DIR__ . '/Node.php'; 
 #    require_once __DIR__ . '/SupervisoryController.php'; 
