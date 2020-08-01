@@ -30,9 +30,11 @@ int db_getFloorNum() {
 	while(res->next()){
 		floorNum = res->getInt("destinationFloor");
 	}
-
-	// Delete from Queue
+	
+	stmt = con->createStatement();
 	res = stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");
+	// Delete from Queue
+	//res = stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");
 
 	
 	// Clean up pointers 
