@@ -26,9 +26,9 @@ int db_getFloorNum() {
 	// Query database
 	// ***************************** 
 	stmt = con->createStatement();
-	res = stmt->executeQuery("SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1");	// message query
+	res = stmt->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1");	// message query
 	while(res->next()){
-		floorNum = res->getInt("currentFloor");
+		floorNum = res->getInt("destinationFloor");
 	}
 	
 	// Clean up pointers 
