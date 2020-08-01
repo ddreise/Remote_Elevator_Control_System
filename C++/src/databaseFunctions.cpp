@@ -32,7 +32,7 @@ int db_getFloorNum() {
 	}
 
 	// Delete from Queue
-	stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");
+	res = stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");
 
 	
 	// Clean up pointers 
