@@ -18,7 +18,8 @@ int main() {
 	int ID; 
 	int data; 
 	int numRx;
-	int floorNumber = 1, prev_floorNumber = 1;
+	int queuedFloor = 1, prev_floorNumber = 1;
+	int currentFloor;
 
 	while(1) {
 		system("@cls||clear");
@@ -44,11 +45,12 @@ int main() {
 				db_setFloorNum(1);
 				
 				while(1){			
-					floorNumber = db_getFloorNum();
-					if (prev_floorNumber != floorNumber) {								// If floor number changes in database
-						pcanTx(ID_SC_TO_EC, HexFromFloor(floorNumber));					// change floor number in elevator - send command over CAN
+					queuedFloor = db_getQueuedFloor();
+					currentFloor = db_getFloorNum();
+					if (currentFloor != queuedFloor) {								// If floor number changes in database
+						pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));					// change floor number in elevator - send command over CAN
 					}
-					prev_floorNumber = floorNumber; 
+					//prev_floorNumber = queuedFloor; 
 					sleep(1);															// poll database once every second to check for change in floor number
 				}
 				break;

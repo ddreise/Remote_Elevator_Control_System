@@ -1,5 +1,6 @@
 // Includes required (headers located in /usr/include) 
 #include "../include/databaseFunctions.h"
+#include "../include/pcanFunctions.h"
 #include <stdlib.h>
 #include <iostream>
 #include <mysql_connection.h>
@@ -11,38 +12,14 @@
  
 using namespace std; 
  
+// Get current floor
 int db_getFloorNum() {
-	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
-	sql::Connection *con; 			// Create a pointer to a database connection object
-	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
-	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
-	int floorNum;					// Floor number 
-	
-	// Create a connection 
-	driver = get_driver_instance();
-	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
-	con->setSchema("elevatorProject");		
-	
-	// Query database
-	// ***************************** 
-	stmt = con->createStatement();
-	res = stmt->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1");	// message query
-	while(res->next()){
-		floorNum = res->getInt("destinationFloor");
-	}
-	
-	stmt = con->createStatement();
-	res = stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");
-	// Delete from Queue
-	//res = stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");
 
-	
-	// Clean up pointers 
-	delete res;
-	delete stmt;
-	delete con;
-	
-	return floorNum;
+	int currentFloor;
+
+	currentFloor = pcanRx(1); 	// Receive 1 message
+
+	return currentFloor;
 }
  
  
@@ -78,4 +55,34 @@ int db_setFloorNum(int floorNum) {
 	delete stmt;
 	delete con;
 } 
+
+int db_getQueuedFloor() {
+
+	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
+	sql::Connection *con; 			// Create a pointer to a database connection object
+	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
+	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
+	int floorNum;					// Floor number 
+	
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");		
+	
+	// Query database
+	// ***************************** 
+	stmt = con->createStatement();
+	res = stmt->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1");	// message query
+	while(res->next()){
+		floorNum = res->getInt("destinationFloor");
+	}
+	
+	// Clean up pointers 
+	delete res;
+	delete stmt;
+	delete con;
+	
+	return floorNum;
+	return ;
+}
  
