@@ -4,4 +4,6 @@
 int db_getFloorNum();
 int db_setFloorNum(int floorNum);
 int db_getQueuedFloor();
+int db_deleteQueuedFloor();
+
 #endif

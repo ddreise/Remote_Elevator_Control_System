@@ -84,4 +84,26 @@ int db_getQueuedFloor() {
 	
 	return floorNum;
 }
+
+// Delete most recent queue request from the queue table
+int db_deleteQueuedFloor() {
+	
+	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
+	sql::Connection *con; 			// Create a pointer to a database connection object
+	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
+	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
+
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");	
+
+		// Query database
+	// ***************************** 
+	stmt = con->createStatement();
+	res = stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");	// message
+
+
+	return 0;
+}
  
