@@ -28,6 +28,20 @@ int db_getFloorNum() {
 
 	currentFloor = pcanRx(1); 	// Receive 1 message
 
+	switch (currentFloor) {
+		case 0x5:
+			currentFloor = 1;
+			break;
+		case 0x6:
+			currentFloor = 2;
+			break;
+		case 0x7:
+			currentFloor = 3;
+			break;
+		default:
+			currentFloor = 1;
+	}
+
 	
 	// Update database
 	// *****************************
