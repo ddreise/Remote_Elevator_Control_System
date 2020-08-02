@@ -83,6 +83,5 @@ int db_getQueuedFloor() {
 	delete con;
 	
 	return floorNum;
-	return ;
 }
  
