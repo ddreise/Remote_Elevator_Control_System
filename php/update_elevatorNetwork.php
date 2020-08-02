@@ -85,13 +85,13 @@
 		$statement->execute();
 		
 		// * UPDATE ELEVATOR NETWORK
-		$query = 'UPDATE elevatorNetwork 
+/* 		$query = 'UPDATE elevatorNetwork 
 				SET currentFloor = :floor
 				WHERE nodeID = :id';
 		$statement = $db1->prepare($query);
 		$statement->bindvalue('floor', $nextDestination);
 		$statement->bindvalue('id', $node_ID);
-		$statement->execute();	
+		$statement->execute();	 */
 		
 		return $nextDestination;
 	}

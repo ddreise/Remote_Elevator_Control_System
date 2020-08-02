@@ -16,8 +16,24 @@ using namespace std;
 int db_getFloorNum() {
 
 	int currentFloor;
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::PreparedStatement *pstmt; 		// Create a pointer to a prepared statement
+
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");	
+	
 
 	currentFloor = pcanRx(1); 	// Receive 1 message
+
+	
+	// Update database
+	// *****************************
+	pstmt = con->prepareStatement("UPDATE elevatorNetwork SET currentFloor = ? WHERE nodeID = 1");
+	pstmt->setInt(1, currentFloor);
+	pstmt->executeUpdate();
 
 	return currentFloor;
 }
