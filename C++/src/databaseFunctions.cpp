@@ -39,10 +39,11 @@ int db_getFloorNum() {
 			currentFloor = 3;
 			break;
 		default:
-			currentFloor = 1;
+			currentFloor = 0;
+			break;
 	}
 
-	
+	printf("Current floor = %d", currentFloor);
 	// Update database
 	// *****************************
 	pstmt = con->prepareStatement("UPDATE elevatorNetwork SET currentFloor = ? WHERE nodeID = 1");

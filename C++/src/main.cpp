@@ -50,7 +50,8 @@ int main() {
 					if (currentFloor != queuedFloor) {								// If floor number changes in database
 						pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));					// change floor number in elevator - send command over CAN
 					}
-					else {
+					else if (currentFloor == queuedFloor) {
+						sleep(2);				// wait for elevator to slow down
 						db_deleteQueuedFloor();
 					}
 					//prev_floorNumber = queuedFloor; 
