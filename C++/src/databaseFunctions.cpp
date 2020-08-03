@@ -43,14 +43,18 @@ int db_getFloorNum() {
 			break;
 	}
 
-	printf("Current floor = %d", currentFloor);
+	printf("Current floor = %d\n", currentFloor);
 	// Update database
 	// *****************************
 	pstmt = con->prepareStatement("UPDATE elevatorNetwork SET currentFloor = ? WHERE nodeID = 1");
 	pstmt->setInt(1, currentFloor);
 	pstmt->executeUpdate();
 
+	delete pstmt;
+	delete con;
+
 	return currentFloor;
+
 }
  
  
@@ -119,10 +123,11 @@ int db_getQueuedFloor() {
 // Delete most recent queue request from the queue table
 int db_deleteQueuedFloor() {
 	
+	char error[250] = "";
+	int queueNumber;
 	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
 	sql::Connection *con; 			// Create a pointer to a database connection object
 	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
-	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
 
 	// Create a connection 
 	driver = get_driver_instance();
@@ -132,9 +137,12 @@ int db_deleteQueuedFloor() {
 		// Query database
 	// ***************************** 
 	stmt = con->createStatement();
-	res = stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1");	// message
 
+	stmt->execute("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1;");	// message
+
+	delete con;
+	delete stmt;
 
 	return 0;
 }
- 
+
