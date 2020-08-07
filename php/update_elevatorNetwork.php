@@ -88,35 +88,30 @@
 		// * UPDATE ELEVATOR NETWORK DIRECTION
 		// Get current destination floor
 		$query = 'SELECT destinationFloor FROM elevatorQueue LIMIT 1';
-		$desFloor = $db1->query($query);
-
+		$rows1 = $db1->query($query);
+		foreach ($rows1 as $row1) {
+			$desFloor = $row1[0];
+		}
 		// Get current floor
 		$query = 'SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1';
-		$curFloor = $db1->query($query);
-
+		$rows2 = $db1->query($query);
+		foreach ($rows2 as $row2) {
+			$curFloor = $row2[0];
+		}
 		//echo "<script>console.log('desFloor: " . $desFloor["destinationFloor"] . "     curFloor: " . $curFloor["currentFloor"] . "');</script>";
-		
-		$query = 'UPDATE elevatorNetwork SET requestedFloor = :requested WHERE nodeID = 1';
-		$statement = $db1->prepare($query);
-		$statement->bindvalue('requested', $desFloor);
-		$statement->execute();	
-		$query = 'UPDATE elevatorNetwork SET numberOfVisits = :numberOf WHERE nodeID = 1';
-		$statement = $db1->prepare($query);
-		$statement->bindvalue('numberOf', $curFloor);
-		$statement->execute();	
 
 		// If destination floor is greater than current floor, set to UP
-		if ($desFloor["destinationFloor"] > $curFloor["currentFloor"]){
+		if ($desFloor > $curFloor){
 			$direction = 'up';
 		}
 
 		// If destination floor is less than current floor, set to DOWN
-		else if ($desFloor["destinationFloor"] < $curFloor["currentFloor"]) {
+		else if ($desFloor < $curFloor) {
 			$direction = 'down';
 		}
 
 		// If destination floor is the same as current floor, set to STOPPED
-		else if ($desFloor["destinationFloor"] == $curFloor["currentFloor"]) {
+		else if ($desFloor == $curFloor) {
 			$direction = 'stopped';
 		}
 
