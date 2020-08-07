@@ -87,7 +87,7 @@
 		
 		// * UPDATE ELEVATOR NETWORK DIRECTION
 		// Get current destination floor
-		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1';
+		$query = 'SELECT destinationFloor FROM elevatorQueue LIMIT 1';
 		$desFloor = $db1->query($query);
 
 		// Get current floor
@@ -95,17 +95,17 @@
 		$curFloor = $db1->query($query);
 
 		// If destination floor is greater than current floor, set to UP
-		if ($desFloor > $curFloor){
+		if ($desFloor["destinationFloor"] > $curFloor["currentFloor"]){
 			$direction = 'up';
 		}
 
 		// If destination floor is less than current floor, set to DOWN
-		else if ($desFloor < $curFloor) {
+		else if ($desFloor["destinationFloor"] < $curFloor["currentFloor"]) {
 			$direction = 'down';
 		}
 
 		// If destination floor is the same as current floor, set to STOPPED
-		else if ($desFloor == $curFloor) {
+		else if ($desFloor["destinationFloor"] == $curFloor["currentFloor"]) {
 			$direction = 'stopped';
 		}
 
