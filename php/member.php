@@ -52,7 +52,7 @@
                 $result = $statement->execute($params);
             }
         ?>
-        <h2>Display enture content of the elevatorNetwork table</h2>
+        <h2>Display entire content of the elevatorNetwork table</h2>
         <?php
             $rows = $db->query('SELECT * FROM elevatorNetwork ORDER BY nodeID');
             foreach($rows as $row) {
