@@ -95,7 +95,16 @@
 		$curFloor = $db1->query($query);
 
 		//echo "<script>console.log('desFloor: " . $desFloor["destinationFloor"] . "     curFloor: " . $curFloor["currentFloor"] . "');</script>";
-		echo "test";
+		
+		$query = 'UPDATE elevatorNetwork SET requestedFloor = :requestedFloor WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('requestedFloor', $desFloor["destinationFloor"]);
+		$statement->execute();	
+		$query = 'UPDATE elevatorNetwork SET numberOfVisits = :numberOfVisits WHERE nodeID = 1';
+		$statement = $db1->prepare($query);
+		$statement->bindvalue('numberOfVisits', $curFloor["currentFloor"]);
+		$statement->execute();	
+
 		// If destination floor is greater than current floor, set to UP
 		if ($desFloor["destinationFloor"] > $curFloor["currentFloor"]){
 			$direction = 'up';
