@@ -107,7 +107,7 @@ int db_getQueuedFloor() {
 	// Query database
 	// ***************************** 
 	stmt = con->createStatement();
-	res = stmt->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1");	// message query
+	res = stmt->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 	while(res->next()){
 		floorNum = res->getInt("destinationFloor");
 	}
@@ -138,7 +138,7 @@ int db_deleteQueuedFloor() {
 	// ***************************** 
 	stmt = con->createStatement();
 
-	stmt->execute("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1;");	// message
+	stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
 
 	delete con;
 	delete stmt;

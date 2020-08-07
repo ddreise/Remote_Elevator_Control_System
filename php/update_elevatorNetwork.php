@@ -17,6 +17,7 @@
 
 		// * For basic testing
 		$nextDestination = $requestedDestination;
+
 		
 
 
@@ -84,14 +85,35 @@
 		$statement->bindvalue('destination', $nextDestination);
 		$statement->execute();
 		
-		// * UPDATE ELEVATOR NETWORK
-/* 		$query = 'UPDATE elevatorNetwork 
-				SET currentFloor = :floor
-				WHERE nodeID = :id';
+		// * UPDATE ELEVATOR NETWORK DIRECTION
+		// Get current destination floor
+		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1';
+		$desFloor = $db1->query($query);
+
+		// Get current floor
+		$query = 'SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1';
+		$curFloor = $db1->query($query);
+
+		// If destination floor is greater than current floor, set to UP
+		if ($desFloor > $curFloor){
+			$direction = 'up';
+		}
+
+		// If destination floor is less than current floor, set to DOWN
+		else if ($desFloor < $curFloor) {
+			$direction = 'down';
+		}
+
+		// If destination floor is the same as current floor, set to STOPPED
+		else if ($desFloor == $curFloor) {
+			$direction = 'stopped';
+		}
+
+		// Update elevator network with current direction
+		$query = 'UPDATE elevatorNetwork SET status = :direction WHERE nodeID = 1';
 		$statement = $db1->prepare($query);
-		$statement->bindvalue('floor', $nextDestination);
-		$statement->bindvalue('id', $node_ID);
-		$statement->execute();	 */
+		$statement->bindvalue('direction', $direction);
+		$statement->execute();	
 		
 		return $nextDestination;
 	}
