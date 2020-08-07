@@ -87,7 +87,7 @@
 		
 		// * UPDATE ELEVATOR NETWORK DIRECTION
 		// Get current destination floor
-		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1';
+		$query = 'SELECT destinationFloor FROM elevatorQueue LIMIT 1';
 		$desFloor = $db1->query($query);
 
 		// Get current floor
