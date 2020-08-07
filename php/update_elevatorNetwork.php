@@ -94,7 +94,7 @@
 		$query = 'SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1';
 		$curFloor = $db1->query($query);
 
-		echo "desFloor: " . $desFloor["destinationFloor"] . "<br />curFloor: " . $curFloor["currentFloor"];
+		console.log("desFloor: " . $desFloor["destinationFloor"] . "     curFloor: " . $curFloor["currentFloor"]);
 
 		// If destination floor is greater than current floor, set to UP
 		if ($desFloor["destinationFloor"] > $curFloor["currentFloor"]){
