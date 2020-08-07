@@ -98,11 +98,11 @@
 		
 		$query = 'UPDATE elevatorNetwork SET requestedFloor = :requestedFloor WHERE nodeID = 1';
 		$statement = $db1->prepare($query);
-		$statement->bindvalue('requestedFloor', $desFloor["destinationFloor"]);
+		$statement->bindvalue('requestedFloor', $desFloor);
 		$statement->execute();	
 		$query = 'UPDATE elevatorNetwork SET numberOfVisits = :numberOfVisits WHERE nodeID = 1';
 		$statement = $db1->prepare($query);
-		$statement->bindvalue('numberOfVisits', $curFloor["currentFloor"]);
+		$statement->bindvalue('numberOfVisits', $curFloor);
 		$statement->execute();	
 
 		// If destination floor is greater than current floor, set to UP
