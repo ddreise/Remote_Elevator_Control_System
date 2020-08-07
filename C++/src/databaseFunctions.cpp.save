@@ -1,0 +1,154 @@
+// Includes required (headers located in /usr/include) 
+#include "../include/databaseFunctions.h"
+#include "../include/pcanFunctions.h"
+#include <stdlib.h>
+#include <iostream>
+#include <mysql_connection.h>
+#include <cppconn/driver.h>
+#include <cppconn/exception.h>
+#include <cppconn/resultset.h>
+#include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
+ 
+using namespace std; 
+ 
+// Get current floor
+int db_getFloorNum() {
+
+	int currentFloor;
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::PreparedStatement *pstmt; 		// Create a pointer to a prepared statement
+
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");	
+	
+
+	currentFloor = pcanRx(1); 	// Receive 1 message
+
+	switch (currentFloor) {
+		case 0x5:
+			currentFloor = 1;
+			break;
+		case 0x6:
+			currentFloor = 2;
+			break;
+		case 0x7:
+			currentFloor = 3;
+			break;
+		default:
+			currentFloor = 0;
+			break;
+	}
+
+	printf("Current floor = %d\n", currentFloor);
+	// Update database
+	// *****************************
+	pstmt = con->prepareStatement("UPDATE elevatorNetwork SET currentFloor = ? WHERE nodeID = 1");
+	pstmt->setInt(1, currentFloor);
+	pstmt->executeUpdate();
+
+	delete pstmt;
+	delete con;
+
+	printf("test\n"); 
+
+	return currentFloor;
+
+}
+ 
+ 
+int db_setFloorNum(int floorNum) {
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::Statement *stmt;				// Crealte a pointer to a Statement object to hold statements 
+	sql::ResultSet *res;				// Create a pointer to a ResultSet object to hold results 
+	sql::PreparedStatement *pstmt; 		// Create a pointer to a prepared statement	
+	
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");										
+	
+	// Query database (possibly not necessary)
+	// ***************************** 
+	stmt = con->createStatement();
+	res = stmt->executeQuery("SELECT currentFloor FROM elevatorNetwork WHERE nodeID = 1");	// message query
+	while(res->next()){
+		res->getInt("currentFloor");
+	}
+		
+	// Update database
+	// *****************************
+	pstmt = con->prepareStatement("UPDATE elevatorNetwork SET currentFloor = ? WHERE nodeID = 1");
+	pstmt->setInt(1, floorNum);
+	pstmt->executeUpdate();
+		
+	// Clean up pointers 
+	delete res;
+	delete pstmt;
+	delete stmt;
+	delete con;
+} 
+
+int db_getQueuedFloor() {
+
+	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
+	sql::Connection *con; 			// Create a pointer to a database connection object
+	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
+	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
+	int floorNum;					// Floor number 
+	
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");		
+	
+	// Query database
+	// ***************************** 
+	stmt = con->createStatement();
+	res = stmt->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1");	// message query
+	while(res->next()){
+		floorNum = res->getInt("destinationFloor");
+	}
+	
+	// Clean up pointers 
+	delete res;
+	delete stmt;
+	delete con;
+	
+	return floorNum;
+}
+
+// Delete most recent queue request from the queue table
+int db_deleteQueuedFloor() {
+	
+	char error[250] = "";
+	int queueNumber;
+	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
+	sql::Connection *con; 			// Create a pointer to a database connection object
+	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
+	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
+
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");	
+
+		// Query database
+	// ***************************** 
+	stmt = con->createStatement();
+
+	printf("test2\n");
+	stmt->executeQuery("DELETE FROM elevatorQueue ORDER BY queueNumber LIMIT 1;");	// messagecout << "An exception occured: number " << e << "\n";
+	}
+	printf("test3\n");
+	delete con;
+	delete res;
+	delete stmt;
+
+	return 0;
+}
+

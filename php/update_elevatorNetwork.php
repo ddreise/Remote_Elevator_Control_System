@@ -10,7 +10,7 @@
 		$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ese', 'ese');
 
 		// Get next in queue
-		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY queueNumber LIMIT 1';	// Prepare query to look at last in queue
+		$query = 'SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1';	// Prepare query to look at last in queue
 		
 		// * For state logic 
 		//$currentDestination = $db1->prepare($query);										// Get current last current direction
