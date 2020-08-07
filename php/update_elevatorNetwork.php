@@ -95,17 +95,17 @@
 		$curFloor = $db1->query($query);
 
 		// If destination floor is greater than current floor, set to UP
-		if ($desFloor > $curFloor){
+		if ($desFloor["destinationFloor"] > $curFloor["currentFloor"]){
 			$direction = 'up';
 		}
 
 		// If destination floor is less than current floor, set to DOWN
-		else if ($desFloor < $curFloor) {
+		else if ($desFloor["destinationFloor"] < $curFloor["currentFloor"]) {
 			$direction = 'down';
 		}
 
 		// If destination floor is the same as current floor, set to STOPPED
-		else if ($desFloor == $curFloor) {
+		else if ($desFloor["destinationFloor"] == $curFloor["currentFloor"]) {
 			$direction = 'stopped';
 		}
 
