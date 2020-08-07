@@ -95,7 +95,8 @@
 		$curFloor = $db1->query($query);
 
 		//echo "<script>console.log('desFloor: " . $desFloor["destinationFloor"] . "     curFloor: " . $curFloor["currentFloor"] . "');</script>";
-		echo "<script>console.log('test');</script>";
+		echo var_dump($desFloor);
+		
 		// If destination floor is greater than current floor, set to UP
 		if ($desFloor["destinationFloor"] > $curFloor["currentFloor"]){
 			$direction = 'up';
