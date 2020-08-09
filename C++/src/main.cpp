@@ -47,17 +47,16 @@ int main() {
 				while(1){			
 					queuedFloor = db_getQueuedFloor();
 					currentFloor = db_getFloorNum();
-					if (queuedFloor == NULL){
-						// Do nothing
-					}
-
-					else if (currentFloor != queuedFloor) {								// If floor number changes in database
-						pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));					// change floor number in elevator - send command over CAN
-					}
-					else if (currentFloor == queuedFloor) {
-						sleep(2);				// wait for elevator to slow down
-						db_deleteQueuedFloor();
-					}
+					printf("Current queued floor: %d \n", queuedFloor);
+					if ((queuedFloor == 1) || (queuedFloor == 2) || (queuedFloor == 3)){
+						if (currentFloor != queuedFloor) {                                                         // If fl$
+                                                	pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));                                 // change floor $
+                                        	}
+                                        	else if (currentFloor == queuedFloor) {
+                                                	sleep(2);                               // wait for elevator to slow down
+                                                	db_deleteQueuedFloor();
+                                       		}
+					}								
 					//prev_floorNumber = queuedFloor; 
 					sleep(1);															// poll database once every second to check for change in floor number
 				}
