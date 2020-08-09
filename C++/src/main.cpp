@@ -20,6 +20,8 @@ int main() {
 	int numRx;
 	int queuedFloor = 1, prev_floorNumber = 1;
 	int currentFloor;
+	
+	int lalaFlag = 0;
 
 	while(1) {
 		system("@cls||clear");
@@ -50,12 +52,19 @@ int main() {
 					printf("Current queued floor: %d \n", queuedFloor);
 					if ((queuedFloor == 1) || (queuedFloor == 2) || (queuedFloor == 3)){
 						if (currentFloor != queuedFloor) {                                                         // If fl$
-                                                	pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));                                 // change floor $
-                                        	}
-                                        	else if (currentFloor == queuedFloor) {
-                                                	sleep(2);                               // wait for elevator to slow down
-                                                	db_deleteQueuedFloor();
-                                       		}
+							pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));                                 // change floor $
+							if(!lalaFlag)
+							{
+								system("mpg123 ./elevator-music-tropical-vibe.mp3 &");
+								lalaFlag = 1;
+							}
+						}
+						else if (currentFloor == queuedFloor) {
+							sleep(2);                               // wait for elevator to slow down
+							db_deleteQueuedFloor();
+							system("killall mpg123");
+							lalaFlag = 0;
+						}
 					}								
 					//prev_floorNumber = queuedFloor; 
 					sleep(1);															// poll database once every second to check for change in floor number
