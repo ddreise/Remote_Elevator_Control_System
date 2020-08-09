@@ -55,15 +55,51 @@ int main() {
 							pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));                                 // change floor $
 							if(!lalaFlag)
 							{
-								system("mpg123 ./elevator-music-tropical-vibe.mp3 &");
-								lalaFlag = 1;
+								if(currentFloor < queuedFloor) //going up!
+								{
+									system("killall mpg123");
+									system("mpg123 ./elevator-going-up.mp3 &");
+									lalaFlag = 1;
+								}
+								else if(currentFloor > queuedFloor) //going down!
+								{
+									system("killall mpg123");
+									system("mpg123 ./elevator-going-down.mp3 &");
+									lalaFlag = 1;
+								}
 							}
 						}
 						else if (currentFloor == queuedFloor) {
+							//announce floor
+							switch(currentFloor)
+							{
+								case 1:
+									system("killall mpg123");
+									system("mpg123 ./elevator-floor-1.mp3 &");
+									break;
+								case 2:
+									system("killall mpg123");
+									system("mpg123 ./elevator-floor-2.mp3 &");
+									break;
+								case 3:
+									system("killall mpg123");
+									system("mpg123 ./elevator-doors-floor-3.mp3 &");
+									break;
+							}
+							
 							sleep(2);                               // wait for elevator to slow down
 							db_deleteQueuedFloor();
+							
+							//elevator stopped - doors open!
 							system("killall mpg123");
+							system("mpg123 ./elevator-doors-open.mp3 &");
 							lalaFlag = 0;
+							sleep(2); //let the doors open and people leave
+							//ok close the doors!
+							system("killall mpg123");
+							system("mpg123 ./elevator-doors-close.mp3 &");
+							sleep(2);
+							system("killall mpg123");
 						}
 					}								
 					//prev_floorNumber = queuedFloor; 
