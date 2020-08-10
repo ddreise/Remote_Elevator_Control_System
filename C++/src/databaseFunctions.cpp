@@ -120,14 +120,14 @@ int db_getQueuedFloor() {
 	// *****************************
 	stmt2 = con->createStatement();
 
-	if (res->getString("status") == "up" || res->getString("status") == "stopped") {
+	if (res->getString("status").c_str() == "up" || res->getString("status").c_str() == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
 		}
 	}
 
-	else if (res->getString("status") == "down") {
+	else if (res->getString("status").c_str() == "down") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
@@ -182,11 +182,11 @@ int db_deleteQueuedFloor() {
 	// ***************************** 
 	stmt = con->createStatement();
 
-	if (res->getString("status") == "up" || res->getString("status") == "stopped") {
+	if (res->getString("status").c_str() == "up" || res->getString("status").c_str() == "stopped") {
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
 	}
 
-	else if (res->getString("status") == "down"){
+	else if (res->getString("status").c_str() == "down"){
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 ASC;");	// message
 	}
 
