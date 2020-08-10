@@ -95,7 +95,8 @@ int db_getQueuedFloor() {
 
 	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
 	sql::Connection *con; 			// Create a pointer to a database connection object
-	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
+	sql::Statement *stmt1;			// Crealte a pointer to a Statement object to hold statements 
+	sql::Statement *stmt2;
 	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
 	int floorNum;					// Floor number 
 	
@@ -104,17 +105,34 @@ int db_getQueuedFloor() {
 	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
 	con->setSchema("elevatorProject");		
 	
-	// Query database
+	// Query database for current direction
 	// ***************************** 
-	stmt = con->createStatement();
-	res = stmt->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
-	while(res->next()){
-		floorNum = res->getInt("destinationFloor");
+	stmt1 = con->createStatement();
+	res = stmt1->executeQuery("SELECT direction FROM elevatorNetwork WHERE nodeID = 1");
+
+
+	// Query database for next destination floor
+	// *****************************
+	stmt2 = con->createStatement();
+
+	if (res == "up" || res == "stopped") {
+		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
+		while(res->next()){
+			floorNum = res->getInt("destinationFloor");
+		}
+	}
+
+	else if (res == "down") {
+		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC");	// message query
+		while(res->next()){
+			floorNum = res->getInt("destinationFloor");
+		}
 	}
 	
 	// Clean up pointers 
 	delete res;
-	delete stmt;
+	delete stmt1;
+	delete stmt2;
 	delete con;
 	
 	return floorNum;
@@ -134,11 +152,22 @@ int db_deleteQueuedFloor() {
 	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
 	con->setSchema("elevatorProject");	
 
-		// Query database
+	// Query database for current direction
+	// ***************************** 
+	stmt1 = con->createStatement();
+	res = stmt1->executeQuery("SELECT direction FROM elevatorNetwork WHERE nodeID = 1");
+
+	// Query database
 	// ***************************** 
 	stmt = con->createStatement();
 
-	stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
+	if (res == "up" || res == "stopped") {
+		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
+	}
+
+	else if (res == "down"){
+		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC;");	// message
+	}
 
 	delete con;
 	delete stmt;
