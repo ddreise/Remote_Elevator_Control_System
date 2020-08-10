@@ -151,7 +151,7 @@
 				$sabbathNew = "enabled";
 			}
 
-			$query = 'UPDATE elevatorDiagnostics SET sabbathMode = :sabbath WHERE nodeID=1 ;';
+			$query = 'UPDATE elevatorDiagnostics SET sabbathMode = :sabbath WHERE nodeID = 1 ;';
 			$statement = $db1->prepare($query);
 			$statement->bindvalue('sabbath', $sabbathNew);
 			$statement->execute();
@@ -260,8 +260,8 @@
 
 		// * SABBATH MODE
 		case "sabbath_operation":
-			$destination_floor = NULL;
-			$requested_direction = "stationary";
+			//$destination_floor = NULL;
+			//$requested_direction = "stationary";
 			$sabbath_operation = "toggle";
 		break;
 
@@ -271,6 +271,12 @@
 			$requested_direction = "stationary";
 	}
 
-	$requested_destination = update_elevatorNetwork(1, $destination_floor, $source_nodeID, $requested_direction);		// Send request to elevator network (put into queue)
-	$sabbath_result = update_sabbath($sabbath_operation);
+	if($sabbath_operation == "nothing")
+	{
+		$requested_destination = update_elevatorNetwork(1, $destination_floor, $source_nodeID, $requested_direction);		// Send request to elevator network (put into queue)
+	}
+	else
+	{
+		$sabbath_result = update_sabbath($sabbath_operation);
+	}
 ?>

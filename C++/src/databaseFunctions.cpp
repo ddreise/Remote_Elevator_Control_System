@@ -317,6 +317,38 @@ int diagnosticUpdateFloorVisits(int floor)
 	delete pstmt;
 }
 
+int sabbathCheck()
+{
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::Statement *stmt;
+	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results
+	
+	std::string sabbathMode;
+	
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");
+	
+	stmt = con->createStatement();
+	res = stmt->executeQuery("SELECT sabbathMode FROM elevatorDiagnostics WHERE nodeID=1");
+	while(res->next())
+	{
+		sabbathMode = res->getString("sabbathMode");
+	} 
+	
+	if(sabbathMode == "enabled")
+	{
+		return 1; //sabbath on
+	}
+	else if(sabbathMode == "disabled")
+	{
+		return 0; //sabbath off
+	}
+	else return -1; //error
+}
+
 //Does not work - don't use
 int diagnosticStringUpdate(std::string key, std::string value)
 {

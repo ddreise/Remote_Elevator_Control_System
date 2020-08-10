@@ -1,5 +1,5 @@
 <?php 
-	function get_sabbathMode(): int {
+	function get_sabbathMode(): string {
 		try { $db = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ese', 'ese');}
 		catch (PDOException $e){echo $e->getMessage();}
 

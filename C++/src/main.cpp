@@ -27,6 +27,7 @@ int main() {
 	int sabathIncrement = 1;
 	int sabathDirectionToggle = 0;
 	int sabathNextFloorToggle = 1;
+	int sabbathFlag = 0;
 
 	while(1) {
 		system("@cls||clear");
@@ -51,9 +52,49 @@ int main() {
 				pcanTx(ID_SC_TO_EC, GO_TO_FLOOR1);
 				db_setFloorNum(1);
 				
-				while(1){			
-					queuedFloor = db_getQueuedFloor();
+				while(1){	
 					currentFloor = db_getFloorNum();
+
+					//check if we will operate in sabbath mode
+					sabbathFlag = sabbathCheck();
+					if(sabbathFlag == -1) //error, assume off
+					{
+						printf("Error - Invalid sabbathMode value. Assuming Sabbath mode is disabled");
+					}
+					else if(sabbathFlag == 1) //yes sabbath mode
+					{
+						if(!sabathNextFloorToggle)
+						{
+							if(!sabathDirectionToggle)
+							{			
+								queuedFloor = ++sabathIncrement;
+								if(sabathIncrement > 3) 
+								{
+									sabathDirectionToggle = 1;
+									--sabathIncrement;
+									queuedFloor = --sabathIncrement;
+								}
+							}
+							else if(sabathDirectionToggle)
+							{
+								queuedFloor = --sabathIncrement;
+								if(sabathIncrement < 1)
+								{
+									sabathDirectionToggle = 0;
+									++sabathIncrement;
+									queuedFloor = ++sabathIncrement;
+								} 
+							}
+							
+							sabathNextFloorToggle = 1;
+						}
+					}
+					else if(sabbathFlag == 0) //no sabbath
+					{
+						queuedFloor = db_getQueuedFloor();
+						sabathIncrement = currentFloor;
+					}
+					
 					printf("Current queued floor: %d \n", queuedFloor);
 					if ((queuedFloor == 1) || (queuedFloor == 2) || (queuedFloor == 3)){
 						idleFlag = 0;
@@ -119,6 +160,8 @@ int main() {
 							system("mpg123 ./elevator-doors-close.mp3 &");
 							sleep(5);
 							system("killall mpg123");
+							
+							sabathNextFloorToggle = 0;
 						}
 					}
 					else
@@ -128,10 +171,12 @@ int main() {
 							system("killall mpg123");
 							system("mpg123 ./elevator-idle.mp3 &");
 							idleFlag = 1;
+							
+							sabathNextFloorToggle = 0;
 						}
 					}								
 					//prev_floorNumber = queuedFloor; 
-					sleep(1);															// poll database once every second to check for change in floor number
+					sleep(1);// poll database once every second to check for change in floor number														
 				}
 				break;
 				
