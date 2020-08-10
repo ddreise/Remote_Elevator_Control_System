@@ -99,6 +99,7 @@ int db_getQueuedFloor() {
 	sql::Statement *stmt2;
 	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
 	int floorNum;					// Floor number 
+	char result[255];
 	
 	// Create a connection 
 	driver = get_driver_instance();
