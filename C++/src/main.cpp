@@ -22,6 +22,7 @@ int main() {
 	int currentFloor;
 	
 	int lalaFlag = 0;
+	int idleFlag = 0;
 
 	while(1) {
 		system("@cls||clear");
@@ -51,6 +52,7 @@ int main() {
 					currentFloor = db_getFloorNum();
 					printf("Current queued floor: %d \n", queuedFloor);
 					if ((queuedFloor == 1) || (queuedFloor == 2) || (queuedFloor == 3)){
+						idleFlag = 0;
 						if (currentFloor != queuedFloor) {                                                         // If fl$
 							pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));                                 // change floor $
 							if(!lalaFlag)
@@ -83,23 +85,32 @@ int main() {
 									break;
 								case 3:
 									system("killall mpg123");
-									system("mpg123 ./elevator-doors-floor-3.mp3 &");
+									system("mpg123 ./elevator-floor-3.mp3 &");
 									break;
 							}
 							
-							sleep(2);                               // wait for elevator to slow down
+							sleep(5);                               // wait for elevator to slow down and for audio to finish
 							db_deleteQueuedFloor();
 							
 							//elevator stopped - doors open!
 							system("killall mpg123");
 							system("mpg123 ./elevator-doors-open.mp3 &");
 							lalaFlag = 0;
-							sleep(2); //let the doors open and people leave
+							sleep(5); //let the doors open and people leave
 							//ok close the doors!
 							system("killall mpg123");
 							system("mpg123 ./elevator-doors-close.mp3 &");
-							sleep(2);
+							sleep(5);
 							system("killall mpg123");
+						}
+					}
+					else
+					{
+						if(!idleFlag)
+						{
+							system("killall mpg123");
+							system("mpg123 ./elevator-idle.mp3 &");
+							idleFlag = 1;
 						}
 					}								
 					//prev_floorNumber = queuedFloor; 
