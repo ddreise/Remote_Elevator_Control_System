@@ -40,7 +40,7 @@ int db_getFloorNum() {
 			currentFloor = 3;
 			break;
 		default:
-			currentFloor = 0;
+			//currentFloor = 0;
 			break;
 	}
 
