@@ -100,7 +100,7 @@ int db_getQueuedFloor() {
 	sql::Statement *stmt2;
 	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
 	int floorNum;					// Floor number 
-	char result[255] = "";
+	//char result[255] = "";
 		
 	sql::Statement *diagStmt;
 	sql::PreparedStatement *diagStmt2;
@@ -115,20 +115,19 @@ int db_getQueuedFloor() {
 	// ***************************** 
 	stmt1 = con->createStatement();
 	res = stmt1->executeQuery("SELECT status FROM elevatorNetwork WHERE nodeID = 1");
-	strcpy (result, res->getString("status"));
 
 	// Query database for next destination floor
 	// *****************************
 	stmt2 = con->createStatement();
 
-	if (result == "up" || result == "stopped") {
+	if (res->getString("status") == "up" || res->getString("status") == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
 		}
 	}
 
-	else if (result == "down") {
+	else if (res->getString("status") == "down") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
@@ -167,7 +166,7 @@ int db_deleteQueuedFloor() {
 	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
 	sql::Statement *stmt1;
 	sql::ResultSet *res;
-	char result[250] = "";
+	//char result[250] = "";
 
 	// Create a connection 
 	driver = get_driver_instance();
@@ -178,17 +177,16 @@ int db_deleteQueuedFloor() {
 	// ***************************** 
 	stmt1 = con->createStatement();
 	res = stmt1->executeQuery("SELECT status FROM elevatorNetwork WHERE nodeID = 1");
-	strcpy(result, res->getString("status"));
 
 	// Query database
 	// ***************************** 
 	stmt = con->createStatement();
 
-	if (result == "up" || result == "stopped") {
+	if (res->getString("status") == "up" || res->getString("status") == "stopped") {
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
 	}
 
-	else if (result == "down"){
+	else if (res->getString("status") == "down"){
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 ASC;");	// message
 	}
 
