@@ -23,6 +23,10 @@ int main() {
 	
 	int lalaFlag = 0;
 	int idleFlag = 0;
+	
+	int sabathIncrement = 1;
+	int sabathDirectionToggle = 0;
+	int sabathNextFloorToggle = 1;
 
 	while(1) {
 		system("@cls||clear");
@@ -131,7 +135,125 @@ int main() {
 				}
 				break;
 				
-			case 4: 
+			case 4:
+				printf("\nNow operating in sabbath mode - press ctrl-z to cancel\n");
+				// Synchronize elevator db and CAN (start at 1st floor)
+				pcanTx(ID_SC_TO_EC, GO_TO_FLOOR1);
+				db_setFloorNum(1);
+				
+				while(1){
+					if(!sabathNextFloorToggle)
+					{
+						if(!sabathDirectionToggle)
+						{			
+							queuedFloor = ++sabathIncrement;
+							if(sabathIncrement > 3) 
+							{
+								sabathDirectionToggle = 1;
+								--sabathIncrement;
+								queuedFloor = --sabathIncrement;
+							}
+						}
+						else if(sabathDirectionToggle)
+						{
+							queuedFloor = --sabathIncrement;
+							if(sabathIncrement < 1)
+							{
+								sabathDirectionToggle = 0;
+								++sabathIncrement;
+								queuedFloor = ++sabathIncrement;
+							} 
+						}
+						
+						sabathNextFloorToggle = 1;
+					}
+
+					currentFloor = db_getFloorNum();
+					printf("Current destination floor: %d \n", queuedFloor);
+					if ((queuedFloor == 1) || (queuedFloor == 2) || (queuedFloor == 3)){
+						idleFlag = 0;
+						if (currentFloor != queuedFloor) {                                                         // If fl$
+							pcanTx(ID_SC_TO_EC, HexFromFloor(queuedFloor));                                 // change floor $
+							if(!lalaFlag)
+							{
+								if(currentFloor < queuedFloor) //going up!
+								{
+									diagnosticUpdateDirection("up");
+									//diagnosticStringUpdate("direction", "up");
+
+									system("killall mpg123");
+									system("mpg123 ./elevator-going-up.mp3 &");
+									lalaFlag = 1;
+								}
+								else if(currentFloor > queuedFloor) //going down!
+								{
+									diagnosticUpdateDirection("down");
+									//diagnosticStringUpdate("direction", "down");
+									
+									system("killall mpg123");
+									system("mpg123 ./elevator-going-down.mp3 &");
+									lalaFlag = 1;
+								}
+							}
+						}
+						else if (currentFloor == queuedFloor) 
+						{
+							diagnosticUpdateDirection("idle");
+							//diagnosticStringUpdate("direction", "idle");
+							
+							//announce floor
+							diagnosticUpdateFloorVisits(currentFloor);
+							switch(currentFloor)
+							{
+								case 1:
+									system("killall mpg123");
+									system("mpg123 ./elevator-floor-1.mp3 &");
+									break;
+								case 2:
+									system("killall mpg123");
+									system("mpg123 ./elevator-floor-2.mp3 &");
+									break;
+								case 3:
+									system("killall mpg123");
+									system("mpg123 ./elevator-floor-3.mp3 &");
+									break;
+							}
+							
+							sleep(5);                               // wait for elevator to slow down and for audio to finish
+							db_deleteQueuedFloor();
+							
+							//elevator stopped - doors open!
+							diagnosticUpdateDoors("open");
+							system("killall mpg123");
+							system("mpg123 ./elevator-doors-open.mp3 &");
+							lalaFlag = 0;
+							sleep(5); //let the doors open and people leave
+							//ok close the doors!
+							diagnosticUpdateDoors("close");
+							system("killall mpg123");
+							system("mpg123 ./elevator-doors-close.mp3 &");
+							sleep(5);
+							system("killall mpg123");
+							
+							sabathNextFloorToggle = 0;
+						}
+					}
+					else
+					{
+						if(!idleFlag)
+						{
+							system("killall mpg123");
+							system("mpg123 ./elevator-idle.mp3 &");
+							idleFlag = 1;
+							sabathNextFloorToggle = 0;
+						}
+					}								
+					//prev_floorNumber = queuedFloor; 
+					sleep(1);															// poll database once every second to check for change in floor number
+				}
+				break;
+			
+			case 5: 
 				return(0);
 			
 			default:

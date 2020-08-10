@@ -6,5 +6,7 @@ int chooseID();
 int chooseMsg();
 int HexFromFloor(int floorVal);
 int FloorFromHex(int Hex);
+int automaticOperation();
+int sabathMode();
 
 #endif

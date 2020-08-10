@@ -1,4 +1,5 @@
 #include "../include/pcanFunctions.h"
+#include "../include/databaseFunctions.h"
 #include "../include/mainFunctions.h"
 
 #include <stdio.h>
@@ -16,14 +17,15 @@ int menu(){
 		printf("1. Transmit CAN message using this program\n");
 		printf("2. Receive CAN message(s) using this program\n");
 		printf("3. Control elevator from website\n");
-		printf("4. Exit program\n");
+		printf("4. Start sabbath mode\n");
+		printf("5. Exit program\n");
 		printf("\nYour choice: ");
 		scanf("%d", &usrchoice);
 
 		if (usrchoice >=1 && usrchoice <= 4) {	
 			return usrchoice;
 		} else {
-			printf("\nPLEASE SELECT FROM CHOICES 1-4 ONLY!\n\n");
+			printf("\nPLEASE SELECT FROM CHOICES 1-5 ONLY!\n\n");
 			sleep(3);
 			system("@cls||clear");
 		}
@@ -148,4 +150,16 @@ int FloorFromHex(int Hex){
 		default:
 			return(1);							// Default is to reset to floor 1 on bad input
 		}
+}
+
+int automaticOperation()
+{
+	
+	return 0;
+}
+
+int sabathMode()
+{
+	
+	return 0;
 }
