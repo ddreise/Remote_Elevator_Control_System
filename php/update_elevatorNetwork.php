@@ -142,7 +142,7 @@
 				$sabbathCurrent = $row[0];
 			}
 
-			if(sabbathCurrent == "enabled")
+			if($sabbathCurrent == "enabled")
 			{
 				$sabbathNew = "disabled";
 			}
