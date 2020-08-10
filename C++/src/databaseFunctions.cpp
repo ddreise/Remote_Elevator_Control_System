@@ -103,6 +103,7 @@ int db_getQueuedFloor() {
 //	char result[255];
 		
 	sql::Statement *diagStmt;
+	sql::PreparedStatement *diagStmt2;
 	int queueID;
 	string result;
 	
@@ -141,10 +142,9 @@ int db_getQueuedFloor() {
 	{
 		queueID = res->getInt("queueNumber");	
 	}
-	diagStmt = con->createStatement();
-	diagStmt = con->prepareStatement("UPDATE elevatorDiagnostics SET queueID = ? WHERE nodeID = 1");
-	diagStmt->setInt(1, queueID);
-	diagStmt->executeUpdate();
+	diagStmt2 = con->prepareStatement("UPDATE elevatorDiagnostics SET queueID = ? WHERE nodeID = 1");
+	diagStmt2->setInt(1, queueID);
+	diagStmt2->executeUpdate();
 	
 	// Clean up pointers 
 	delete res;
@@ -153,6 +153,7 @@ int db_getQueuedFloor() {
 	delete con;
 	
 	delete diagStmt;
+	delete diagStmt2;
 		
 	return floorNum;
 }
@@ -200,5 +201,5 @@ int db_deleteQueuedFloor() {
 	return 0;
 }
 
-int diagnosticUpdate(
+//int diagnosticUpdate(
 
