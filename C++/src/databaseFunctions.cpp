@@ -116,12 +116,12 @@ int db_getQueuedFloor() {
 	stmt1 = con->createStatement();
 	res = stmt1->executeQuery("SELECT status FROM elevatorNetwork WHERE nodeID = 1");
 
-	printf("Status: %s", &res);
 
 	// Query database for next destination floor
 	// *****************************
 	stmt2 = con->createStatement();
 	res->next();
+	printf("Status: %s", res->getString("status").c_str());
 	if (res->getString("status").c_str() == "up" || res->getString("status").c_str() == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
