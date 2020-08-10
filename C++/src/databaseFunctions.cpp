@@ -2,6 +2,7 @@
 #include "../include/databaseFunctions.h"
 #include "../include/pcanFunctions.h"
 #include <stdlib.h>
+#include <string.h>
 #include <iostream>
 #include <mysql_connection.h>
 #include <cppconn/driver.h>
@@ -147,7 +148,7 @@ int db_deleteQueuedFloor() {
 	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
 	sql::Connection *con; 			// Create a pointer to a database connection object
 	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
-	sql::Statemnet *stmt1;
+	sql::Statement *stmt1;
 	sql::ResultSet *res;
 	char result[250];
 
