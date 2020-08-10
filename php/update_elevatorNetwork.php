@@ -100,8 +100,12 @@
 		}
 		//echo "<script>console.log('desFloor: " . $desFloor["destinationFloor"] . "     curFloor: " . $curFloor["currentFloor"] . "');</script>";
 
+		if ($desFloor != 1 && $desFloor != 2 && $desFloor != 3) {
+			$direction = 'stopped';
+		}
+		
 		// If destination floor is greater than current floor, set to UP
-		if ($desFloor > $curFloor){
+		else if ($desFloor > $curFloor){
 			$direction = 'up';
 		}
 
@@ -111,9 +115,9 @@
 		}
 
 		// If destination floor is the same as current floor, set to STOPPED
-		else if ($desFloor == $curFloor) {
+/* 		else if ($desFloor == $curFloor) {
 			$direction = 'stopped';
-		}
+		} */
 
 		// Update elevator network with current direction
 		$query = 'UPDATE elevatorNetwork SET status = :direction WHERE nodeID = 1';
