@@ -125,12 +125,10 @@ int db_getQueuedFloor() {
 	// *****************************
 	stmt2 = con->createStatement();
 	res->next();
-	printf("Status: %s", res->getString("status"));
 	if (!res->getString("status").compare(up)) {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
-			printf("<<<<<<UP>>>>>>>\n");
 		}
 	}
 
@@ -138,12 +136,10 @@ int db_getQueuedFloor() {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor DESC LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
-			printf("<<<<<DOWN>>>>>");
 		}
 	}
 
 	else {
-		printf("<<<<STOPPED>>>>\n");
 	}
 		
 	diagStmt = con->createStatement();
