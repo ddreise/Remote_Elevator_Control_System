@@ -259,10 +259,11 @@
 		break;
 
 		// * SABBATH MODE
-		case "sabbath-operation":
+		case "sabbath_operation":
 			$destination_floor = NULL;
 			$requested_direction = "stationary";
 			$sabbath_operation = "toggle";
+		break;
 
 		// Error or Default requests
 		default:

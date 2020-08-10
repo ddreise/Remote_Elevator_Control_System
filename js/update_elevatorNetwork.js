@@ -40,6 +40,7 @@ floor1_up.addEventListener("click", function() {update_elevatorNetwork("floor1_u
 car_button1.addEventListener("click", function() {update_elevatorNetwork("car_button1")}, false);
 car_button2.addEventListener("click", function() {update_elevatorNetwork("car_button2")}, false);
 car_button3.addEventListener("click", function() {update_elevatorNetwork("car_button3")}, false);
+sabbath_operation.addEventListener("click", function() {update_elevatorNetwork("sabbath_operation")}, false);
 
 
 
