@@ -130,7 +130,7 @@ int db_getQueuedFloor() {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
-			printf("I am here\n");
+			printf("<<<<<<UP>>>>>>>\n");
 		}
 	}
 
@@ -138,7 +138,7 @@ int db_getQueuedFloor() {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
-			printf("I am here 2");
+			printf("<<<<<DOWN>>>>>");
 		}
 	}
 		
