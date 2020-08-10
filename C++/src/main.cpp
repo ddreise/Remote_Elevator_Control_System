@@ -59,20 +59,31 @@ int main() {
 							{
 								if(currentFloor < queuedFloor) //going up!
 								{
+									diagnosticUpdateDirection("up");
+									//diagnosticStringUpdate("direction", "up");
+
 									system("killall mpg123");
 									system("mpg123 ./elevator-going-up.mp3 &");
 									lalaFlag = 1;
 								}
 								else if(currentFloor > queuedFloor) //going down!
 								{
+									diagnosticUpdateDirection("down");
+									//diagnosticStringUpdate("direction", "down");
+									
 									system("killall mpg123");
 									system("mpg123 ./elevator-going-down.mp3 &");
 									lalaFlag = 1;
 								}
 							}
 						}
-						else if (currentFloor == queuedFloor) {
+						else if (currentFloor == queuedFloor) 
+						{
+							diagnosticUpdateDirection("idle");
+							//diagnosticStringUpdate("direction", "idle");
+							
 							//announce floor
+							diagnosticUpdateFloorVisits(currentFloor);
 							switch(currentFloor)
 							{
 								case 1:
@@ -93,11 +104,13 @@ int main() {
 							db_deleteQueuedFloor();
 							
 							//elevator stopped - doors open!
+							diagnosticUpdateDoors("open");
 							system("killall mpg123");
 							system("mpg123 ./elevator-doors-open.mp3 &");
 							lalaFlag = 0;
 							sleep(5); //let the doors open and people leave
 							//ok close the doors!
+							diagnosticUpdateDoors("close");
 							system("killall mpg123");
 							system("mpg123 ./elevator-doors-close.mp3 &");
 							sleep(5);

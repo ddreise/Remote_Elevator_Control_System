@@ -2,7 +2,7 @@
 #include "../include/databaseFunctions.h"
 #include "../include/pcanFunctions.h"
 #include <stdlib.h>
-#include <string.h>
+#include <string>
 #include <iostream>
 #include <mysql_connection.h>
 #include <cppconn/driver.h>
@@ -104,7 +104,8 @@ int db_getQueuedFloor() {
 		
 	sql::Statement *diagStmt;
 	sql::PreparedStatement *diagStmt2;
-	int queueID;
+	sql::Statement *diagStmt3;
+	int queueID = 0;				//queueID should never be 0
 
 	std::string up ("up");
 	std::string down ("down");
@@ -140,17 +141,35 @@ int db_getQueuedFloor() {
 	}
 
 	else {
+		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");
+		while(res->next())
+		{
+			floorNum = res->getInt("destinationFloor");
+		}
 	}
 		
 	diagStmt = con->createStatement();
-	res = diagStmt->executeQuery("SELECT queueNumber FROM elevatorQueue ORDER BY queueNumber LIMIT 1");
+	res = diagStmt->executeQuery("SELECT queueNumber FROM elevatorQueue ORDER BY queueNumber");
 	while(res->next())
 	{
-		queueID = res->getInt("queueNumber");	
+		queueID = res->getInt("queueNumber");
 	}
-	diagStmt2 = con->prepareStatement("UPDATE elevatorDiagnostics SET queueID = ? WHERE nodeID = 1");
-	diagStmt2->setInt(1, queueID);
-	diagStmt2->executeUpdate();
+	
+	diagStmt3 = con->createStatement();
+	res = diagStmt3->executeQuery("SELECT queueID FROM elevatorDiagnostics ORDER BY nodeID");
+	while(res->next())
+	{
+		if(res->getInt("queueID") > queueID) queueID = res->getInt("queueID");
+	}
+	
+	if(queueID)
+	{
+		diagStmt2 = con->prepareStatement("UPDATE elevatorDiagnostics SET queueID = ? WHERE nodeID = 1");
+		diagStmt2->setInt(1, queueID);
+		diagStmt2->executeUpdate();
+		
+		delete diagStmt2;
+	}
 	
 	// Clean up pointers 
 	delete res;
@@ -159,7 +178,6 @@ int db_getQueuedFloor() {
 	delete con;
 	
 	delete diagStmt;
-	delete diagStmt2;
 		
 	return floorNum;
 }
@@ -200,6 +218,10 @@ int db_deleteQueuedFloor() {
 	else if (!res->getString("status").compare(down)){
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor DESC LIMIT 1;");	// message
 	}
+	else
+	{
+		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");
+	}
 
 	delete con;
 	delete stmt;
@@ -209,5 +231,106 @@ int db_deleteQueuedFloor() {
 	return 0;
 }
 
-//int diagnosticUpdate(
+int diagnosticUpdateDirection(std::string direction)
+{
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::PreparedStatement *pstmt;
+	
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");
+	
+	pstmt = con->prepareStatement("UPDATE elevatorDiagnostics SET direction = ? WHERE nodeID = 1");
+	pstmt->setString(1, direction);
+	pstmt->executeUpdate();
+}
 
+int diagnosticUpdateDoors(std::string doors)
+{
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::PreparedStatement *pstmt;
+	
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");
+	
+	pstmt = con->prepareStatement("UPDATE elevatorDiagnostics SET doors = ? WHERE nodeID = 1");
+	pstmt->setString(1, doors);
+	pstmt->executeUpdate();
+}
+
+int diagnosticUpdateFloorVisits(int floor)
+{
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::PreparedStatement *pstmt;
+	sql::Statement *stmt;
+	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
+
+	int floorVisits = 0;
+
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");
+	
+	stmt = con->createStatement();
+	switch(floor)
+	{
+		case 1:
+			res = stmt->executeQuery("SELECT floor1Visits FROM elevatorDiagnostics WHERE nodeID=1");
+			while(res->next())
+			{
+				floorVisits = res->getInt("floor1Visits");
+			}
+			pstmt = con->prepareStatement("UPDATE elevatorDiagnostics SET floor1Visits = ? WHERE nodeID = 1");
+			pstmt->setInt(1, ++floorVisits);
+			pstmt->executeUpdate();
+		break;
+		case 2:
+			res = stmt->executeQuery("SELECT floor2Visits FROM elevatorDiagnostics WHERE nodeID=1");
+			while(res->next())
+			{
+				floorVisits = res->getInt("floor2Visits");
+			}
+			pstmt = con->prepareStatement("UPDATE elevatorDiagnostics SET floor2Visits = ? WHERE nodeID = 1");
+			pstmt->setInt(1, ++floorVisits);
+			pstmt->executeUpdate();
+		break;
+		case 3:
+			res = stmt->executeQuery("SELECT floor3Visits FROM elevatorDiagnostics WHERE nodeID=1");
+			while(res->next())
+			{
+				floorVisits = res->getInt("floor3Visits");
+			}
+			pstmt = con->prepareStatement("UPDATE elevatorDiagnostics SET floor3Visits = ? WHERE nodeID = 1");
+			pstmt->setInt(1, ++floorVisits);
+			pstmt->executeUpdate();
+		break;
+	}
+	
+	delete stmt;
+	delete pstmt;
+}
+
+//Does not work - don't use
+int diagnosticStringUpdate(std::string key, std::string value)
+{
+	sql::Driver *driver; 				// Create a pointer to a MySQL driver object
+	sql::Connection *con; 				// Create a pointer to a database connection object
+	sql::PreparedStatement *pstmt;
+	
+	// Create a connection 
+	driver = get_driver_instance();
+	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
+	con->setSchema("elevatorProject");
+	
+	pstmt = con->prepareStatement("UPDATE elevatorDiagnostics SET ? = ? WHERE nodeID = 1");
+	pstmt->setString(1, key);
+	pstmt->setString(2, value);
+	pstmt->executeUpdate();
+}
