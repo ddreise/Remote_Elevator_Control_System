@@ -107,11 +107,11 @@ int db_getQueuedFloor() {
 	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
 	con->setSchema("elevatorProject");		
 	
-	// Query database for current direction
+	// Query database for current status
 	// ***************************** 
 	stmt1 = con->createStatement();
-	res = stmt1->executeQuery("SELECT direction FROM elevatorNetwork WHERE nodeID = 1");
-	strcpy (result, res->getString("direction"));
+	res = stmt1->executeQuery("SELECT status FROM elevatorNetwork WHERE nodeID = 1");
+	strcpy (result, res->getString("status"));
 
 	// Query database for next destination floor
 	// *****************************
@@ -157,11 +157,11 @@ int db_deleteQueuedFloor() {
 	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
 	con->setSchema("elevatorProject");	
 
-	// Query database for current direction
+	// Query database for current status
 	// ***************************** 
 	stmt1 = con->createStatement();
-	res = stmt1->executeQuery("SELECT direction FROM elevatorNetwork WHERE nodeID = 1");
-	strcpy(result, res->getString("direction"));
+	res = stmt1->executeQuery("SELECT status FROM elevatorNetwork WHERE nodeID = 1");
+	strcpy(result, res->getString("status"));
 
 	// Query database
 	// ***************************** 
@@ -172,7 +172,7 @@ int db_deleteQueuedFloor() {
 	}
 
 	else if (result == "down"){
-		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC;");	// message
+		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 ASC;");	// message
 	}
 
 	delete con;
