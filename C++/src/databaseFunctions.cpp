@@ -125,8 +125,8 @@ int db_getQueuedFloor() {
 	// *****************************
 	stmt2 = con->createStatement();
 	res->next();
-	printf("Status: %s", res->getString("status").c_str());
-	if (res->getString("status").compare(up) || res->getString("status").c_str() == "stopped") {
+	printf("Status: %s", res->getString("status");
+	if (res->getString("status").compare(up) || res->getString("status").compare(stopped) == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
@@ -134,7 +134,7 @@ int db_getQueuedFloor() {
 		}
 	}
 
-	else if (res->getString("status").c_str() == "down") {
+	else if (res->getString("status").compare(down)) {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
@@ -176,6 +176,9 @@ int db_deleteQueuedFloor() {
 	sql::ResultSet *res;
 	//char result[250] = "";
 
+	std::string up ("up");
+	std::string down ("down");
+	std::string stopped ("stopped");
 	// Create a connection 
 	driver = get_driver_instance();
 	con = driver->connect("tcp://127.0.0.1:3306", "ese", "ese");	
@@ -190,11 +193,11 @@ int db_deleteQueuedFloor() {
 	// ***************************** 
 	stmt = con->createStatement();
 	res->next();
-	if (res->getString("status").c_str() == "up" || res->getString("status").c_str() == "stopped") {
+	if (res->getString("status").compare(up) || res->getString("status").compare(stopped)) {
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
 	}
 
-	else if (res->getString("status").c_str() == "down"){
+	else if (res->getString("status").compare(down)){
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 ASC;");	// message
 	}
 
