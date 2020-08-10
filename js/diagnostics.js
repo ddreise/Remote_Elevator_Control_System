@@ -6,23 +6,31 @@ function updateStatus() {
     xmlhttpShow.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var resp = JSON.parse(this.responseText);
-            var direction;
-            var doors;
-            document.getElementById("statusFloor").innerHTML = "Floor: " + resp[0];
+            
+            // var queueID = 0;
+            // var direction = "";
+            // var doors = "";
+            // var floor1Visits = 0;
+            // var floor2Visits = 0;
+            // var floor3Visits = 0;
 
-            if(resp[1] == 0) direction = "down";
-            else if(resp[1] == 1) direction = "none";
-            else if(resp[1] == 2) direction = "up";
-            document.getElementById("statusDirection").innerHTML = "Direction: " + direction;
+            document.getElementById("statusQueue").innerHTML = "Last Queue ID: " + resp[0];
+            document.getElementById("statusDirection").innerHTML = "Direction: " + resp[1];
+            document.getElementById("statusDoors").innerHTML = "Doors: " + resp[2];
+            document.getElementById("statusF1Visits").innerHTML = "Floor 1 Visits: " + resp[3];
+            document.getElementById("statusF2Visits").innerHTML = "Floor 2 Visits: " + resp[4];
+            document.getElementById("statusF3Visits").innerHTML = "Floor 3 Visits: " + resp[5];
+
+            // if(resp[1] == 0) direction = "down";
+            // else if(resp[1] == 1) direction = "none";
+            // else if(resp[1] == 2) direction = "up";
+            // document.getElementById("statusDirection").innerHTML = "Direction: " + direction;
             
-            if(resp[2] == 0) doors = "closed";
-            else doors = "open";
-            document.getElementById("statusDoors").innerHTML = "Doors: " + doors;
+            // if(resp[2] == 0) doors = "closed";
+            // else doors = "open";
+            // document.getElementById("statusDoors").innerHTML = "Doors: " + doors;
             
-            document.getElementById("statusNodeID").innerHTML = "Node ID: " + resp[3];
-            document.getElementById("statusF1Visits").innerHTML = "Floor 1 Visits: " + resp[4];
-            document.getElementById("statusF2Visits").innerHTML = "Floor 2 Visits: " + resp[5];
-            document.getElementById("statusF3Visits").innerHTML = "Floor 3 Visits: " + resp[6];
+            // document.getElementById("statusNodeID").innerHTML = "Node ID: " + resp[3];
         }
     };
 
@@ -77,9 +85,9 @@ function graph()
             if(this.readyState == 4 && this.status == 200){
                 var resp = JSON.parse(this.responseText);
 
-                myChart.data.datasets[0].data[0] = resp[4];
-                myChart.data.datasets[0].data[1] = resp[5];
-                myChart.data.datasets[0].data[2] = resp[6];
+                myChart.data.datasets[0].data[0] = resp[3];
+                myChart.data.datasets[0].data[1] = resp[4];
+                myChart.data.datasets[0].data[2] = resp[5];
             }
         };
 
