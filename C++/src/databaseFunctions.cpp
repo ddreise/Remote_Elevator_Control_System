@@ -110,7 +110,7 @@ int db_getQueuedFloor() {
 	// ***************************** 
 	stmt1 = con->createStatement();
 	res = stmt1->executeQuery("SELECT direction FROM elevatorNetwork WHERE nodeID = 1");
-	strcpy (result, res->getString("direction");
+	strcpy (result, res->getString("direction"));
 
 	// Query database for next destination floor
 	// *****************************
@@ -147,6 +147,9 @@ int db_deleteQueuedFloor() {
 	sql::Driver *driver; 			// Create a pointer to a MySQL driver object
 	sql::Connection *con; 			// Create a pointer to a database connection object
 	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
+	sql::Statemnet *stmt1;
+	sql::ResultSet *res;
+	char result[250];
 
 	// Create a connection 
 	driver = get_driver_instance();
@@ -157,21 +160,24 @@ int db_deleteQueuedFloor() {
 	// ***************************** 
 	stmt1 = con->createStatement();
 	res = stmt1->executeQuery("SELECT direction FROM elevatorNetwork WHERE nodeID = 1");
+	strcpy(result, res->getString("direction"));
 
 	// Query database
 	// ***************************** 
 	stmt = con->createStatement();
 
-	if (res == "up" || res == "stopped") {
+	if (result == "up" || result == "stopped") {
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
 	}
 
-	else if (res == "down"){
+	else if (result == "down"){
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC;");	// message
 	}
 
 	delete con;
 	delete stmt;
+	delete stmt1;
+	delete res;
 
 	return 0;
 }
