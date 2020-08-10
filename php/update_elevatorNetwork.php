@@ -148,12 +148,12 @@
 			}
 			else 
 			{
-				$sabbathCurrent = "enabled";
+				$sabbathNew = "enabled";
 			}
 
 			$query = 'UPDATE elevatorDiagnostics SET sabbathMode = :sabbath WHERE nodeID=1 ;';
 			$statement = $db1->prepare($query);
-			$statement->bindvalue('sabbath', $sabbathCurrent);
+			$statement->bindvalue('sabbath', $sabbathNew);
 			$statement->execute();
 		}
 
