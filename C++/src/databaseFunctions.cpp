@@ -100,7 +100,7 @@ int db_getQueuedFloor() {
 	sql::Statement *stmt2;
 	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
 	int floorNum;					// Floor number 
-	char result[255];
+	string result;
 	
 	// Create a connection 
 	driver = get_driver_instance();
@@ -150,7 +150,7 @@ int db_deleteQueuedFloor() {
 	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
 	sql::Statement *stmt1;
 	sql::ResultSet *res;
-	char result[250];
+	string result;
 
 	// Create a connection 
 	driver = get_driver_instance();
