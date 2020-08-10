@@ -126,7 +126,7 @@ int db_getQueuedFloor() {
 	stmt2 = con->createStatement();
 	res->next();
 	printf("Status: %s", res->getString("status"));
-	if (res->getString("status").compare(up)) {
+	if (!res->getString("status").compare(up)) {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
@@ -134,7 +134,7 @@ int db_getQueuedFloor() {
 		}
 	}
 
-	else if (res->getString("status").compare(down)) {
+	else if (!res->getString("status").compare(down)) {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor DESC LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
@@ -197,11 +197,11 @@ int db_deleteQueuedFloor() {
 	// ***************************** 
 	stmt = con->createStatement();
 	res->next();
-	if (res->getString("status").compare(up) || res->getString("status").compare(stopped)) {
+	if (!res->getString("status").compare(up) || !res->getString("status").compare(stopped)) {
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
 	}
 
-	else if (res->getString("status").compare(down)){
+	else if (!res->getString("status").compare(down)){
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor DESC LIMIT 1;");	// message
 	}
 
