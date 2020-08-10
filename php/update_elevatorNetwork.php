@@ -130,6 +130,38 @@
 ?>
 
 <?php
+	function update_sabbath($sabbathOperation): int 
+	{
+		if($sabbathOperation == "toggle")
+		{
+			$db1 = new PDO('mysql:host=127.0.0.1;dbname=elevatorProject','ese', 'ese');
+
+			$query = 'SELECT sabbathMode FROM elevatorDiagnostics WHERE nodeID=1';
+			$rows = $db1->query($query);
+			foreach ($rows as $row) {
+				$sabbathCurrent = $row[0];
+			}
+
+			if(sabbathCurrent == "enabled")
+			{
+				$sabbathNew = "disabled";
+			}
+			else 
+			{
+				$sabbathCurrent = "enabled";
+			}
+
+			$query = 'UPDATE elevatorDiagnostics SET sabbathMode = :sabbath WHERE nodeID=1 ;';
+			$statement = $db1->prepare($query);
+			$statement->bindvalue('sabbath', $sabbathCurrent);
+			$statement->execute();
+		}
+
+		return 0;
+	}
+?>
+
+<?php
 
 
 
@@ -140,6 +172,8 @@
 	//$requested_direction = NULL;
 
 	//include 'get_currentDirection.php';
+
+	$sabbath_operation = "nothing";
 
 	// Convert requests to integer
 	switch ($temp) {
@@ -224,6 +258,12 @@
 			
 		break;
 
+		// * SABBATH MODE
+		case "sabbath-operation":
+			$destination_floor = NULL;
+			$requested_direction = "stationary";
+			$sabbath_operation = "toggle";
+
 		// Error or Default requests
 		default:
 			$destination_floor  = NULL;
@@ -231,4 +271,5 @@
 	}
 
 	$requested_destination = update_elevatorNetwork(1, $destination_floor, $source_nodeID, $requested_direction);		// Send request to elevator network (put into queue)
+	$sabbath_result = update_sabbath($sabbath_operation);
 ?>

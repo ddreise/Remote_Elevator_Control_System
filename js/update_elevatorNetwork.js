@@ -7,6 +7,7 @@ var floor1_up = document.getElementById("floor1_up");
 var car_button1 = document.getElementById("car_button1");
 var car_button2 = document.getElementById("car_button2");
 var car_button3 = document.getElementById("car_button3");
+var sabbath_operation = document.getElementById("sabbath-operation");
 
 
 // Function to get the current floor number
