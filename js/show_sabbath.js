@@ -9,7 +9,7 @@ function showSabbath() {
     xmlhttpShow.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200){
             var resp = this.responseText;
-            document.getElementById("sabbath-display").innerHTML = resp;
+            document.getElementById("sabbath_display").innerHTML = resp;
         }
     };
 
