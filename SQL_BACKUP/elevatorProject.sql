@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.23-MariaDB, for debian-linux-gnueabihf (armv7l)
+-- MySQL dump 10.16  Distrib 10.1.45-MariaDB, for debian-linux-gnueabihf (armv7l)
 --
 -- Host: localhost    Database: elevatorProject
 -- ------------------------------------------------------
--- Server version	10.1.23-MariaDB-9+deb9u1
+-- Server version	10.1.45-MariaDB-0+deb9u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,6 +42,34 @@ INSERT INTO `authorizedUsers` VALUES (1,'TAnnette3903','admin123'),(2,'DDreise66
 UNLOCK TABLES;
 
 --
+-- Table structure for table `elevatorDiagnostics`
+--
+
+DROP TABLE IF EXISTS `elevatorDiagnostics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `elevatorDiagnostics` (
+  `nodeID` tinyint(3) unsigned NOT NULL,
+  `queueID` tinyint(3) unsigned NOT NULL,
+  `direction` text,
+  `doors` text,
+  `floor1Visits` tinyint(3) unsigned NOT NULL,
+  `floor2Visits` tinyint(3) unsigned NOT NULL,
+  `floor3Visits` tinyint(3) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `elevatorDiagnostics`
+--
+
+LOCK TABLES `elevatorDiagnostics` WRITE;
+/*!40000 ALTER TABLE `elevatorDiagnostics` DISABLE KEYS */;
+INSERT INTO `elevatorDiagnostics` VALUES (1,186,'idle','close',8,5,5);
+/*!40000 ALTER TABLE `elevatorDiagnostics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `elevatorNetwork`
 --
 
@@ -52,13 +80,13 @@ CREATE TABLE `elevatorNetwork` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `nodeID` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
-  `status` tinyint(4) NOT NULL,
+  `status` text NOT NULL,
   `currentFloor` tinyint(4) NOT NULL,
   `requestedFloor` tinyint(4) NOT NULL,
   `numberOfVisits` int(10) unsigned NOT NULL,
   `otherInfo` text,
   PRIMARY KEY (`nodeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +95,7 @@ CREATE TABLE `elevatorNetwork` (
 
 LOCK TABLES `elevatorNetwork` WRITE;
 /*!40000 ALTER TABLE `elevatorNetwork` DISABLE KEYS */;
-INSERT INTO `elevatorNetwork` VALUES ('2020-07-27','15:10:43',1,1,1,1,0,'na'),('2020-07-27','15:14:53',2,1,1,1,0,'na');
+INSERT INTO `elevatorNetwork` VALUES ('2020-07-27','15:10:43',1,'up',2,1,0,'na');
 /*!40000 ALTER TABLE `elevatorNetwork` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +112,7 @@ CREATE TABLE `elevatorQueue` (
   `sourceNode` tinyint(3) unsigned NOT NULL,
   `destinationFloor` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`queueNumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=187 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,13 +121,8 @@ CREATE TABLE `elevatorQueue` (
 
 LOCK TABLES `elevatorQueue` WRITE;
 /*!40000 ALTER TABLE `elevatorQueue` DISABLE KEYS */;
-INSERT INTO `elevatorQueue` VALUES (1,'0000-00-00 00:00:00',1,2),(2,'2020-07-27 16:40:27',1,1),(3,'2020-07-27 16:41:20',1,3),(4,'2020-07-27 16:41:30',2,1);
 /*!40000 ALTER TABLE `elevatorQueue` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'elevatorProject'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -110,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-27 16:51:37
+-- Dump completed on 2020-08-10 10:39:50
