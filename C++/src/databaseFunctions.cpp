@@ -126,7 +126,7 @@ int db_getQueuedFloor() {
 	stmt2 = con->createStatement();
 	res->next();
 	printf("Status: %s", res->getString("status").c_str());
-	if (res->getString("status").c_str().compare(up) || res->getString("status").c_str() == "stopped") {
+	if (res->getString("status").compare(up) || res->getString("status").c_str() == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
