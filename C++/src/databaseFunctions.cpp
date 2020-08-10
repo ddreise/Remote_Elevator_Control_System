@@ -100,12 +100,11 @@ int db_getQueuedFloor() {
 	sql::Statement *stmt2;
 	sql::ResultSet *res;			// Create a pointer to a ResultSet object to hold results 
 	int floorNum;					// Floor number 
-//	char result[255];
+	char result[255] = "";
 		
 	sql::Statement *diagStmt;
 	sql::PreparedStatement *diagStmt2;
 	int queueID;
-	std::string result;
 	
 	// Create a connection 
 	driver = get_driver_instance();
@@ -168,7 +167,7 @@ int db_deleteQueuedFloor() {
 	sql::Statement *stmt;			// Crealte a pointer to a Statement object to hold statements 
 	sql::Statement *stmt1;
 	sql::ResultSet *res;
-	std::string result;
+	char result[250] = "";
 
 	// Create a connection 
 	driver = get_driver_instance();
