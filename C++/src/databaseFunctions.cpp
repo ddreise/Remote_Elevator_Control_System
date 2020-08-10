@@ -105,6 +105,10 @@ int db_getQueuedFloor() {
 	sql::Statement *diagStmt;
 	sql::PreparedStatement *diagStmt2;
 	int queueID;
+
+	std::string up ("up");
+	std::string down ("down");
+	std::string stopped ("stopped");
 	
 	// Create a connection 
 	driver = get_driver_instance();
@@ -122,7 +126,7 @@ int db_getQueuedFloor() {
 	stmt2 = con->createStatement();
 	res->next();
 	printf("Status: %s", res->getString("status").c_str());
-	if (res->getString("status").c_str().compare("up") || res->getString("status").c_str() == "stopped") {
+	if (res->getString("status").c_str().compare(up) || res->getString("status").c_str() == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
