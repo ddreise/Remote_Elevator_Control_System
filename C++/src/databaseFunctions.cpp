@@ -119,7 +119,7 @@ int db_getQueuedFloor() {
 	// Query database for next destination floor
 	// *****************************
 	stmt2 = con->createStatement();
-
+	res->next();
 	if (res->getString("status").c_str() == "up" || res->getString("status").c_str() == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
@@ -181,7 +181,7 @@ int db_deleteQueuedFloor() {
 	// Query database
 	// ***************************** 
 	stmt = con->createStatement();
-
+	res->next();
 	if (res->getString("status").c_str() == "up" || res->getString("status").c_str() == "stopped") {
 		stmt->execute("DELETE FROM elevatorQueue ORDER BY destinationFloor LIMIT 1;");	// message
 	}
