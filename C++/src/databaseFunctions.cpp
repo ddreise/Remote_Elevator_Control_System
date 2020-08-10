@@ -143,7 +143,7 @@ int db_getQueuedFloor() {
 	}
 
 	else {
-		printf("<<<<STOPPED>>>>\n")
+		printf("<<<<STOPPED>>>>\n");
 	}
 		
 	diagStmt = con->createStatement();
