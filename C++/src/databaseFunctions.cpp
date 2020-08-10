@@ -116,7 +116,7 @@ int db_getQueuedFloor() {
 	stmt1 = con->createStatement();
 	res = stmt1->executeQuery("SELECT status FROM elevatorNetwork WHERE nodeID = 1");
 
-	printf("Status: %s", res);
+	printf("Status: %s", &res);
 
 	// Query database for next destination floor
 	// *****************************
