@@ -109,20 +109,20 @@ int db_getQueuedFloor() {
 	// ***************************** 
 	stmt1 = con->createStatement();
 	res = stmt1->executeQuery("SELECT direction FROM elevatorNetwork WHERE nodeID = 1");
-
+	result = res->getString("direction");
 
 	// Query database for next destination floor
 	// *****************************
 	stmt2 = con->createStatement();
 
-	if (res == "up" || res == "stopped") {
+	if (result == "up" || result == "stopped") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
 		}
 	}
 
-	else if (res == "down") {
+	else if (result == "down") {
 		res = stmt2->executeQuery("SELECT destinationFloor FROM elevatorQueue ORDER BY destinationFloor LIMIT 1 DESC");	// message query
 		while(res->next()){
 			floorNum = res->getInt("destinationFloor");
